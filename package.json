@@ -4,12 +4,12 @@
   "description": "",
   "homepage": "https://dmytro-prontenko.github.io/Lightning",
   "scripts": {
-    "start": "parcel src/*.html",
+    "start": "parcel src/home.html",
     "build": "parcel build src/*.html --public-url /Lightning/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
+    "url": "git+https://github.com/dmytro-prontenko/Lightning"
   },
   "keywords": [],
   "author": "Dmytro Prontenko <dprontenko@gmail.com>",
