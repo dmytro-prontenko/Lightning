@@ -8,7 +8,21 @@
   </head>
   <body>
     <include src="./partials/header.html"></include>
-    <main>
+    <main class="main-section">
+
+      <div class="container">
+        <h1 class="fav-title">Favorite cocktails</h1>
+        <div class="error">
+          <!-- <svg width="142" height="122">
+                  <use href="./icons.svg#" class="fav-svg"></use>
+              </svg> -->
+          <h2 class="fav-error-text">You haven't added any <br>
+            <span class="fav-error-span">favorite cocktails</span> yet
+          </h2>
+          </div>
+          <ul class="fav-cocktails-list list"></ul>
+          </div>
+
       <include src="./partials/container.html"></include>
     </main>
     <include src="./partials/footer.html"></include>
