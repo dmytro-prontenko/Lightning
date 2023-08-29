@@ -1,0 +1,65 @@
+/* MEDIA */
+/* Створити точки перелому */
+
+/* Mobile devices */
+.section {
+  padding: 40px 0;
+}
+/* Tablet devices */
+@media only screen and (min-width: 768px) {
+  .section {
+    padding: 64px 0 36px 0;
+  }
+}
+/* Desktop devices */
+@media only screen and (min-width: 1280px) {
+  .section {
+    padding: 64px 0 100px 0;
+  }
+}
+/* Mobile devices */
+.container {
+  min-width: 320px;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Tablet devices */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+}
+
+/* Desktop devices */
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+.card-set {
+  display: flex;
+  flex-wrap: wrap;
+  /* column-gap: var(--indent-vertical);
+  row-gap: var(--indent-horizontal); */
+}
+
+.card-set-item {
+  flex-basis: calc(
+    (100% - var(--indent-vertical) * (var(--items) - 1)) / var(--items)
+  );
+}
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
