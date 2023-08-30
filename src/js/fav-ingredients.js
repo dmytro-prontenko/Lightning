@@ -1,3 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Page title</title>
+  </head>
+        <body>      
+    <include src="./partials/header.html"></include>
+    <main class="main-section">
+
+      <section class="galery section">
+        <div class="container">
+          <h1 class="fav-title">Favorite ingredients</h1>
+          <ul class="fav-ing-list list">
+          </ul>
+        </div>
+            </section>
+        <include src="./partials/container.html"></include>
+    </main>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/modal.html"></include>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // const errorDiv = document.querySelector(".error")
 // const ingredientsList = document.querySelector(".fav-ingredients-list");
 // const favTitle = document.querySelector(".fav-title")
