@@ -5,11 +5,11 @@ export const refs = {
   modalCocktail: document.querySelector('.modal-cocktail'),
   modalIngredient: document.querySelector('.js-modal-ingredient'),
   modal: document.querySelector('[data-modal-cocktail]'),
-    listCocktail: document.querySelector('.modal-ingredients__list'),
-    favCocktailsList :document.querySelector(".fav-cocktails-list"),
-    errorDiv:document.querySelector(".error"),
-    cingredientsList: document.querySelector(".fav-ingredients-list"),
-    favTitle: document.querySelector(".fav-title"),
+  listCocktail: document.querySelector('.modal-ingredients__list'),
+  favCocktailsList :document.querySelector(".fav-cocktails-list"),
+  errorDiv:document.querySelector(".error"),
+  cingredientsList: document.querySelector(".fav-ingredients-list"),
+  favTitle: document.querySelector(".fav-title"),
 };
 
 
