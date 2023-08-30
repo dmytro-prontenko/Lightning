@@ -1,0 +1,66 @@
+.modal-cocktail {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 408px;
+  /* max-height: 80%; */
+  height: auto;
+  width: 90%;
+  height: 843px;
+  border-radius: 20px;
+  background: var(--color-4);
+  padding: 40px 20px;
+  overflow-y: scroll;
+  z-index: 100;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Затемнение с полупрозрачным черным цветом */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+.cocktail-ingr-list {
+  list-style: disc;
+  padding: 20px;
+}
+
+.add-to-fav {
+  border-radius: 12px;
+  background: var(--violet, #7e8fdd);
+  padding: 14px 28px;
+  color: var(--text-white-color);
+  content: "123";
+}
+/* 
+.modal-cocktail::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+}
+
+.modal-cocktail::-webkit-scrollbar {
+  width: 12px;
+  height: 800px;
+  
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+} */
+
+

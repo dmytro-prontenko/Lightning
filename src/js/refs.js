@@ -10,4 +10,7 @@ export const refs = {
   errorDiv:document.querySelector(".error"),
   ingredientsList: document.querySelector(".fav-ing-list"),
   favTitle: document.querySelector(".fav-title"),
+  backdrop:document.querySelector(".backdrop"),
+  body: document.body,
 };
+

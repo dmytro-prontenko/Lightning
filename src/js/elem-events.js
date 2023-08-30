@@ -1,8 +1,12 @@
 import { refs } from './refs';
-import { renderModalCocktail } from './classes/render';
-import { saveToLocal, loadFromLocal } from './storage.js';
+import Render from './classes/render';
+import CocktailAPI from './classes/cocktailAPI';
+import { saveToLocal, loadFromLocal, removeFromLocal } from './storage.js';
 
 refs.cocktailsList.addEventListener('click', onClick);
+
+const modalCocktail = new CocktailAPI();
+const renderCocktailModal = new Render();
 
 //?? Чи будемо розносити по файлам fav-cocktails / fav-ingridients?
 
@@ -13,6 +17,12 @@ function onClick(event) {
     event.target.className === 'learn-more'
   ) {
     //TODO дописати логіку до кнопки на відкриття модалки
+    refs.modal.classList.toggle('is-hidden');
+    refs.body.classList.toggle('modal-open');
+    const id = event.target.closest('.cocktails-item').id;
+    modalCocktail.fetchCocktailByID(id).then(data => {
+      renderCocktailModal.renderModalCocktail(data);
+    });
 
     return;
   }
@@ -24,7 +34,33 @@ function onClick(event) {
   ) {
     saveToLocal('cocktails', event.target.closest('.cocktails-item').id);
   }
-
-  console.log(localStorage.getItem('cocktails'));
 }
-//TODO зробити перемикання класу для зміни статусу кнопки Додати/Видалити з обраного
+
+refs.backdrop.addEventListener('click', onClickModalCocktail);
+
+function onClickModalCocktail(event) {
+  if (
+    event.target.nodeName === 'BUTTON' &&
+    event.target.className === 'btn-close'
+  ) {
+    refs.modal.classList.toggle('is-hidden');
+    refs.body.classList.toggle('modal-open');
+    const id = event.target.closest('.modal-cocktail').id;
+    return;
+  }
+
+  if (
+    event.target.nodeName === 'BUTTON' &&
+    event.target.className === 'add-to-fav'
+  ) {
+    const id = event.target.closest('.modal-cocktail').id;
+    if (event.target.textContent === 'Remove from favorite') {
+      removeFromLocal('cocktails', id);
+      event.target.textContent = 'Add to favorite';
+      return;
+    }
+
+    saveToLocal('cocktails', id);
+    event.target.textContent = 'Remove from favorite';
+  }
+}

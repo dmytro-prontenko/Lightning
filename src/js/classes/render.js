@@ -1,5 +1,6 @@
 import { refs } from '../refs';
 import Notiflix from 'notiflix';
+import { loadFromLocal } from '../storage.js';
 
 export default class Render {
   constructor() {}
@@ -15,7 +16,7 @@ export default class Render {
               <h3 class="cocktails-title">${card.drink}</h3>
               <p class="cocktails-desc">${card.instructions}</p>
               <div class="buttons-wrapper">
-                <button type="button" class="learn-more"><span class="learn-more-text">Learn More</span></button>
+                <button type="button" class="learn-more">Learn More</button>
                 <button type="button" class="fav-btn"><span class="fav-btn-text">#</span></button>
               </div>
           </li>`
@@ -29,84 +30,45 @@ export default class Render {
         'Okay'
       );
     }
-    console.log(refs);
-    refs.favBtn = document.querySelector('.fav-btn');
-    console.log(refs);
-  }
-
-  renderList(arr) {
-    if (Array.isArray(arr)) {
-      const cocktailCard = arr
-        .map(
-          card => `
-        <li id=${card._id} class="cocktails-item">
-        <h2 class="name-section"></h2>
-              <img class="cocktails-img" src="${card.drinkThumb}" alt="${card.drink}">
-              <h3 class="cocktails-title">${card.drink}</h3>
-              <p class="cocktails-desc">${card.instructions}</p>
-              <div class="buttons-wrapper">
-                <button type="button" class="learn-more"><span class="learn-more-text">Learn More</span></button>
-                <button type="button" class="fav-btn"><span class="fav-btn-text">#</span></button>
-              </div>
-          </li>`
-        )
-        .join('');
-      refs.cocktailsList.innerHTML = cocktailCard;
-    } else {
-      Notiflix.Report.failure(
-        'ERROR',
-        'Oops! Something went wrong! Try reloading the page!',
-        'Okay'
-      );
-    }
+    // refs.favBtn = document.querySelector('.fav-btn');
   }
 
   renderModalCocktail(arr) {
     if (Array.isArray(arr)) {
-      const cocktailmodal = arr
+      const cocktailModal = arr
         .map(
-          card => `
-           <div class="modal-cocktail-wrapper ">
-           <button type="button" class="modal-cocktail-close-btn" data-modal-close>
-           <svg class="icon-modal-cocktail" height="22" width="22">
-           <use href="#"></use>
-           </svg>
-           </button>
-           <img
-            class="modal-cocktail-img"
-            src=""
-            alt=""
-            width="295"
-            height="277"
-          />
-          <div class="cocktail-desc">
-            <h3 class="cocktail-desc-name">INGREDIENTS:</h3>
-
-            <p class="cocktail-desc-subtitle"></p>
-
-            <ul class="cocktail-desc-list">
-              <li class="ingredients-modal-item"></li>
-              <li class="ingredients-modal-item"></li>
-              <li class="ingredients-modal-item"></li>
-              <li class="ingredients-modal-item"></li>
-              <li class="ingredients-modal-item"></li>
-            </ul>
-          </div>
+          elem => `
+          <div class="modal-cocktail" id="${elem._id}" js-modal-cocktail">
+          <button type="button" class="btn-close">#</button>
+          <img src=${elem.drinkThumb} alt="" width="295" height="277" />
+          <h2>Ingredients:</h2>
+          <h3>Per cocktail</h3>
+          <ul class="cocktail-ingr-list"></ul>
+          <h2>Instuction:</h2>
+          <p>${elem.instructions}</p>
+          <button type="button" class="add-to-fav">Add to favorite</button>
         </div>
-        <div class="cocktail-instruction">
-          <h3 class="instruction-name">INSTRACTIONS:</h3>
-          <p class="instruction-text">
-            
-          </p>
-        </div>
-        <button id="idDrink" type="button" class="cocktails-modal-btn">
-          add to favorite
-        </button>
-      </div>
         `
         )
         .join('');
-      refs.cocktailsList.innerHTML = cocktailCard;
+      refs.backdrop.innerHTML = cocktailModal;
+
+      const ingridList = document.querySelector('.cocktail-ingr-list');
+      const ingToInsert = arr[0].ingredients
+        .map(
+          ing =>
+            `<li class="ingredients-modal-item"><button class="ingredient-list-item">${ing.title}</button></li>`
+        )
+        .join('');
+      ingridList.innerHTML = ingToInsert;
+
+      const addToFavBtn = document.querySelector(".add-to-fav")
+
+      if (loadFromLocal('cocktails').includes(arr[0]._id)) {
+        addToFavBtn.textContent = "Remove from favorite"
+        return;
+      }
+
     } else {
       Notiflix.Report.failure(
         'ERROR',
