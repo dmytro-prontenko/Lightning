@@ -31,9 +31,7 @@ export default class Render {
     }
   }
 
-  
-
-renderModalCocktail(arr) {
+  renderModalCocktail(arr) {
     if (Array.isArray(arr)) {
       const cocktailmodal = arr
         .map(
@@ -46,29 +44,29 @@ renderModalCocktail(arr) {
            </button>
            <img
             class="modal-cocktail-img"
-            src="${}"
-            alt="${}"
+            src=""
+            alt=""
             width="295"
             height="277"
           />
           <div class="cocktail-desc">
-            <h3 class="cocktail-desc-name">INGREDIENTS:${}</h3>
+            <h3 class="cocktail-desc-name">INGREDIENTS:</h3>
 
-            <p class="cocktail-desc-subtitle">${}</p>
+            <p class="cocktail-desc-subtitle"></p>
 
             <ul class="cocktail-desc-list">
-              <li class="ingredients-modal-item">${}</li>
-              <li class="ingredients-modal-item">${}</li>
-              <li class="ingredients-modal-item">${}</li>
-              <li class="ingredients-modal-item">${}</li>
-              <li class="ingredients-modal-item">${}</li>
+              <li class="ingredients-modal-item"></li>
+              <li class="ingredients-modal-item"></li>
+              <li class="ingredients-modal-item"></li>
+              <li class="ingredients-modal-item"></li>
+              <li class="ingredients-modal-item"></li>
             </ul>
           </div>
         </div>
         <div class="cocktail-instruction">
-          <h3 class="instruction-name">INSTRACTIONS:${}</h3>
+          <h3 class="instruction-name">INSTRACTIONS:</h3>
           <p class="instruction-text">
-            ${}
+            
           </p>
         </div>
         <button id="idDrink" type="button" class="cocktails-modal-btn">
@@ -76,7 +74,8 @@ renderModalCocktail(arr) {
         </button>
       </div>
         `
-        ).join('');
+        )
+        .join('');
       refs.cocktailsList.innerHTML = cocktailCard;
     } else {
       Notiflix.Report.failure(
@@ -86,7 +85,6 @@ renderModalCocktail(arr) {
       );
     }
   }
-
 
   renderIngModal(arr) {
     if (Array.isArray(arr)) {
@@ -119,8 +117,7 @@ renderModalCocktail(arr) {
     }
   }
 
-
- renderFavPage(arr) {
+  renderFavPage(arr) {
     if (Array.isArray(arr)) {
       const favPage = arr
         .map(
@@ -148,7 +145,7 @@ renderModalCocktail(arr) {
     }
   }
 
-renderFavIngPage(arr) {
+  renderFavIngPage(arr) {
     if (Array.isArray(arr)) {
       const favIngPage = arr
         .map(
@@ -174,7 +171,6 @@ renderFavIngPage(arr) {
       );
     }
   }
-
 
   // TODO рендер на фільтр по першій літері
   // TODO рендер модалка бургера
