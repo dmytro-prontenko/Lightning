@@ -29,11 +29,39 @@ export default class Render {
         'Okay'
       );
     }
+    console.log(refs);
+    refs.favBtn = document.querySelector('.fav-btn');
+    console.log(refs);
   }
 
-  
+  renderList(arr) {
+    if (Array.isArray(arr)) {
+      const cocktailCard = arr
+        .map(
+          card => `
+        <li id=${card._id} class="cocktails-item">
+        <h2 class="name-section"></h2>
+              <img class="cocktails-img" src="${card.drinkThumb}" alt="${card.drink}">
+              <h3 class="cocktails-title">${card.drink}</h3>
+              <p class="cocktails-desc">${card.instructions}</p>
+              <div class="buttons-wrapper">
+                <button type="button" class="learn-more"><span class="learn-more-text">Learn More</span></button>
+                <button type="button" class="fav-btn"><span class="fav-btn-text">#</span></button>
+              </div>
+          </li>`
+        )
+        .join('');
+      refs.cocktailsList.innerHTML = cocktailCard;
+    } else {
+      Notiflix.Report.failure(
+        'ERROR',
+        'Oops! Something went wrong! Try reloading the page!',
+        'Okay'
+      );
+    }
+  }
 
-renderModalCocktail(arr) {
+  renderModalCocktail(arr) {
     if (Array.isArray(arr)) {
       const cocktailmodal = arr
         .map(
@@ -46,29 +74,29 @@ renderModalCocktail(arr) {
            </button>
            <img
             class="modal-cocktail-img"
-            src="${}"
-            alt="${}"
+            src=""
+            alt=""
             width="295"
             height="277"
           />
           <div class="cocktail-desc">
-            <h3 class="cocktail-desc-name">INGREDIENTS:${}</h3>
+            <h3 class="cocktail-desc-name">INGREDIENTS:</h3>
 
-            <p class="cocktail-desc-subtitle">${}</p>
+            <p class="cocktail-desc-subtitle"></p>
 
             <ul class="cocktail-desc-list">
-              <li class="ingredients-modal-item">${}</li>
-              <li class="ingredients-modal-item">${}</li>
-              <li class="ingredients-modal-item">${}</li>
-              <li class="ingredients-modal-item">${}</li>
-              <li class="ingredients-modal-item">${}</li>
+              <li class="ingredients-modal-item"></li>
+              <li class="ingredients-modal-item"></li>
+              <li class="ingredients-modal-item"></li>
+              <li class="ingredients-modal-item"></li>
+              <li class="ingredients-modal-item"></li>
             </ul>
           </div>
         </div>
         <div class="cocktail-instruction">
-          <h3 class="instruction-name">INSTRACTIONS:${}</h3>
+          <h3 class="instruction-name">INSTRACTIONS:</h3>
           <p class="instruction-text">
-            ${}
+            
           </p>
         </div>
         <button id="idDrink" type="button" class="cocktails-modal-btn">
@@ -76,7 +104,8 @@ renderModalCocktail(arr) {
         </button>
       </div>
         `
-        ).join('');
+        )
+        .join('');
       refs.cocktailsList.innerHTML = cocktailCard;
     } else {
       Notiflix.Report.failure(
@@ -86,7 +115,6 @@ renderModalCocktail(arr) {
       );
     }
   }
-
 
   renderIngModal(arr) {
     if (Array.isArray(arr)) {
@@ -119,8 +147,7 @@ renderModalCocktail(arr) {
     }
   }
 
-
- renderFavPage(arr) {
+  renderFavPage(arr) {
     if (Array.isArray(arr)) {
       const favPage = arr
         .map(
@@ -148,7 +175,7 @@ renderModalCocktail(arr) {
     }
   }
 
-renderFavIngPage(arr) {
+  renderFavIngPage(arr) {
     if (Array.isArray(arr)) {
       const favIngPage = arr
         .map(
@@ -174,7 +201,6 @@ renderFavIngPage(arr) {
       );
     }
   }
-
 
   // TODO рендер на фільтр по першій літері
   // TODO рендер модалка бургера

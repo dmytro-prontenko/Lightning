@@ -10,7 +10,7 @@ export default class CocktailAPI {
     this.endPointSearch = '/search/';
     this.startCocktailsQuant = 9;
   }
-
+//==============================================
   async fetchRandomCocktails() {
     const PARAMS = new URLSearchParams({
       r: this.startCocktailsQuant,
@@ -24,7 +24,7 @@ export default class CocktailAPI {
       console.log(error.message);
     }
   }
-
+//==============================================
   async fetchCocktailByID(id) {
     const PARAMS = new URLSearchParams({
       id,
@@ -42,7 +42,7 @@ export default class CocktailAPI {
       return null;
     }
   }
-
+//==============================================
   async fetchCocktailByLetter(letter) {
     const PARAMS = new URLSearchParams({
       f: letter,
@@ -60,7 +60,25 @@ export default class CocktailAPI {
       return null;
     }
   }
-
+//==============================================NEW
+  async fetchCocktailByName(name) {
+    const PARAMS = new URLSearchParams({
+      s: name,
+    });
+    try {
+      const response = await axios.get(
+        `${this.baseURL}${this.endPointSearch}?${PARAMS}`
+      );
+      const cocktailDetails = response.data;
+      return cocktailDetails;
+    } catch (error) {
+      console.error(
+        `Error fetching details for cocktail starts with ${letter}: ${error.message}`
+      );
+      return null;
+    }
+  }
+//==============================================
   async fetchCocktail() {
     const cocktailIds = await this.fetchRandomCocktails();
     const cocktailDetailsArray = [];
@@ -89,3 +107,4 @@ tempCocktails.fetchCocktail().then(data => {
   tempRender.renderList(data);
 });
 // TODO =======================
+
