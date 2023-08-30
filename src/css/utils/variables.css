@@ -6,5 +6,22 @@
   --accented-black-color: #242424;
   --color-4: #f8f9ff;
   --text-white-color: #fdfdff;
+
+  --header-placeholder: rgba(36, 36, 36, 0.2);
+    --hero-text-cocktail: #7E8FDD;
+    --hero-alphabet-inactive: rgba(126, 143, 221, 0.4);
+    --footer-social-svg-border: rgba(253, 253, 255, 0.5);
+    --modal-background-color: rgba(21, 21, 21, 0.6);
+    --modal-background-color-light: rgba(248, 249, 255, 1);
+    --modal-text-color-per: rgba(36, 36, 36, 0.5);
+    --modal-text-color-list: rgba(36, 36, 36, 0.8);
+    --dark-theme-back-gradient: rgba(0, 0, 0, 1),
+      rgba(8, 2, 21, 0);
+    --light-theme-back-gradient: rgba(253, 253, 255, 1),
+      rgba(8, 2, 21, 0);
 }
+
+
+ 
+
 
