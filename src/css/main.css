@@ -18,4 +18,5 @@
 @import url('./base/container.css');
 @import url('./base/modern-normalize.css');
 @import url('./base/fonts.css');
-
+@import url('./components/modal-coctails.css');
+@import url('./utils/variables.css');
