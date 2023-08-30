@@ -1,8 +1,15 @@
 
-        <div class="header-container">
+       <div class="header-container">
+          <div class="container-nav">
     <a href="#">Home</a>
     <span>Favorite</span>
-    <span>Drinkify</span>
+  </div>
+    <span>Drinkify
+      <svg class="icon-logo" width="35" height="30">
+        <use href="./img/icons.svg#icon-hero-logo-cocktail"></use>
+      </svg>
+    </span>
+    <div class="container-search"   >
 <form class="search-form" id="search-form">
     <input
       class="search-form__input"
@@ -11,6 +18,9 @@
       autocomplete="off"
       placeholder="Search"
     />
+    <svg class="svg-search" width="16" height="16">
+      <use href="./img/icons.svg#icon-search"></use>
+    </svg>
     </form>
 
     <label class="toggle">
@@ -18,10 +28,26 @@
       <div class="toggle-switch"></div>
   
     </label>
-</div>
+  </div>
+</div> 
 
 <!-- Burger menu -->
 <div class="mobile-header">
-  <!-- <span>Drinkify</span> -->
-  <button class="close-btn" type="button">  </button>
+
+  <span class="logo">Drinkify
+    <svg class="icon-logo" width="24" height="20">
+      <use href="./img/icons.svg#icon-hero-logo-cocktail"></use>
+    </svg>
+  </span>
+  <button class="close-btn" type="button">  
+    <svg class="svg-close" width="20" height="20">
+      <use href="./img/icons.svg#icon-close"></use>
+    </svg>
+  </button>
 </div>
+
+<button class="open-burger-btn">
+<svg class="burger-svg" width="32" height="32">
+  <use href="./img/icons.svg#icon-align-justify"></use>
+</svg>
+</button>
