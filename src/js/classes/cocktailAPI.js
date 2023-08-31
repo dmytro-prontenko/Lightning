@@ -8,12 +8,12 @@ export default class CocktailAPI {
     this.baseURL = 'https://drinkify-backend.p.goit.global/api/v1/cocktails/';
     this.endPointLookup = '/lookup/';
     this.endPointSearch = '/search/';
-    this.startCocktailsQuant = 9;
+    this.startCocktailsQuant = {r: 9};
   }
 //==============================================
   async fetchRandomCocktails() {
     const PARAMS = new URLSearchParams({
-      r: this.startCocktailsQuant,
+      r: this.startCocktailsQuant.r,
     });
 
     try {
@@ -100,11 +100,6 @@ export default class CocktailAPI {
 }
 
 // TODO перенести на елементи
-const tempCocktails = new CocktailAPI();
-const tempRender = new Render();
 
-tempCocktails.fetchCocktail().then(data => {
-  tempRender.renderList(data);
-});
 // TODO =======================
 
