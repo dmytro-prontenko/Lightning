@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 import { loadFromLocal } from '../storage.js';
 
 export default class Render {
-  constructor() {}
+  constructor() { }
 
   renderList(arr) {
     if (Array.isArray(arr)) {
@@ -129,7 +129,7 @@ export default class Render {
     }
   }
 
-  renderFavPage(arr) {
+  renderFavCocktailPage(arr) {
     if (Array.isArray(arr)) {
       const favPage = arr
         .map(
@@ -138,10 +138,10 @@ export default class Render {
         <h2 class="name-section"></h2>
               <img class="cocktails-img" src="${card.drinkThumb}" alt="${card.drink}">
               <h3 class="cocktails-title">${card.drink}</h3>
-              <p class="cocktails-desc">${card.instructions}</p>
+              <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
-                <button type="button" class="learn-more"><span class="learn-more-text">Learn More</span></button>
-                <button type="button" class="del-btn"><span class="lel-btn-text">#</span></button>
+                <button type="button" class="learn-more">Learn More</button>
+                <button type="button" class="del-btn">#</button>
               </div>
           </li>
         `
@@ -175,6 +175,26 @@ export default class Render {
         )
         .join('');
       refs.ingredientsList.innerHTML = favIngPage;
+    } else {
+      Notiflix.Report.failure(
+        'ERROR',
+        'Oops! Something went wrong! Try reloading the page!',
+        'Okay'
+      );
+    }
+  }
+
+
+  renderAlphabet(arr) {
+    if (Array.isArray(arr)) {
+      const alphabetList = arr
+        .map(
+          letter => `
+              <li class="custom-list-item"><button type="button" class="alphabet-btn" data-jsQuery="${letter}">${letter}</button></li>
+        `
+        )
+        .join('');
+      refs.alphabet.innerHTML = alphabetList;
     } else {
       Notiflix.Report.failure(
         'ERROR',

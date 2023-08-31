@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://dmytro-prontenko.github.io/Lightning",
   "scripts": {
-    "start": "parcel src/home.html",
+    "start": "parcel src/index.html",
     "build": "parcel build src/*.html --public-url /Lightning/"
   },
   "repository": {
