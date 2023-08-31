@@ -1,6 +1,5 @@
-.gallery {
-
-}
+/* .gallery {
+} */
 
 .cocktails-section-title {
   color: #242424;
@@ -10,12 +9,11 @@
   line-height: 28px;
 }
 .cocktails-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 24px;
-    grid-row-gap: 44px;
-
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 44px;
 
   /* display: flex;
   flex-direction: row;
@@ -23,8 +21,8 @@
   column-gap: 10px;
   justify-content: space-between; */
 }
-.cocktails-item {
-}
+/* .cocktails-item {
+} */
 
 .cocktails-img {
   width: 307px;
