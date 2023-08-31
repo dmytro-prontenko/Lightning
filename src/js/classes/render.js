@@ -93,12 +93,19 @@ export default class Render {
             <li class="ing-info-item">Alcohol by volume: 30%</li>
             <li class="ing-info-item">Flavour: sweet</li>
         </ul>
-        <button type="button" class="ing-add-fav"><span class="ing-add-fav-text">Add to favorite</span></button>
+        <button type="button" class="add-fav-ing">Add to favorite</button>
     </div>
         `
         )
         .join('');
       refs.modalIngredient.innerHTML = ingrModal;
+
+      const addToFavBtnIng = document.querySelector('.add-to-fav-ing');
+
+      if (loadFromLocal('ingredients').includes(arr[0]._id)) {
+        addToFavBtnIng.textContent = 'Remove from favorite';
+        return;
+      }
     } else {
       Notiflix.Report.failure(
         'ERROR',
