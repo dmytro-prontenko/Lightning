@@ -12,6 +12,12 @@ export const refs = {
   favTitle: document.querySelector(".fav-title"),
   searchField: document.querySelector(".search-form__input"),
   alphabet: document.querySelector(".alphabet-conteiner")
+  favCocktailsList: document.querySelector('.fav-cocktails-list'),
+  errorDiv: document.querySelector('.error'),
+  ingredientsList: document.querySelector('.fav-ing-list'),
+  favTitle: document.querySelector('.fav-title'),
+  searchField: document.querySelector('.search-form__input'),
+  burgerMenu: document.querySelector('.header-menu'),
+  modalBurger: document.querySelector('.modal-burger-container'),
   body: document.body,
 };
-

@@ -14,15 +14,24 @@ export default class Render {
         <h2 class="name-section"></h2>
               <img class="cocktails-img" src="${card.drinkThumb}" alt="${card.drink}">
               <h3 class="cocktails-title">${card.drink}</h3>
-              <p class="cocktails-desc">${card.instructions}</p>
+              <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more">Learn More</button>
-                <button type="button" class="fav-btn"><span class="fav-btn-text">#</span></button>
+                <button type="button" class="fav-btn">SVG Heart</button>
               </div>
           </li>`
         )
         .join('');
       refs.cocktailsList.innerHTML = cocktailCard;
+
+      const addToFavBtn = document.querySelector('.fav-btn');
+      if (loadFromLocal('cocktails').includes(arr[0]._id)) {
+        addToFavBtn.target.dataset.inLocalStorage = "inStorage";
+        addToFavBtn.textContent = 'Trashbin svg';
+        return;
+      } else {
+        addToFavBtn.target.dataset.inLocalStorage = "notInStorage";
+      }
     } else {
       Notiflix.Report.failure(
         'ERROR',
