@@ -16,7 +16,7 @@ function onClick(event) {
     event.target.nodeName === 'BUTTON' &&
     event.target.className === 'learn-more'
   ) {
-    console.log(event.target)
+    console.log(event.target);
     //TODO дописати логіку до кнопки на відкриття модалки
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
@@ -24,7 +24,7 @@ function onClick(event) {
     modalCocktail.fetchCocktailByID(id).then(data => {
       renderCocktailModal.renderModalCocktail(data);
     });
-    console.log(event.target)
+    // console.log(event.target);
     return;
   }
 
@@ -36,7 +36,7 @@ function onClick(event) {
     saveToLocal('cocktails', event.target.closest('.cocktails-item').id);
   }
 }
-
+// =============== MODAL COCKTAILS BUTTONS ===============
 refs.modal.addEventListener('click', onClickModalCocktail);
 
 function onClickModalCocktail(event) {
@@ -46,7 +46,6 @@ function onClickModalCocktail(event) {
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
-    const id = event.target.closest('.modal-cocktail').id;
     return;
   }
 
@@ -64,4 +63,70 @@ function onClickModalCocktail(event) {
     saveToLocal('cocktails', id);
     event.target.textContent = 'Remove from favorite';
   }
+
+  if (
+    event.target.nodeName === 'BUTTON' &&
+    event.target.className === 'ingredient-list-item'
+  ) {
+    refs.modal.classList.toggle('is-hidden');
+    refs.modalIngredient.classList.toggle('is-hidden');
+    refs.body.classList.toggle('modal-open');
+
+    //TODO переробити для інгридієнтів
+    // modalCocktail.fetchCocktailByID(id).then(data => {
+    //   renderCocktailModal.renderModalCocktail(data);
+    // });
+
+    refs.modalIngredient.innerHTML = `
+    <div class="modal-ing" id="123456">
+    <button type="button" class="btn-close">#</button>
+    <h2 class="ing-name">Malina</h2>
+    <h3 class="cocktail-name">Malinovka</h3>
+    <p class="ing-des"><span class="first-word"></span></p>
+    <ul class="ing-info-list">
+    <li class="ing-info-item">Type: alcohol</li>
+    <li class="ing-info-item">Country of origin: Ukraine</li>
+    <li class="ing-info-item">Alcohol by volume: 30%</li>
+    <li class="ing-info-item">Flavour: sweet</li>
+</ul>
+<button type="button" class="add-to-fav-ing">Add to favorite</button>
+</div>
+`;
+
+const addToFavBtnIng = document.querySelector('.add-to-fav-ing');
+
+if (loadFromLocal('ingredients').includes('123456')) {
+  addToFavBtnIng.textContent = 'Remove from favorite';
+  return;
 }
+  }
+}
+// =============== MODAL ING BUTTONS ===============
+refs.modalIngredient.addEventListener('click', onIngrCloseBtnClick)
+
+function onIngrCloseBtnClick(event) {
+  if (
+    event.target.nodeName === 'BUTTON' &&
+    event.target.className === 'btn-close'
+  ) {
+    refs.modal.classList.toggle('is-hidden');
+    refs.modalIngredient.classList.toggle('is-hidden');
+    return;
+  }
+
+  if (
+    event.target.nodeName === 'BUTTON' &&
+    event.target.className === 'add-to-fav-ing'
+  ) {
+    const id = event.target.closest('.modal-ing').id;
+    if (event.target.textContent === 'Remove from favorite') {
+      removeFromLocal('ingredients', id);
+      event.target.textContent = 'Add to favorite';
+      return;
+    }
+
+    saveToLocal('ingredients', id);
+    event.target.textContent = 'Remove from favorite';
+  }
+}
+
