@@ -24,7 +24,6 @@ function onClick(event) {
     modalCocktail.fetchCocktailByID(id).then(data => {
       renderCocktailModal.renderModalCocktail(data);
     });
-    // console.log(event.target);
     return;
   }
 
@@ -33,7 +32,17 @@ function onClick(event) {
     event.target.nodeName === 'BUTTON' &&
     event.target.className === 'fav-btn'
   ) {
+    const id = event.target.closest('.cocktails-item').id;
+    // console.log(event.target.dataset.inLocalStorage)
+    if (event.target.dataset.inLocalStorage === "inStorage") {
+      removeFromLocal('cocktails', id);
+      event.target.dataset.inLocalStorage = "notInStorage";
+      event.target.textContent = 'SVG Heart';
+      return;
+    }
     saveToLocal('cocktails', event.target.closest('.cocktails-item').id);
+    event.target.dataset.inLocalStorage = "inStorage";
+    event.target.textContent = 'Trashbin svg';
   }
 }
 // =============== MODAL COCKTAILS BUTTONS ===============
@@ -70,7 +79,7 @@ function onClickModalCocktail(event) {
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.modalIngredient.classList.toggle('is-hidden');
-    refs.body.classList.toggle('modal-open');
+    // refs.body.classList.toggle('modal-open');
 
     //TODO переробити для інгридієнтів
     // modalCocktail.fetchCocktailByID(id).then(data => {
@@ -93,16 +102,16 @@ function onClickModalCocktail(event) {
 </div>
 `;
 
-const addToFavBtnIng = document.querySelector('.add-to-fav-ing');
+    const addToFavBtnIng = document.querySelector('.add-to-fav-ing');
 
-if (loadFromLocal('ingredients').includes('123456')) {
-  addToFavBtnIng.textContent = 'Remove from favorite';
-  return;
-}
+    if (loadFromLocal('ingredients').includes('123456')) {
+      addToFavBtnIng.textContent = 'Remove from favorite';
+      return;
+    }
   }
 }
 // =============== MODAL ING BUTTONS ===============
-refs.modalIngredient.addEventListener('click', onIngrCloseBtnClick)
+refs.modalIngredient.addEventListener('click', onIngrCloseBtnClick);
 
 function onIngrCloseBtnClick(event) {
   if (
@@ -129,4 +138,3 @@ function onIngrCloseBtnClick(event) {
     event.target.textContent = 'Remove from favorite';
   }
 }
-
