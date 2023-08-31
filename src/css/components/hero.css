@@ -1,0 +1,89 @@
+.hero-section {
+  padding: 35px;
+}
+
+.rent-side {
+  display: flex;
+  gap: 60px;
+}
+
+.left-side-container {
+  margin-left: auto;
+}
+
+.right-side-container {
+  margin-right: auto;
+}
+
+.hero-title {
+  width: 555px;
+  margin-top: 90px;
+
+  color: #242424;
+  font-family: Poppins;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 70px;
+}
+
+.hero-title-span {
+  color: #7e8fdd;
+  font-family: Poppins;
+  font-size: 64px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 70px;
+}
+
+.hero-text {
+  width: 478px;
+  margin-top: 28px;
+
+  color: #242424;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.hero-img-text {
+  width: 219px;
+  height: 48px;
+  margin-top: 51px;
+  margin-left: auto;
+  margin-right: auto;
+
+  color: #242424;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.36px;
+  text-transform: uppercase;
+}
+
+.hero-img {
+}
+
+.cocktails-btn {
+  margin-right: auto;
+  margin-top: 56px;
+  display: flex;
+  padding: 22px 44px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 12px;
+  background: #7e8fdd;
+
+  color: #fdfdff;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: 0.36px;
+  text-transform: uppercase;
+}
