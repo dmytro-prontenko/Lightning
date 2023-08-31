@@ -138,3 +138,14 @@ function onIngrCloseBtnClick(event) {
     event.target.textContent = 'Remove from favorite';
   }
 }
+
+// =============== MODAL BURGER ===============
+
+refs.burgerMenu.addEventListener('click', onBurgerMenuClick);
+
+function onBurgerMenuClick(event) {
+  refs.modalBurger.classList.toggle('is-hidden');
+  refs.body.classList.toggle('modal-open');
+}
+
+//TODO реалізувати закриття модалки при кліку на backdrop + Esc
