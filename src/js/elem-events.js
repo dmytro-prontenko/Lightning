@@ -16,6 +16,7 @@ function onClick(event) {
     event.target.nodeName === 'BUTTON' &&
     event.target.className === 'learn-more'
   ) {
+    console.log(event.target)
     //TODO дописати логіку до кнопки на відкриття модалки
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
@@ -23,7 +24,7 @@ function onClick(event) {
     modalCocktail.fetchCocktailByID(id).then(data => {
       renderCocktailModal.renderModalCocktail(data);
     });
-
+    console.log(event.target)
     return;
   }
 
