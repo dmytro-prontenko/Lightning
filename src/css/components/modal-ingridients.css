@@ -1,0 +1,39 @@
+.modal-cocktail {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 408px;
+  /* max-height: 80%; */
+  height: auto;
+  width: 90%;
+  height: 843px;
+  border-radius: 20px;
+  background: var(--color-4);
+  padding: 40px 20px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Затемнение с полупрозрачным черным цветом */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.modal-open {
+  overflow: hidden;
+}

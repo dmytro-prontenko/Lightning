@@ -2,7 +2,7 @@
 @import url("./components/error.css");
 @import url("./components/footer.css"); */
 @import url('./components/header.css');
-/* @import url("./components/hero.css");
+/* 
 @import url("./components/modal.css");
 @import url("./base/container.css");
 @import url("./base/fonts.css");
@@ -19,5 +19,7 @@
 @import url('./base/modern-normalize.css');
 @import url('./base/fonts.css');
 @import url('./components/modal-coctails.css');
+@import url('./components/modal-ingridients.css');
 @import url('./utils/variables.css');
 @import url("./components/footer.css");
+@import url('./components/hero.css');

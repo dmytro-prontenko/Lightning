@@ -11,7 +11,7 @@
   border-radius: 20px;
   background: var(--color-4);
   padding: 40px 20px;
-  overflow-y: scroll;
+  overflow-y: auto;
   z-index: 100;
 }
 
@@ -47,7 +47,7 @@
   background: var(--violet, #7e8fdd);
   padding: 14px 28px;
   color: var(--text-white-color);
-  content: "123";
+  content: '123';
 }
 /* 
 .modal-cocktail::-webkit-scrollbar-thumb {
@@ -62,5 +62,3 @@
   background-color: rgba(0, 0, 0, 0.7);
   z-index: -1;
 } */
-
-

@@ -51,8 +51,8 @@ export default class Render {
         `
         )
         .join('');
-      refs.backdrop.innerHTML = cocktailModal;
-
+      refs.modal.innerHTML = cocktailModal;
+      // TODO скопіювати до інгридієнтів
       const ingridList = document.querySelector('.cocktail-ingr-list');
       const ingToInsert = arr[0].ingredients
         .map(
@@ -62,13 +62,12 @@ export default class Render {
         .join('');
       ingridList.innerHTML = ingToInsert;
 
-      const addToFavBtn = document.querySelector(".add-to-fav")
+      const addToFavBtn = document.querySelector('.add-to-fav');
 
       if (loadFromLocal('cocktails').includes(arr[0]._id)) {
-        addToFavBtn.textContent = "Remove from favorite"
+        addToFavBtn.textContent = 'Remove from favorite';
         return;
       }
-
     } else {
       Notiflix.Report.failure(
         'ERROR',
@@ -83,12 +82,12 @@ export default class Render {
       const ingrModal = arr
         .map(
           card => `
-              <div class="ing">
-        <button type="button" class="btn-close">#</button>
-        <h2 class="ing-name"></h2>
-        <h3 class="cocktail-name"></h3>
-        <p class="ing-des"><span class="first-word"></span></p>
-        <ul class="ing-info-list">
+              <div class="modal-ing">
+            <button type="button" class="btn-close">#</button>
+            <h2 class="ing-name"></h2>
+            <h3 class="cocktail-name"></h3>
+            <p class="ing-des"><span class="first-word"></span></p>
+            <ul class="ing-info-list">
             <li class="ing-info-item">Type:</li>
             <li class="ing-info-item">Country of origin:</li>
             <li class="ing-info-item">Alcohol by volume:</li>
@@ -99,7 +98,7 @@ export default class Render {
         `
         )
         .join('');
-      refs.modalIngredient.innerHTML = ingrModa;
+      refs.modalIngredient.innerHTML = ingrModal;
     } else {
       Notiflix.Report.failure(
         'ERROR',
