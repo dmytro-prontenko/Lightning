@@ -87,3 +87,37 @@
   letter-spacing: 0.36px;
   text-transform: uppercase;
 }
+
+
+.alphabet-conteiner{
+  max-width: 904px;
+  margin:132px auto 0;
+  
+}
+
+.custom-list{
+  display: flex;
+  flex-direction: row;
+  gap: 20px 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.custom-list-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(126, 143, 221, 0.40);
+  
+}
+
+.alphabet-btn{
+    color: #FDFDFF;
+    font-weight: 600;
+    font-size: 20px;
+}
