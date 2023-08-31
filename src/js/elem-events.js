@@ -36,7 +36,7 @@ function onClick(event) {
   }
 }
 
-refs.backdrop.addEventListener('click', onClickModalCocktail);
+refs.modal.addEventListener('click', onClickModalCocktail);
 
 function onClickModalCocktail(event) {
   if (
