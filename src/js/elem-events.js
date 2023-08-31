@@ -1,6 +1,9 @@
-import { refs } from './refs';
+import axios from 'axios';
+import SlimSelect from 'slim-select';
+import 'slim-select/dist/slimselect.css';
 import Render from './classes/render';
 import CocktailAPI from './classes/cocktailAPI';
+import { refs } from './refs';
 import { saveToLocal, loadFromLocal, removeFromLocal } from './storage.js';
 
 refs.cocktailsList.addEventListener('click', onClick);
@@ -34,14 +37,14 @@ function onClick(event) {
   ) {
     const id = event.target.closest('.cocktails-item').id;
     // console.log(event.target.dataset.inLocalStorage)
-    if (event.target.dataset.inLocalStorage === "inStorage") {
+    if (event.target.dataset.inLocalStorage === 'inStorage') {
       removeFromLocal('cocktails', id);
-      event.target.dataset.inLocalStorage = "notInStorage";
+      event.target.dataset.inLocalStorage = 'notInStorage';
       event.target.textContent = 'SVG Heart';
       return;
     }
     saveToLocal('cocktails', event.target.closest('.cocktails-item').id);
-    event.target.dataset.inLocalStorage = "inStorage";
+    event.target.dataset.inLocalStorage = 'inStorage';
     event.target.textContent = 'Trashbin svg';
   }
 }
@@ -149,5 +152,33 @@ function onBurgerMenuClick(event) {
 
 //TODO реалізувати закриття модалки при кліку на backdrop + Esc
 
-
 // =============== SEARCH INPUT ===============
+// TODO
+// 1. Підключити Slimselect до Search
+// 2. На подію інпут додати debounce для відправки запиту на апі
+// 3. Відрендерити список
+
+refs.searchField.addEventListener('change', onSearchInput);
+new SlimSelect({
+  select: refs.searchField,
+  settings: {
+    showOptionTooltips: true,
+    placeholderText: 'Search',
+    closeOnSelect: true,
+  },
+});
+
+function onSearchInput(event) {
+  const currentOption =
+    event.target.options[refs.searchField.selectedIndex].value;
+  console.log(currentOption);
+}
+
+const searchItem = document.querySelector('[aria-label="Search"]');
+console.log(searchItem.value);
+
+searchItem.addEventListener("input", onInput)
+
+function onInput(event) {
+  console.log(event.target.value)
+}
