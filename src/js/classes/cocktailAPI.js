@@ -1,14 +1,15 @@
 // import { renderCocktailModal } from './cockt-ingr-modal/render-modal-cocktail';
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import Render from './render';
+import { loadFromLocal } from '../storage';
 
 export default class CocktailAPI {
   constructor() {
     this.baseURL = 'https://drinkify-backend.p.goit.global/api/v1/cocktails/';
     this.endPointLookup = '/lookup/';
     this.endPointSearch = '/search/';
-    this.startCocktailsQuant = {r: 9};
+    this.startCocktailsQuant = { r: 9 };
+    
   }
 //==============================================
   async fetchRandomCocktails() {
@@ -97,7 +98,36 @@ export default class CocktailAPI {
     }
     return cocktailDetailsArray;
   }
+
+
+  async  fetchFavorites(key) {
+    const favCocktailIds = loadFromLocal(key);
+    const cocktailIds = favCocktailIds
+    const cocktailDetailsArray = [];
+    for (const cocktailId of cocktailIds) {
+        const cocktailDetails = await this.fetchCocktailByID(cocktailId);
+        if (cocktailDetails) {
+            cocktailDetailsArray.push(cocktailDetails[0]);
+        } else {
+            Notiflix.Report.failure(
+                'ERROR',
+                'Oops! Something went wrong! Try reloading the page!',
+                'Okay'
+            );
+            break;
+        }
+    }
+    return cocktailDetailsArray;
 }
+
+}
+
+
+
+//=================================================================
+
+
+
 
 // TODO перенести на елементи
 

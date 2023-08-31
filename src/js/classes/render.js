@@ -129,7 +129,7 @@ export default class Render {
     }
   }
 
-  renderFavPage(arr) {
+  renderFavCocktailPage(arr) {
     if (Array.isArray(arr)) {
       const favPage = arr
         .map(
@@ -138,10 +138,10 @@ export default class Render {
         <h2 class="name-section"></h2>
               <img class="cocktails-img" src="${card.drinkThumb}" alt="${card.drink}">
               <h3 class="cocktails-title">${card.drink}</h3>
-              <p class="cocktails-desc">${card.instructions}</p>
+              <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
-                <button type="button" class="learn-more"><span class="learn-more-text">Learn More</span></button>
-                <button type="button" class="del-btn"><span class="lel-btn-text">#</span></button>
+                <button type="button" class="learn-more">Learn More</button>
+                <button type="button" class="del-btn">#</button>
               </div>
           </li>
         `
@@ -184,13 +184,13 @@ export default class Render {
     }
   }
 
-const dataAlphabet = [A , B , C , D , E , F , G , H , I , J , K , L , M , N , O , P , Q , R , S , T , U , V , W , X , Y , Z, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0,];
+
   renderAlphabet(arr) {
     if (Array.isArray(arr)) {
       const alphabetList = arr
         .map(
           letter => `
-              <li class="custom-list item"><button type="button" class="alphabet-btn">${letter}</button></li>
+              <li class="custom-list-item"><button type="button" class="alphabet-btn" data-jsQuery="${letter}">${letter}</button></li>
         `
         )
         .join('');
