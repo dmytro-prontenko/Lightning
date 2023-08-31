@@ -82,18 +82,18 @@ export default class Render {
       const ingrModal = arr
         .map(
           card => `
-              <div class="modal-ing">
+            <div class="modal-ing">
             <button type="button" class="btn-close">#</button>
-            <h2 class="ing-name"></h2>
-            <h3 class="cocktail-name"></h3>
+            <h2 class="ing-name">Malina</h2>
+            <h3 class="cocktail-name">Malinovka</h3>
             <p class="ing-des"><span class="first-word"></span></p>
             <ul class="ing-info-list">
-            <li class="ing-info-item">Type:</li>
-            <li class="ing-info-item">Country of origin:</li>
-            <li class="ing-info-item">Alcohol by volume:</li>
-            <li class="ing-info-item">Flavour:</li>
+            <li class="ing-info-item">Type: alcohol</li>
+            <li class="ing-info-item">Country of origin: Ukraine</li>
+            <li class="ing-info-item">Alcohol by volume: 30%</li>
+            <li class="ing-info-item">Flavour: sweet</li>
         </ul>
-        <button type="button" class="ing-add-fav"><span class="ing-add-fav-text">add to favorite</span></button>
+        <button type="button" class="ing-add-fav"><span class="ing-add-fav-text">Add to favorite</span></button>
     </div>
         `
         )
