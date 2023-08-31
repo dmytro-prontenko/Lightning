@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 import { loadFromLocal } from '../storage.js';
 
 export default class Render {
-  constructor() {}
+  constructor() { }
 
   renderList(arr) {
     if (Array.isArray(arr)) {
@@ -166,6 +166,26 @@ export default class Render {
         )
         .join('');
       refs.ingredientsList.innerHTML = favIngPage;
+    } else {
+      Notiflix.Report.failure(
+        'ERROR',
+        'Oops! Something went wrong! Try reloading the page!',
+        'Okay'
+      );
+    }
+  }
+
+const dataAlphabet = [A , B , C , D , E , F , G , H , I , J , K , L , M , N , O , P , Q , R , S , T , U , V , W , X , Y , Z, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0,];
+  renderAlphabet(arr) {
+    if (Array.isArray(arr)) {
+      const alphabetList = arr
+        .map(
+          letter => `
+              <li class="custom-list item"><button type="button" class="alphabet-btn">${letter}</button></li>
+        `
+        )
+        .join('');
+      refs.alphabet.innerHTML = alphabetList;
     } else {
       Notiflix.Report.failure(
         'ERROR',

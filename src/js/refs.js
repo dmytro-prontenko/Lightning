@@ -11,6 +11,7 @@ export const refs = {
   ingredientsList: document.querySelector(".fav-ing-list"),
   favTitle: document.querySelector(".fav-title"),
   searchField: document.querySelector(".search-form__input"),
+  alphabet: document.querySelector(".alphabet-conteiner")
   body: document.body,
 };
 
