@@ -40,12 +40,17 @@ export default class Render {
           elem => `
           <div class="modal-cocktail" id="${elem._id}" js-modal-cocktail">
           <button type="button" class="btn-close">#</button>
-          <img src=${elem.drinkThumb} alt="" width="295" height="277" />
+          <div class="modal-cocktail-img-text-wrapper">
+          <img src=${elem.drinkThumb} alt="" class="modal-cocktail-img" width="295" height="277" />
+          <div class="modal-cocktail-text-wrapper">
+          <h1>${elem.drink}</h1>
           <h2>Ingredients:</h2>
-          <h3>Per cocktail</h3>
+          <h3 class="modal-cocktail-instuction-text">Per cocktail</h3>
           <ul class="cocktail-ingr-list"></ul>
-          <h2>Instuction:</h2>
-          <p>${elem.instructions}</p>
+          </div>
+          </div>
+          <h2 class="modal-cocktail-instuction">Instructions:</h2>
+          <p class="modal-cocktail-instuction-text">${elem.instructions}</p>
           <button type="button" class="add-to-fav">Add to favorite</button>
         </div>
         `
