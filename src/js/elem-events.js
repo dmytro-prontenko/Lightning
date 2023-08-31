@@ -79,7 +79,6 @@ function onClickModalCocktail(event) {
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.modalIngredient.classList.toggle('is-hidden');
-    // refs.body.classList.toggle('modal-open');
 
     //TODO переробити для інгридієнтів
     // modalCocktail.fetchCocktailByID(id).then(data => {
@@ -149,3 +148,6 @@ function onBurgerMenuClick(event) {
 }
 
 //TODO реалізувати закриття модалки при кліку на backdrop + Esc
+
+
+// =============== SEARCH INPUT ===============
