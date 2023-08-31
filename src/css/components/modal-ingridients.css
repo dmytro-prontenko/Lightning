@@ -37,3 +37,11 @@
 .modal-open {
   overflow: hidden;
 }
+
+.add-to-fav {
+  border-radius: 12px;
+  background: var(--violet, #7e8fdd);
+  padding: 14px 28px;
+  color: var(--text-white-color);
+  content: '123';
+}

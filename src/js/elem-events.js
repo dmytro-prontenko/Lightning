@@ -78,7 +78,7 @@ function onClickModalCocktail(event) {
     // });
 
     refs.modalIngredient.innerHTML = `
-    <div class="modal-ing">
+    <div class="modal-ing" id="123456">
     <button type="button" class="btn-close">#</button>
     <h2 class="ing-name">Malina</h2>
     <h3 class="cocktail-name">Malinovka</h3>
@@ -89,12 +89,19 @@ function onClickModalCocktail(event) {
     <li class="ing-info-item">Alcohol by volume: 30%</li>
     <li class="ing-info-item">Flavour: sweet</li>
 </ul>
-<button type="button" class="ing-add-fav"><span class="ing-add-fav-text">Add to favorite</span></button>
+<button type="button" class="add-to-fav-ing">Add to favorite</button>
 </div>
 `;
+
+const addToFavBtnIng = document.querySelector('.add-to-fav-ing');
+
+if (loadFromLocal('ingredients').includes('123456')) {
+  addToFavBtnIng.textContent = 'Remove from favorite';
+  return;
+}
   }
 }
-
+// =============== MODAL ING BUTTONS ===============
 refs.modalIngredient.addEventListener('click', onIngrCloseBtnClick)
 
 function onIngrCloseBtnClick(event) {
@@ -106,4 +113,20 @@ function onIngrCloseBtnClick(event) {
     refs.modalIngredient.classList.toggle('is-hidden');
     return;
   }
+
+  if (
+    event.target.nodeName === 'BUTTON' &&
+    event.target.className === 'add-to-fav-ing'
+  ) {
+    const id = event.target.closest('.modal-ing').id;
+    if (event.target.textContent === 'Remove from favorite') {
+      removeFromLocal('ingredients', id);
+      event.target.textContent = 'Add to favorite';
+      return;
+    }
+
+    saveToLocal('ingredients', id);
+    event.target.textContent = 'Remove from favorite';
+  }
 }
+
