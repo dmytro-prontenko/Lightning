@@ -21,5 +21,6 @@
 @import url('./components/modal-coctails.css');
 @import url('./components/modal-ingridients.css');
 @import url('./utils/variables.css');
-@import url("./components/footer.css");
+@import url('./components/footer.css');
 @import url('./components/hero.css');
+@import url('./components/modal-burger.css');
