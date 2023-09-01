@@ -238,6 +238,28 @@ export default class Render {
       );
     }
   }
+
+
+    renderAlphabetForMob(arr) {
+    if (Array.isArray(arr)) {
+      const alphabetList = arr
+        .map(
+          letter =>`
+          <option class="alphabet-select" value="${letter}">
+          ${letter}
+          </option>
+         `
+        )
+        .join('');
+      refs.select.innerHTML = alphabetList;
+    } else {
+      Notiflix.Report.failure(
+        'ERROR',
+        'Oops! Something went wrong! Try reloading the page!',
+        'Okay'
+      );
+    }
+  }
 /*
 │ =========================
 │    Рендер бургер меню

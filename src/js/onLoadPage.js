@@ -73,19 +73,22 @@ function adjustLayout() {
     currentWidth = windowWidth;
     return;
   }
-  reRender();
+  reRenderStartCoctailList();
   currentWidth = windowWidth;
 }
 
 adjustLayout();
 window.addEventListener('resize', _debounce(adjustLayout, 700));
+reRenderFilter()
+window.addEventListener('resize', reRenderFilter);
 
-function reRender() {
+function reRenderStartCoctailList() {
   if (windowWidth < 768) {
+    listRender.renderAlphabetForMob(dataAlphabet);
     listCocktails.fetchCocktail(startRenderTablMobCocktail).then(data => {
       listRender.renderList(data);
     });
-    // випадаючий список
+    
   } else if (windowWidth < 1280) {
     listRender.renderAlphabet(dataAlphabet);
     listCocktails.fetchCocktail(startRenderTablMobCocktail).then(data => {
@@ -98,3 +101,21 @@ function reRender() {
     });
   }
 }
+
+
+function reRenderFilter() {
+  const windowWidthF = window.innerWidth;
+  if (windowWidthF < 768) {
+    refs.alphabet.classList.add("is-hidden");
+    refs.select.classList.remove("is-hidden");
+  }
+  else if (windowWidthF < 1280) {
+    refs.alphabet.classList.remove("is-hidden");
+    refs.select.classList.add("is-hidden");
+  }
+  else {
+    refs.alphabet.classList.remove("is-hidden");
+    refs.select.classList.add("is-hidden");
+  }
+};
+

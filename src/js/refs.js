@@ -16,7 +16,7 @@ export const refs = {
   modalBurger: document.querySelector('.modal-burger-container'),
   headerLinkFav: document.querySelector(".header-nav-link-fav"),
   favMenu: document.querySelector(".header-favorite-menu"),
-  
+  select: document.querySelector('.custom-list-select'),
   body: document.body,
 };
 
