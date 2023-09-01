@@ -2,6 +2,7 @@ import { refs } from '../refs';
 import Notiflix from 'notiflix';
 import { loadFromLocal } from '../storage.js';
 
+
 export default class Render {
   constructor() { }
 
@@ -17,7 +18,11 @@ export default class Render {
               <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more">Learn More</button>
-                <button type="button" class="fav-btn">SVG Heart</button>
+                <button type="button" class="fav-btn">
+                <svg class="fav-button-svg" width="21" height="18">
+                <use href="./images/icons.svg#icon-footer-heart"></use>
+                </svg>
+                </button>
               </div>
           </li>`
         )
