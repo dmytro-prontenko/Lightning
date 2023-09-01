@@ -30,6 +30,7 @@
 .toggle {
   cursor: pointer;
   display: none;
+  margin-left: auto;
 }
 
 .toggle-switch {
