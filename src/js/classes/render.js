@@ -163,9 +163,9 @@ export default class Render {
         .map(
           card => `
               <li id=${card._id} class="cocktails-item">
-                <h2 class="ing-name"></h2>
-                <h3 class="cocktail-name"></h3>
-                <p class="ing-des">${card.instructions}</p>
+                <h2 class="${card.drink}"></h2>
+                <h3 class="${card.drink}"></h3>
+                <p class="ing-des">${elem.instructions}</p>
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more"><span class="learn-more-text">Learn More</span></button>
                 <button type="button" class="del-btn"><span class="lel-btn-text">#</span></button>
