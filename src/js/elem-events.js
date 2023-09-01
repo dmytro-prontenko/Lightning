@@ -1,6 +1,4 @@
-import axios from 'axios';
-import SlimSelect from 'slim-select';
-import 'slim-select/dist/slimselect.css';
+
 import Render from './classes/render';
 import CocktailAPI from './classes/cocktailAPI';
 import DropDownList from './classes/dropDownSearch';
