@@ -4,33 +4,49 @@
       <nav>
         <ul class="navigation-list">
           <li>
-            <a href="#" class="header-nav-link">Home</a>
+            <a href="index.html" class="header-nav-link">Home</a>
           </li>
           <li>
-            <a href="#" class="header-nav-link-fav">Favorite
+            <button class="header-nav-link-fav">Favorites
               <svg class="header-arrow" width="12" height="6">
                 <use href="./images/icons.svg#icon-header-arrow-down"></use>
               </svg>
-            </a>
+            </button>
             <ul class="header-favorite-menu">
-              <li><a href="favorite-cocktails.html" class="header-fav-active">Favorite cocktails</a></li>
-              <li><a href="favorite-cocktails.html" class="header-fav-unactive">Favorite ingredients</a></li>
+              <li>
+                <a href="favorite-cocktails.html" class="header-fav-unactive"
+                  >Favorite cocktails</a
+                >
+              </li>
+              <li>
+                <a href="favorite-ingridients.html" class="header-fav-unactive"
+                  >Favorite ingredients</a
+                >
+              </li>
             </ul>
           </li>
         </ul>
       </nav>
 
-      <a href="#" class="header-link">Drinkify
+      <a href="#" class="header-link"
+        >Drinkify
         <svg class="header-svg" width="24" height="20">
           <use href="./images/icons.svg#icon-hero-logo-cocktail"></use>
         </svg>
       </a>
-<form class="search-form" id="search-form">
-  <input class="search-form__input" id="input" type="text" name="searchQuery" autocomplete="off" placeholder=Search />
-  <svg class="svg-search" width="16" height="16">
-    <use href="./images/icons.svg#icon-search"></use>
-  </svg>
-</form>
+      <form class="search-form" id="search-form">
+        <input
+          class="search-form__input"
+          id="input"
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search"
+        />
+        <svg class="svg-search" width="16" height="16">
+          <use href="./images/icons.svg#icon-search"></use>
+        </svg>
+      </form>
       <div class="header-menu">
         <svg class="header-menu-svg" width="24" height="20">
           <use href="./images/icons.svg#icon-align-justify"></use>
@@ -42,10 +58,4 @@
       </label>
     </div>
   </div>
-  
-  <!-- Burger menu -->
-  <!-- <div class="mobile-header"> -->
-    <!-- <span>Drinkify</span> -->
-    <!-- <button class="close-btn" type="button"></button>
-  </div> -->
 </header>

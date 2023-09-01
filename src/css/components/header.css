@@ -166,8 +166,8 @@ nav {
   top: 45px;
   left: 250px;
   position: absolute;
-  display: none;
- 
+  /* display: none; */
+
 }
 
 .header-fav-active {

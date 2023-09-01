@@ -5,7 +5,11 @@ import icons from '../../images/icons.svg'
 
 export default class Render {
   constructor() { }
-
+/*
+│ =========================
+│  Рендер масиву коктейлів
+│ =========================
+*/
   renderList(arr) {
     if (Array.isArray(arr)) {
       const cocktailCard = arr
@@ -49,6 +53,11 @@ export default class Render {
     // refs.favBtn = document.querySelector('.fav-btn');
   }
 
+  /*
+│ ==========================
+│  Рендер модалки коктейлів
+│ ==========================
+*/
   renderModalCocktail(arr) {
     if (Array.isArray(arr)) {
       const cocktailModal = arr
@@ -102,6 +111,11 @@ export default class Render {
     }
   }
 
+    /*
+│ =============================
+│  Рендер модалки інгридієнтів
+│ =============================
+*/
   renderIngModal(arr) {
     if (Array.isArray(arr)) {
       const ingrModal = arr
@@ -143,7 +157,11 @@ export default class Render {
       );
     }
   }
-
+  /*
+│ =====================================
+│  Рендер сторінки улюблених коктейлів
+│ =====================================
+*/
   renderFavCocktailPage(arr) {
     if (Array.isArray(arr)) {
       const favPage = arr
