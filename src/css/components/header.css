@@ -103,6 +103,7 @@
 
 nav {
   display: none;
+  position: relative;
 }
 
 .navigation-list {
@@ -136,7 +137,7 @@ nav {
 
 .header-nav-link-fav {
   margin-right: 299px;
-  position: relative;
+ 
 }
 
 .header-svg {
@@ -154,10 +155,10 @@ nav {
   border-radius: 16px;
   background: #7e8fdd;
   letter-spacing: 0.28px;
-  top: 45px;
-  left: 250px;
+  top: 22px;
+  left: 30px;
   position: absolute;
-  /* display: none; */
+  display: none;
 }
 
 .header-fav-active {
@@ -167,7 +168,10 @@ nav {
 .header-fav-unactive {
   color: rgba(253, 253, 255, 0.5);
 }
-
+.header-fav-unactive:hover,
+.header-fav-unactive:hover{
+  color: #fdfdff;
+}
 .header-menu-svg {
   stroke: rgba(36, 36, 36, 1);
 }

@@ -4,10 +4,11 @@ import DropDownList from './classes/drop-down-search';
 import { refs } from './refs';
 import { saveToLocal, loadFromLocal, removeFromLocal } from './storage.js';
 import icons from '../images/icons.svg';
+import {headerLinkFav, favMenu, onLinkClick} from './header.js'
 refs.cocktailsList.addEventListener('click', onClick);
 
 // const renderCocktailModal = new Render();
-
+headerLinkFav.addEventListener("click", onLinkClick)
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
 
@@ -350,3 +351,4 @@ const dropDownSearch = new DropDownList({ element: refs.searchField, data });
 function onSearchInput(event) {
   // dropDownSearch.DropDownList({ element: refs.searchField, data });
 }
+
