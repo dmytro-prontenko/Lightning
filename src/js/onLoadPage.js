@@ -1,8 +1,8 @@
 import CocktailAPI from './classes/cocktailAPI';
 import Render from './classes/render';
-
+import { btnUp } from './button-to-up.js';
 import { refs } from './refs';
-
+btnUp.addEventListener();
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
 
@@ -50,4 +50,6 @@ const dataAlphabet = [
 ];
 listRender.renderAlphabet(dataAlphabet);
 
-listCocktails.fetchCocktailByID('64aebb7f82d96cc69e0eb4a5');
+
+
+

@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import Render from './classes/render';
 import CocktailAPI from './classes/cocktailAPI';
 import DropDownList from './classes/drop-down-search';
