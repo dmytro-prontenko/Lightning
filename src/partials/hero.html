@@ -1,5 +1,5 @@
 <section class="hero-section section">
-  <div class="constainer">
+  <div class="container">
     <div class="rent-side">
       <div class="left-side-container">
         <h2 class="hero-title">
@@ -14,29 +14,47 @@
         <button class="cocktails-btn">view cocktails</button>
       </div>
       <div class="right-side-container">
-        <picture class="hero-img">
-          <source
-            srcset="./images/hero-desk.webp 1x, ./images/hero-desk@2x.webp 2x"
-            media="(min-width: 1280px)"
-          />
-          <source
-            srcset="./images/hero-tablet.webp 1x, ./images/hero-tablet@2x.webp 2x"
-            media="(min-width: 768px)"
-          />
-          <source
-            srcset="./images/hero-mob.webp 1x, ./images/hero-mob@2x.webp 2x"
-            media="(max-width: 767px)"
-          />
-          <img src="./images/hero-desk.png" alt="#" />
-        </picture>
-
+        <div class="images-wrapper">
+          <picture class="hero-img">
+            <source
+              srcset="./images/hero-desk.webp 1x, ./images/hero-desk@2x.webp 2x"
+              media="(min-width: 1280px)"
+            />
+            <source
+              srcset="
+                ./images/hero-tablet.webp    1x,
+                ./images/hero-tablet@2x.webp 2x
+              "
+              media="(min-width: 768px)"
+            />
+            <source
+              srcset="./images/hero-mob.webp 1x, ./images/hero-mob@2x.webp 2x"
+              media="(max-width: 767px)"
+            />
+            <img src="./images/hero-desk.png" alt="#" />
+          </picture>
+          <div class="icon-hero-background"></div>
+          <svg class="icon-hero-star-one" width="76" height="76">
+            <use href="/src/images/icons.svg#icon-hero-background"></use>
+          </svg>
+          <svg class="icon-hero-star-two" width="180" height="180">
+            <use href="/src/images/icons.svg#icon-hero-background"></use>
+          </svg>
+          <svg class="icon-round-one" width="18" height="18">
+            <use href="/src/images/icons.svg#icon-round-hero"></use>
+          </svg>
+          <svg class="icon-round-two" width="24" height="24">
+            <use href="/src/images/icons.svg#icon-round-hero"></use>
+          </svg>
+          <svg class="icon-round-three" width="18" height="18">
+            <use href="/src/images/icons.svg#icon-round-hero-second"></use>
+          </svg>
+        </div>
         <p class="hero-img-text">Search your favorite cocktail by ABC</p>
       </div>
     </div>
     <div class="alphabet-conteiner">
-      <ul class="custom-list">
-        
-      </ul>
+      <ul class="custom-list"></ul>
     </div>
   </div>
 </section>
