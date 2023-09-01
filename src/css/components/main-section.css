@@ -10,10 +10,12 @@
   font-weight: 500;
   line-height: 28px;
 }
+
+
 .cocktails-list, .fav-cocktails-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
   grid-column-gap: 24px;
   grid-row-gap: 44px;
 

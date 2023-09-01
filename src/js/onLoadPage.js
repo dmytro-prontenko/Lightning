@@ -4,6 +4,7 @@ import { btnUp } from './button-to-up.js';
 import { refs } from './refs';
 import _debounce from 'debounce';
 
+
 btnUp.addEventListener();
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
@@ -79,7 +80,7 @@ function adjustLayout() {
 
 adjustLayout();
 window.addEventListener('resize', _debounce(adjustLayout, 700));
-reRenderFilter()
+reRenderFilter();
 window.addEventListener('resize', reRenderFilter);
 
 function reRenderStartCoctailList() {
@@ -88,7 +89,6 @@ function reRenderStartCoctailList() {
     listCocktails.fetchCocktail(startRenderTablMobCocktail).then(data => {
       listRender.renderList(data);
     });
-    
   } else if (windowWidth < 1280) {
     listRender.renderAlphabet(dataAlphabet);
     listCocktails.fetchCocktail(startRenderTablMobCocktail).then(data => {
@@ -102,20 +102,16 @@ function reRenderStartCoctailList() {
   }
 }
 
-
 function reRenderFilter() {
   const windowWidthF = window.innerWidth;
   if (windowWidthF < 768) {
-    refs.alphabet.classList.add("is-hidden");
-    refs.select.classList.remove("is-hidden");
+    refs.alphabet.classList.add('is-hidden');
+    refs.select.classList.remove('is-hidden');
+  } else if (windowWidthF < 1280) {
+    refs.alphabet.classList.remove('is-hidden');
+    refs.select.classList.add('is-hidden');
+  } else {
+    refs.alphabet.classList.remove('is-hidden');
+    refs.select.classList.add('is-hidden');
   }
-  else if (windowWidthF < 1280) {
-    refs.alphabet.classList.remove("is-hidden");
-    refs.select.classList.add("is-hidden");
-  }
-  else {
-    refs.alphabet.classList.remove("is-hidden");
-    refs.select.classList.add("is-hidden");
-  }
-};
-
+}

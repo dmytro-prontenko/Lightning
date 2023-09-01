@@ -24,11 +24,33 @@ export default class CocktailAPI {
     });
 
     try {
+      console.log(`${this.baseURL}${this.endPointCocktails}?${PARAMS}`)
       const response = await axios.get(
         `${this.baseURL}${this.endPointCocktails}?${PARAMS}`
       );
       const cocktailIds = response.data.map(cocktail => cocktail._id);
       return cocktailIds;
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  /*
+│ =============================================================
+│  Запит на отримання визначеної кількості рандомних коктейлів
+│ =============================================================
+*/
+  async fetchRandomCocktailsNames(count) {
+    const PARAMS = new URLSearchParams({
+      r: count,
+    });
+
+    try {
+      console.log(`${this.baseURL}${this.endPointCocktails}?${PARAMS}`)
+      const response = await axios.get(
+        `${this.baseURL}${this.endPointCocktails}?${PARAMS}`
+      );
+      const cocktailNames = response.data.map(cocktail => cocktail.drink);
+      return cocktailNames;
     } catch (error) {
       console.log(error.message);
     }
@@ -173,7 +195,8 @@ export default class CocktailAPI {
       const totalCount = await axios.get(
         `${this.baseURL}${this.endPointLookup}`
       );
-      return totalCount.data.length;
+      const cocktailsListLength = totalCount.data.length
+      return cocktailsListLength;
     } catch (error) {
       Notiflix.Report.failure(
         'ERROR',
@@ -182,4 +205,5 @@ export default class CocktailAPI {
       );
     }
   }
+  
 }
