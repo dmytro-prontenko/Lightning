@@ -58,17 +58,22 @@ function adjustLayout() {
     return;
   } else if (
     currentWidth > 375 &&
-    currentWidth <= 768 &&
+    currentWidth < 768 &&
     windowWidth > 375 &&
-    windowWidth <= 768
+    windowWidth < 768
   ) {
     currentWidth = windowWidth;
     return;
-  } else if (currentWidth > 768 && windowWidth > 768) {
+  } else if (
+    currentWidth > 768 &&
+    currentWidth < 1280 &&
+    windowWidth > 768 &&
+    windowWidth < 1280
+  ) {
     currentWidth = windowWidth;
     return;
   }
-  reRender()
+  reRender();
   currentWidth = windowWidth;
 }
 
