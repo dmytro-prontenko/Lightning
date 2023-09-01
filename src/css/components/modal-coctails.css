@@ -121,8 +121,20 @@ color: rgba(36, 36, 36, 0.80);
 .ingredient-list-item{
   text-align: left;
 }
-.btn-close {}
+.btn-close {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  
+}
+.close-btn-svg, .close-btn-cock-svg{
+  width: 22px;
+  height: 22px;
+  stroke: #242424;
 
+}
 .cocktail-ingr-list {}
 
 .add-to-fav {}

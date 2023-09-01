@@ -6,7 +6,7 @@ import CocktailAPI from './classes/cocktailAPI';
 import DropDownList from './classes/dropDownSearch';
 import { refs } from './refs';
 import { saveToLocal, loadFromLocal, removeFromLocal } from './storage.js';
-
+import icons from '../images/icons.svg'
 refs.cocktailsList.addEventListener('click', onClick);
 
 const modalCocktail = new CocktailAPI();
@@ -41,12 +41,16 @@ function onClick(event) {
     if (event.target.dataset.inLocalStorage === 'inStorage') {
       removeFromLocal('cocktails', id);
       event.target.dataset.inLocalStorage = 'notInStorage';
-      event.target.textContent = 'SVG Heart';
+      event.target.innerHTML = `<svg class="fav-button-svg">
+                <use xlink:href="${icons}#icon-footer-heart"></use>
+                </svg>`;
       return;
     }
     saveToLocal('cocktails', event.target.closest('.cocktails-item').id);
     event.target.dataset.inLocalStorage = 'inStorage';
-    event.target.textContent = 'Trashbin svg';
+    event.target.innerHTML = `<svg class="del-btn-svg">
+                <use xlink:href="${icons}#icon-remove"></use>
+                </svg>`;
   }
 }
 // =============== MODAL COCKTAILS BUTTONS ===============
@@ -91,7 +95,11 @@ function onClickModalCocktail(event) {
 
     refs.modalIngredient.innerHTML = `
     <div class="modal-ing" id="123456">
-    <button type="button" class="btn-close">#</button>
+    <button type="button" class="btn-close">
+    <svg class="close-btn-svg">
+                <use xlink:href="${icons}#icon-close"></use>
+                </svg >
+                </button>
     <h2 class="ing-name">Malina</h2>
     <h3 class="cocktail-name">Malinovka</h3>
     <p class="ing-des"><span class="first-word"></span></p>
@@ -117,6 +125,7 @@ function onClickModalCocktail(event) {
 refs.modalIngredient.addEventListener('click', onIngrCloseBtnClick);
 
 function onIngrCloseBtnClick(event) {
+  console.log(event.target.className)
   if (
     event.target.nodeName === 'BUTTON' &&
     event.target.className === 'btn-close'
