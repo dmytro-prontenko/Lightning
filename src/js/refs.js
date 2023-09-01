@@ -14,5 +14,9 @@ export const refs = {
   alphabet: document.querySelector(".custom-list"),
   burgerMenu: document.querySelector('.header-menu'),
   modalBurger: document.querySelector('.modal-burger-container'),
+  headerLinkFav: document.querySelector(".header-nav-link-fav"),
+  favMenu: document.querySelector(".header-favorite-menu"),
+  
   body: document.body,
 };
+

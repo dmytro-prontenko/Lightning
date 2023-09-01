@@ -1,4 +1,3 @@
-
 import Render from './classes/render';
 import CocktailAPI from './classes/cocktailAPI';
 import DropDownList from './classes/drop-down-search';
@@ -7,8 +6,10 @@ import { saveToLocal, loadFromLocal, removeFromLocal } from './storage.js';
 import icons from '../images/icons.svg';
 refs.cocktailsList.addEventListener('click', onClick);
 
-const modalCocktail = new CocktailAPI();
-const renderCocktailModal = new Render();
+// const renderCocktailModal = new Render();
+
+const listCocktails = new CocktailAPI();
+const listRender = new Render();
 
 //?? Чи будемо розносити по файлам fav-cocktails / fav-ingridients?
 
@@ -23,8 +24,8 @@ function onClick(event) {
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
     const id = event.target.closest('.cocktails-item').id;
-    modalCocktail.fetchCocktailByID(id).then(data => {
-      renderCocktailModal.renderModalCocktail(data);
+    listCocktails.fetchCocktailByID(id).then(data => {
+      listRender.renderModalCocktail(data);
     });
     return;
   }
@@ -89,7 +90,7 @@ function onClickModalCocktail(event) {
 
     //TODO переробити для інгридієнтів
     // modalCocktail.fetchCocktailByID(id).then(data => {
-    //   renderCocktailModal.renderModalCocktail(data);
+    //   listRender.renderModalCocktail(data);
     // });
 
     refs.modalIngredient.innerHTML = `
@@ -153,10 +154,36 @@ function onIngrCloseBtnClick(event) {
 // =============== MODAL BURGER ===============
 
 refs.burgerMenu.addEventListener('click', onBurgerMenuClick);
+refs.modalBurger.addEventListener('click', onModalBurgerClick);
 
 function onBurgerMenuClick(event) {
-  refs.modalBurger.classList.toggle('is-hidden');
-  refs.body.classList.toggle('modal-open');
+  console.log(event.target);
+  if (event.target.nodeName === 'svg' || event.target.nodeName === 'use') {
+    refs.modalBurger.classList.toggle('is-hidden');
+    refs.body.classList.toggle('modal-open');
+    listRender.renderBurgerModal();
+    return;
+  }
+}
+
+const buttonModalClose = document.querySelector('.btn-close');
+buttonModalClose.addEventListener('click', onBurgerModalClose);
+
+function onModalBurgerClick(event) {
+  if (
+    (event.target.nodeName === 'svg' &&
+      event.target.classList === 'close-btn-cock-svg') ||
+    event.target.nodeName === 'use' ||
+    event.target.nodeName === 'BUTTON'
+  ) {
+    refs.modalBurger.classList.toggle('is-hidden');
+    refs.body.classList.toggle('modal-open');
+    return;
+  }
+}
+
+function onBurgerModalClose(event) {
+  console.log(event.target);
 }
 
 //TODO реалізувати закриття модалки при кліку на backdrop + Esc
