@@ -1,7 +1,7 @@
 import { refs } from '../refs';
 import Notiflix from 'notiflix';
 import { loadFromLocal } from '../storage.js';
-
+import icons from '../../images/icons.svg'
 
 export default class Render {
   constructor() { }
@@ -19,8 +19,8 @@ export default class Render {
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more">Learn More</button>
                 <button type="button" class="fav-btn">
-                <svg class="fav-button-svg" width="21" height="18">
-                <use href="./images/icons.svg#icon-footer-heart"></use>
+                <svg class="fav-button-svg">
+                <use xlink:href="${icons}#icon-footer-heart"></use>
                 </svg>
                 </button>
               </div>
@@ -32,7 +32,9 @@ export default class Render {
       const addToFavBtn = document.querySelector('.fav-btn');
       if (loadFromLocal('cocktails').includes(arr[0]._id)) {
         addToFavBtn.target.dataset.inLocalStorage = "inStorage";
-        addToFavBtn.textContent = 'Trashbin svg';
+        addToFavBtn.textContent = `<svg class="del-btn-svg">
+                <use xlink:href="${icons}#icon-remove"></use>
+                </svg>`;
         return;
       } else {
         addToFavBtn.target.dataset.inLocalStorage = "notInStorage";
@@ -53,7 +55,11 @@ export default class Render {
         .map(
           elem => `
           <div class="modal-cocktail" id="${elem._id}" js-modal-cocktail">
-          <button type="button" class="btn-close">#</button>
+          <button type="button" class="btn-close">
+          <svg class="close-btn-cock-svg">
+                <use xlink:href="${icons}#icon-close"></use>
+                </svg >
+                </button>
           <div class="modal-cocktail-img-text-wrapper">
           <img src=${elem.drinkThumb} alt="" class="modal-cocktail-img" width="295" height="277" />
           <div class="modal-cocktail-text-wrapper">
@@ -102,7 +108,11 @@ export default class Render {
         .map(
           card => `
             <div class="modal-ing">
-            <button type="button" class="btn-close">#</button>
+            <button type="button" class="btn-close">
+            <svg class="close-btn-svg">
+                <use xlink:href="${icons}#icon-close"></use>
+                </svg >
+                </button>
             <h2 class="ing-name">Malina</h2>
             <h3 class="cocktail-name">Malinovka</h3>
             <p class="ing-des"><span class="first-word"></span></p>
@@ -146,7 +156,10 @@ export default class Render {
               <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more">Learn More</button>
-                <button type="button" class="del-btn">#</button>
+                <button type="button" class="del-btn">
+                <svg class="del-btn-svg">
+                <use xlink:href="${icons}#icon-remove"></use>
+                </svg></button>
               </div>
           </li>
         `
