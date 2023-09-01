@@ -43,7 +43,7 @@ export default class CocktailAPI {
     const PARAMS = new URLSearchParams({
       id,
     });
-    console.log(`${this.baseURL}${this.endPointLookup}?${PARAMS}`);
+
     try {
       const response = await axios.get(
         `${this.baseURL}${this.endPointLookup}?${PARAMS}`
@@ -153,12 +153,10 @@ export default class CocktailAPI {
     //   id,
     // });
     try {
-      console.log(`${this.baseURL}${this.endPointIngredients}${id}`);
       const response = await axios.get(
         `${this.baseURL}${this.endPointIngredients}${PARAMS}`
       );
       const ingredientDetails = response.data;
-      console.log(ingredientDetails);
       return ingredientDetails;
     } catch (error) {
       console.error(
@@ -176,7 +174,6 @@ export default class CocktailAPI {
       const totalCount = await axios.get(
         `${this.baseURL}${this.endPointLookup}`
       );
-      console.log(totalCount.data.length);
       return totalCount.data.length;
     } catch (error) {
       Notiflix.Report.failure(

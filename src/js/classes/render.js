@@ -56,7 +56,7 @@ export default class Render {
           elem => `
           <div class="modal-cocktail" id="${elem._id}" js-modal-cocktail">
           <button type="button" class="btn-close">
-          <svg class="close-btn-cock-svg">
+          <svg class="close-btn-cock-svg" id="js-close-modal-cockt-svg">
                 <use xlink:href="${icons}#icon-close"></use>
                 </svg >
                 </button>
@@ -109,7 +109,7 @@ export default class Render {
           card => `
             <div class="modal-ing">
             <button type="button" class="btn-close">
-            <svg class="close-btn-svg">
+            <svg class="close-btn-svg" id="js-close-modal-ingr-svg">
                 <use xlink:href="${icons}#icon-close"></use>
                 </svg >
                 </button>

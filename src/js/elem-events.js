@@ -1,10 +1,10 @@
 import axios from 'axios';
 import Render from './classes/render';
 import CocktailAPI from './classes/cocktailAPI';
-import DropDownList from './classes/dropDownSearch';
+import DropDownList from './classes/drop-down-search';
 import { refs } from './refs';
 import { saveToLocal, loadFromLocal, removeFromLocal } from './storage.js';
-import icons from '../images/icons.svg'
+import icons from '../images/icons.svg';
 refs.cocktailsList.addEventListener('click', onClick);
 
 const modalCocktail = new CocktailAPI();
@@ -56,8 +56,9 @@ refs.modal.addEventListener('click', onClickModalCocktail);
 
 function onClickModalCocktail(event) {
   if (
-    event.target.nodeName === 'BUTTON' &&
-    event.target.className === 'btn-close'
+    (event.target.nodeName === 'svg' &&
+      event.target.id === 'js-close-modal-cockt-svg') ||
+    event.target.nodeName === 'use'
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
@@ -94,7 +95,7 @@ function onClickModalCocktail(event) {
     refs.modalIngredient.innerHTML = `
     <div class="modal-ing" id="123456">
     <button type="button" class="btn-close">
-    <svg class="close-btn-svg">
+    <svg class="close-btn-svg" id="js-close-modal-ingr-svg">
                 <use xlink:href="${icons}#icon-close"></use>
                 </svg >
                 </button>
@@ -123,10 +124,10 @@ function onClickModalCocktail(event) {
 refs.modalIngredient.addEventListener('click', onIngrCloseBtnClick);
 
 function onIngrCloseBtnClick(event) {
-  console.log(event.target.className)
   if (
-    event.target.nodeName === 'BUTTON' &&
-    event.target.className === 'btn-close'
+    (event.target.nodeName === 'svg' &&
+      event.target.id === 'js-close-modal-ingr-svg') ||
+    event.target.nodeName === 'use'
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.modalIngredient.classList.toggle('is-hidden');
