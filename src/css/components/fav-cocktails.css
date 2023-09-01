@@ -2,7 +2,10 @@
     padding: 80px 0;
 }
 
+
+
 .fav-title {
+    font-family: Poppins;
     margin-bottom: 138px;
     font-size: 24px;
     font-weight: 500;
@@ -118,7 +121,6 @@
 .remove-button {
     width: 48px;
     height: 48px;
-
     border-radius: 12px;
     background: #7E8FDD;
 }

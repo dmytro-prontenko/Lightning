@@ -5,31 +5,45 @@ import { loadFromLocal } from '../storage';
 
 export default class CocktailAPI {
   constructor() {
-    this.baseURL = 'https://drinkify-backend.p.goit.global/api/v1/cocktails/';
-    this.endPointLookup = '/lookup/';
-    this.endPointSearch = '/search/';
+    this.baseURL = 'https://drinkify-backend.p.goit.global/api/v1/';
+    this.endPointIngredients = 'ingredients/';
+    this.endPointCocktails = 'cocktails/';
+    this.endPointLookup = 'cocktails/lookup/';
+    this.endPointSearch = 'cocktails/search/';
+    this.endPointCount = 'cocktails/count/';
     this.startCocktailsQuant = { r: 9 };
-    
   }
-//==============================================
+
+  /*
+│ =============================================================
+│  Запит на отримання визначеної кількості рандомних коктейлів
+│ =============================================================
+*/
   async fetchRandomCocktails() {
     const PARAMS = new URLSearchParams({
       r: this.startCocktailsQuant.r,
     });
 
     try {
-      const response = await axios.get(`${this.baseURL}?${PARAMS}`);
+      const response = await axios.get(
+        `${this.baseURL}${this.endPointCocktails}?${PARAMS}`
+      );
       const cocktailIds = response.data.map(cocktail => cocktail._id);
       return cocktailIds;
     } catch (error) {
       console.log(error.message);
     }
   }
-//==============================================
+
+  //=============================
+  // Запит на один коктейль по ID
+  //=============================
+
   async fetchCocktailByID(id) {
     const PARAMS = new URLSearchParams({
       id,
     });
+
     try {
       const response = await axios.get(
         `${this.baseURL}${this.endPointLookup}?${PARAMS}`
@@ -43,7 +57,10 @@ export default class CocktailAPI {
       return null;
     }
   }
-//==============================================
+
+  //===========================================================
+  // Запит на отримання масив коктейлів по першим літерам назви
+
   async fetchCocktailByLetter(letter) {
     const PARAMS = new URLSearchParams({
       f: letter,
@@ -61,7 +78,10 @@ export default class CocktailAPI {
       return null;
     }
   }
-//==============================================NEW
+
+  //=============================================
+  // Запит на отримання коктейлю за повною назвою
+
   async fetchCocktailByName(name) {
     const PARAMS = new URLSearchParams({
       s: name,
@@ -79,7 +99,10 @@ export default class CocktailAPI {
       return null;
     }
   }
-//==============================================
+
+  //========================================
+  // Отримання стартових рандомних коктейлів
+
   async fetchCocktail() {
     const cocktailIds = await this.fetchRandomCocktails();
     const cocktailDetailsArray = [];
@@ -99,37 +122,65 @@ export default class CocktailAPI {
     return cocktailDetailsArray;
   }
 
+  //=======================================================
+  // Отримання обраних коктейлів в модалці (з localStorage)
 
-  async  fetchFavorites(key) {
+  async fetchFavorites(key) {
     const favCocktailIds = loadFromLocal(key);
-    const cocktailIds = favCocktailIds
+    const cocktailIds = favCocktailIds;
     const cocktailDetailsArray = [];
     for (const cocktailId of cocktailIds) {
-        const cocktailDetails = await this.fetchCocktailByID(cocktailId);
-        if (cocktailDetails) {
-            cocktailDetailsArray.push(cocktailDetails[0]);
-        } else {
-            Notiflix.Report.failure(
-                'ERROR',
-                'Oops! Something went wrong! Try reloading the page!',
-                'Okay'
-            );
-            break;
-        }
+      const cocktailDetails = await this.fetchCocktailByID(cocktailId);
+      if (cocktailDetails) {
+        cocktailDetailsArray.push(cocktailDetails[0]);
+      } else {
+        Notiflix.Report.failure(
+          'ERROR',
+          'Oops! Something went wrong! Try reloading the page!',
+          'Okay'
+        );
+        break;
+      }
     }
     return cocktailDetailsArray;
+  }
+
+  //==========================================================
+  // Отримання обраних інгридієнтів в модалці (з localStorage)
+
+  async fetchIngrByID(id) {
+    // const PARAMS = new URLSearchParams({
+    //   id,
+    // });
+    try {
+      const response = await axios.get(
+        `${this.baseURL}${this.endPointIngredients}${PARAMS}`
+      );
+      const ingredientDetails = response.data;
+      return ingredientDetails;
+    } catch (error) {
+      console.error(
+        `Error fetching details for ingredient ID ${id}: ${error.message}`
+      );
+      return null;
+    }
+  }
+
+  //=============================================================
+  // Отримання загальної кількості коктейлів на API(для dropDown)
+
+  async fetchTotalCountCocktails() {
+    try {
+      const totalCount = await axios.get(
+        `${this.baseURL}${this.endPointLookup}`
+      );
+      return totalCount.data.length;
+    } catch (error) {
+      Notiflix.Report.failure(
+        'ERROR',
+        'Oops! Something went wrong! Try reloading the page!',
+        'Okay'
+      );
+    }
+  }
 }
-
-}
-
-
-
-//=================================================================
-
-
-
-
-// TODO перенести на елементи
-
-// TODO =======================
-
