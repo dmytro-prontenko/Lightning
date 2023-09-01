@@ -23,7 +23,19 @@
 }
 /* .cocktails-item {
 } */
-
+@media screen and (max-width: 767px) {
+  .cocktails-list{
+  grid-template-columns: repeat(1, 1fr);
+  grid-row-gap: 20px;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .cocktails-list {
+      grid-template-columns: repeat(2, 1fr);
+      grid-row-gap: 32px;
+      grid-column-gap: 16px;
+}
+}
 .buttons-wrapper {
   display: flex;
   flex-direction: row;
@@ -65,11 +77,14 @@
   overflow: hidden;
   color: #242424;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+-webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   font-family: Poppins;
   font-size: 14px;
   line-height: 18px;
   margin-left: 10px;
+  margin-bottom: 24px;
 }
 
 .learn-more {
@@ -96,5 +111,3 @@
     border-radius: 12px;
     background: #7E8FDD;
 }
-
-.fav-btn-text {}
