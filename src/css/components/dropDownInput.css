@@ -1,0 +1,30 @@
+#input {
+  width: 300px;
+}
+
+.drop-down__list {
+  position: absolute;
+  list-style-type: none;
+  padding: 0;
+  margin: 5px 0 0 0;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.drop-down__item {
+  padding: 7px;
+  background: #7E8FDD;
+  color: #fff;
+  margin-bottom: 2px;
+  transition: all .2s;
+}
+
+.drop-down__item:focus,
+.drop-down__item:hover {
+  background: grey;
+}
+
+.drop-down__item:active {
+  transition: none;
+  background: orange;
+}

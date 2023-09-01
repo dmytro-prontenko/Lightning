@@ -5,4 +5,7 @@ import './js/classes/render.js';
 import './js/elem-events.js';
 import './js/header.js';
 import './js/hero.js';
+import './js/classes/dropDownSearch.js';
+
 // import './js/fav-cocktails.js'
+
