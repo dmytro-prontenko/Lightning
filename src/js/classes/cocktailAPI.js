@@ -11,7 +11,6 @@ export default class CocktailAPI {
     this.endPointLookup = 'cocktails/lookup/';
     this.endPointSearch = 'cocktails/search/';
     this.endPointCount = 'cocktails/count/';
-    this.startCocktailsQuant = { r: 9 };
   }
 
   /*
@@ -19,9 +18,9 @@ export default class CocktailAPI {
 │  Запит на отримання визначеної кількості рандомних коктейлів
 │ =============================================================
 */
-  async fetchRandomCocktails() {
+  async fetchRandomCocktails(count) {
     const PARAMS = new URLSearchParams({
-      r: this.startCocktailsQuant.r,
+      r: count,
     });
 
     try {
@@ -103,8 +102,8 @@ export default class CocktailAPI {
   //========================================
   // Отримання стартових рандомних коктейлів
 
-  async fetchCocktail() {
-    const cocktailIds = await this.fetchRandomCocktails();
+  async fetchCocktail(count) {
+    const cocktailIds = await this.fetchRandomCocktails(count);
     const cocktailDetailsArray = [];
     for (const cocktailId of cocktailIds) {
       const cocktailDetails = await this.fetchCocktailByID(cocktailId);

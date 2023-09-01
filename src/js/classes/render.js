@@ -225,7 +225,7 @@ export default class Render {
       const alphabetList = arr
         .map(
           letter => `
-              <li class="custom-list-item"><button type="button" class="alphabet-btn" data-jsQuery="${letter}">${letter}</button></li>
+              <li class="custom-list-item"><button type="button" class="alphabet-btn" data-js-query="${letter}">${letter}</button></li>
         `
         )
         .join('');
