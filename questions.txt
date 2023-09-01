@@ -1,0 +1,46 @@
+async fetchTotalCountCocktails() {
+    try {
+      const totalCount = await axios.get(
+        `${this.baseURL}${this.endPointLookup}`
+      );
+      const cocktailsListLength = totalCount.data.length
+      return cocktailsListLength;
+    } catch (error) {
+      Notiflix.Report.failure(
+        'ERROR',
+        'Oops! Something went wrong! Try reloading the page!',
+        'Okay'
+      );
+    }
+  }
+
+async fetchRandomCocktailsNames(count) {
+    const PARAMS = new URLSearchParams({
+      r: count,
+    });
+
+    try {
+      console.log(`${this.baseURL}${this.endPointCocktails}?${PARAMS}`)
+      const response = await axios.get(
+        `${this.baseURL}${this.endPointCocktails}?${PARAMS}`
+      );
+      const cocktailNames = response.data.map(cocktail => cocktail.drink);
+      return cocktailNames;
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+
+async function test() {
+  try {
+    const totalCount = await listCocktails.fetchTotalCountCocktails();
+    const cocktailIds = await listCocktails.fetchRandomCocktailsNames(totalCount);
+
+    return cocktailIds;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+Как получить массив имен, записанный в константу?
