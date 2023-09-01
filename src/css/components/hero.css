@@ -101,7 +101,7 @@
 
   .hero-img {
     position: absolute;
-    z-index: 1000;
+    z-index: 100;
     top: 54%;
     left: 84%;
     transform: translate(-10.7%, -16%);
@@ -311,7 +311,7 @@
 
   .hero-img {
     position: absolute;
-    z-index: 1000;
+    z-index: 100;
     top: 54%;
     left: 84%;
     transform: translate(-10.7%, -16%);
@@ -523,7 +523,7 @@
 
   .hero-img {
     position: absolute;
-    z-index: 1000;
+    z-index: 100;
     top: 54%;
     left: 84%;
     transform: translate(7%, -5%);

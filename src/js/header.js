@@ -3,7 +3,6 @@ const favMenu = document.querySelector(".header-favorite-menu")
 
 headerLinkFav.addEventListener("click", onLinkClick)
 function onLinkClick(e) {
-    e.preventDefault()
   if (favMenu.style.display === "none") {
     favMenu.style.display = "inline-flex"
   } else if(favMenu.style.display !== "none"){

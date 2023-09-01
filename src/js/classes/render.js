@@ -1,11 +1,15 @@
 import { refs } from '../refs';
 import Notiflix from 'notiflix';
 import { loadFromLocal } from '../storage.js';
-import icons from '../../images/icons.svg'
+import icons from '../../images/icons.svg';
 
 export default class Render {
-  constructor() { }
-
+  constructor() {}
+  /*
+│ =========================
+│  Рендер масиву коктейлів
+│ =========================
+*/
   renderList(arr) {
     if (Array.isArray(arr)) {
       const cocktailCard = arr
@@ -31,13 +35,13 @@ export default class Render {
 
       const addToFavBtn = document.querySelector('.fav-btn');
       if (loadFromLocal('cocktails').includes(arr[0]._id)) {
-        addToFavBtn.target.dataset.inLocalStorage = "inStorage";
+        addToFavBtn.target.dataset.inLocalStorage = 'inStorage';
         addToFavBtn.textContent = `<svg class="del-btn-svg">
                 <use xlink:href="${icons}#icon-remove"></use>
                 </svg>`;
         return;
       } else {
-        addToFavBtn.target.dataset.inLocalStorage = "notInStorage";
+        addToFavBtn.target.dataset.inLocalStorage = 'notInStorage';
       }
     } else {
       Notiflix.Report.failure(
@@ -49,6 +53,11 @@ export default class Render {
     // refs.favBtn = document.querySelector('.fav-btn');
   }
 
+  /*
+│ ==========================
+│  Рендер модалки коктейлів
+│ ==========================
+*/
   renderModalCocktail(arr) {
     if (Array.isArray(arr)) {
       const cocktailModal = arr
@@ -102,6 +111,11 @@ export default class Render {
     }
   }
 
+  /*
+│ =============================
+│  Рендер модалки інгридієнтів
+│ =============================
+*/
   renderIngModal(arr) {
     if (Array.isArray(arr)) {
       const ingrModal = arr
@@ -143,7 +157,11 @@ export default class Render {
       );
     }
   }
-
+  /*
+│ =====================================
+│  Рендер сторінки улюблених коктейлів
+│ =====================================
+*/
   renderFavCocktailPage(arr) {
     if (Array.isArray(arr)) {
       const favPage = arr
@@ -202,7 +220,6 @@ export default class Render {
     }
   }
 
-
   renderAlphabet(arr) {
     if (Array.isArray(arr)) {
       const alphabetList = arr
@@ -220,5 +237,59 @@ export default class Render {
         'Okay'
       );
     }
+  }
+/*
+│ =========================
+│    Рендер бургер меню
+│ =========================
+*/
+  renderBurgerModal() {
+    const burgerModalMarkup = `
+    <div class="modal-burger">
+    <a href="#" class="header-link"
+      >Drinkify
+      <svg class="header-svg" width="24" height="20">
+        <use href="./images/icons.svg#icon-hero-logo-cocktail"></use>
+      </svg>
+    </a>
+
+    <label class="toggle-modal">
+      <input class="toggle-checkbox" type="checkbox" />
+      <div class="toggle-switch"></div>
+    </label>
+
+    <button type="button" class="btn-close">
+      Close button
+      <svg class="close-btn-cock-svg" id="js-close-modal-cockt-svg">
+        <use xlink:href="#"></use>
+      </svg>
+    </button>
+
+    <div class="modal-navi">
+      <a class="modal-nav-item" href="index.html">Home</a>
+
+      <button type="button">
+        Favorites
+        <svg class="header-arrow" width="12" height="6">
+          <use href="./images/icons.svg#icon-header-arrow-down"></use>
+        </svg>
+      </button>
+
+      <ul>
+        <li>
+          <a href="favorite-cocktails.html" class="header-fav-unact"
+            >Favorite cocktails</a
+          >
+        </li>
+        <li>
+          <a href="favorite-ingridients.html" class="header-fav-unact"
+            >Favorite ingredients</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>`;
+
+    refs.modalBurger.innerHTML = burgerModalMarkup;
   }
 }
