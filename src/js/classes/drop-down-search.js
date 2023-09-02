@@ -1,7 +1,9 @@
-import CocktailAPI from "./cocktailAPI";
+import CocktailAPI from './cocktailAPI';
+import Render from './render';
+import { refs } from '../refs';
 
-const itemForDropDown = new CocktailAPI;
-
+const itemForDropDown = new CocktailAPI();
+const renderInputedCocktail = new Render()
 
 let data = [];
 
@@ -9,13 +11,13 @@ async function getAllCocktailsNames() {
   try {
     const totalCount = await itemForDropDown.fetchTotalCountCocktails();
     const resp = await itemForDropDown.fetchRandomCocktailsNames(totalCount);
-    resp.forEach(el => data.push(el))
+    resp.forEach(el => data.push(el));
   } catch (error) {
     console.log(error);
   }
 }
 
-getAllCocktailsNames()
+getAllCocktailsNames();
 
 // async function test() {
 //   try {
@@ -29,8 +31,6 @@ getAllCocktailsNames()
 // let arr;
 // test().then(data => arr = data)
 // console.log(arr)
-
-
 
 class DropDownList {
   constructor({ element, data }) {
@@ -68,6 +68,8 @@ class DropDownList {
 
   _onItemListClick({ target }) {
     this.element.value = target.textContent;
+    itemForDropDown
+      .fetchCocktailByName(this.element.value).then(data => renderInputedCocktail.renderList(data))
     this.removeList();
   }
 
@@ -108,4 +110,3 @@ class DropDownList {
 }
 
 new DropDownList({ element: document.querySelector(`#input`), data });
-
