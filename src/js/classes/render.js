@@ -41,7 +41,7 @@ export default class Render {
                 </svg>`;
         return;
       } else {
-        addToFavBtn.target.dataset.inLocalStorage = 'notInStorage';
+        addToFavBtn.dataset.inLocalStorage = 'notInStorage';
       }
     } else {
       Notiflix.Report.failure(
