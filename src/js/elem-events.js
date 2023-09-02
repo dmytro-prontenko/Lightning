@@ -4,11 +4,13 @@ import DropDownList from './classes/drop-down-search';
 import { refs } from './refs';
 import { saveToLocal, loadFromLocal, removeFromLocal } from './storage.js';
 import icons from '../images/icons.svg';
-import { headerLinkFav, favMenu, onLinkClick } from './header.js';
+
+import {headerLinkFav, favMenu, onLinkClick, onBodyClick} from './header.js'
 refs.cocktailsList.addEventListener('click', onClick);
 
 // const renderCocktailModal = new Render();
-headerLinkFav.addEventListener('click', onLinkClick);
+headerLinkFav.addEventListener("click", onLinkClick)
+
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
 
