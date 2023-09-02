@@ -3,7 +3,7 @@ import Render from './render';
 import { refs } from '../refs';
 
 const itemForDropDown = new CocktailAPI();
-const renderInputedCocktail = new Render()
+const renderInputedCocktail = new Render();
 
 let data = [];
 
@@ -69,8 +69,10 @@ class DropDownList {
   _onItemListClick({ target }) {
     this.element.value = target.textContent;
     itemForDropDown
-      .fetchCocktailByName(this.element.value).then(data => renderInputedCocktail.renderList(data))
-    refs.cocktailsTitle.scrollIntoView({behavior: 'smooth'})
+      .fetchCocktailByName(this.element.value)
+      .then(data => renderInputedCocktail.renderList(data));
+    refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
+    refs.searchField.value = '';
     this.removeList();
   }
 
