@@ -648,3 +648,34 @@
 }
 
 /* //////////////////////////////////////////////////////////////////////////////////////// */
+
+.custom-list-select{
+  width: 90px;
+  height: 34px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border-color: transparent;
+  background: rgba(126, 143, 221, 0.40);
+  margin: 0 auto;
+  display: flex;
+   align-items: flex-end;
+    color: #FDFDFF;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 18px;
+      text-transform: uppercase;
+      -webkit-appearance: none;
+        -moz-appearance: none;
+       background-image: url(../../images/chevron-down.png);
+       background-size: 20px;
+       background-repeat: no-repeat;
+       background-position-x: 60px;
+       background-position-y: 5.5px;
+}
+.custom-list-select:focus{
+  outline: transparent;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+  background-color: #9CDFDF;
+
+}
+
