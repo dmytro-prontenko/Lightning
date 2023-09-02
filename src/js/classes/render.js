@@ -346,7 +346,16 @@ export default class Render {
     </div>
   </div>`;
       refs.modalBurger.innerHTML = burgerModalMarkup;
+  }
+  
+  renderPaginationBtns(quant) {
+    const arrMarkupBtns = [];
+    for (let i = 1; i <= quant; i++) {
+      arrMarkupBtns.push(`<button type="button" class="pagination-page" id="${i}">${i}</button>`)
     }
+    const markupBtns = arrMarkupBtns.join('');
+    refs.paginationContainer.innerHTML = markupBtns;
+  }
 
       
     }

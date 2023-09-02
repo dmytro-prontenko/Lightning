@@ -20,6 +20,8 @@ export const refs = {
   select: document.querySelector('.custom-list-select'),
   dropDownList: document.querySelector(".drop-down__list"),
   alcoholic: document.querySelector(".alco-title"),
+  viewCoctailsBtn: document.querySelector(".cocktails-btn"),
+  paginationContainer: document.querySelector(".pagination-container"),
   body: document.body,
 };
 

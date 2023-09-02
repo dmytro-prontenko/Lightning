@@ -22,10 +22,10 @@ window.addEventListener("click", function(event) {
 
 export { headerLinkFav, favMenu, onLinkClick, onBodyClick }
 
-var container1 = document.querySelector("#container1");
-var container2 = document.querySelector("#container2");
-var button = headerLinkFav;
-var box = favMenu;
+const container1 = document.querySelector("#container1");
+const container2 = document.querySelector("#container2");
+const button = headerLinkFav;
+const box = favMenu;
 
 button.addEventListener("click", onClick);
 
@@ -34,7 +34,7 @@ function onClick() {
 }
 
 function swapPosition() {
-  var parent = box.parentElement === container1 ? container2 : container1;
+  let parent = box.parentElement === container1 ? container2 : container1;
   parent.appendChild(box);
 }
 
