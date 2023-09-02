@@ -4,11 +4,11 @@ import DropDownList from './classes/drop-down-search';
 import { refs } from './refs';
 import { saveToLocal, loadFromLocal, removeFromLocal } from './storage.js';
 import icons from '../images/icons.svg';
-import {headerLinkFav, favMenu, onLinkClick} from './header.js'
+import { headerLinkFav, favMenu, onLinkClick } from './header.js';
 refs.cocktailsList.addEventListener('click', onClick);
 
 // const renderCocktailModal = new Render();
-headerLinkFav.addEventListener("click", onLinkClick)
+headerLinkFav.addEventListener('click', onLinkClick);
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
 
@@ -184,16 +184,21 @@ function onModalBurgerClick(event) {
 
 // =============== SEARCH INPUT ===============
 // TODO
+refs.searchField.addEventListener('input', onSearchInput);
 
+function onSearchInput(event) {}
 
 // =============== FILTER ===============
 // TODO
-refs.alphabet.addEventListener('click', onFilterSymbolClick)
+refs.alphabet.addEventListener('click', onFilterSymbolClick);
 
 function onFilterSymbolClick(event) {
   if (event.target.nodeName === 'LI') {
-    listCocktails.fetchCocktailByLetter(event.target.dataset.jsQuery).then(data => {
-      listRender.renderList(data)})
-      event.target.closest(".custom-list").dataset.render = 'stop-render'
+    listCocktails
+      .fetchCocktailByLetter(event.target.dataset.jsQuery)
+      .then(data => {
+        listRender.renderList(data);
+      });
+    event.target.closest('.custom-list').dataset.render = 'stop-render';
   }
 }
