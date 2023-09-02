@@ -24,7 +24,6 @@ export default class CocktailAPI {
     });
 
     try {
-      console.log(`${this.baseURL}${this.endPointCocktails}?${PARAMS}`)
       const response = await axios.get(
         `${this.baseURL}${this.endPointCocktails}?${PARAMS}`
       );
@@ -45,7 +44,6 @@ export default class CocktailAPI {
     });
 
     try {
-      console.log(`${this.baseURL}${this.endPointCocktails}?${PARAMS}`)
       const response = await axios.get(
         `${this.baseURL}${this.endPointCocktails}?${PARAMS}`
       );
@@ -207,3 +205,4 @@ export default class CocktailAPI {
   }
   
 }
+

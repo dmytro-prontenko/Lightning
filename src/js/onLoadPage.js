@@ -4,7 +4,6 @@ import { btnUp } from './button-to-up.js';
 import { refs } from './refs';
 import _debounce from 'debounce';
 
-
 btnUp.addEventListener();
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
@@ -84,6 +83,8 @@ reRenderFilter();
 window.addEventListener('resize', reRenderFilter);
 
 function reRenderStartCoctailList() {
+  if (refs.alphabet.dataset.render === 'stop-render') return;
+
   if (windowWidth < 768) {
     listRender.renderAlphabetForMob(dataAlphabet);
     listCocktails.fetchCocktail(startRenderTablMobCocktail).then(data => {

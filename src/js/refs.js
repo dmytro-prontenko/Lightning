@@ -1,5 +1,6 @@
 export const refs = {
   cocktailsList: document.querySelector('.cocktails-list'),
+  cocktailsTitle:document.querySelector(".cocktails-section-title"),
   learnMoreBtn: document.querySelector('.learn-more'),
   favBtn: document.querySelector('.fav-btn'),
   modalCocktail: document.querySelector('.modal-cocktail'),
@@ -17,6 +18,7 @@ export const refs = {
   headerLinkFav: document.querySelector(".header-nav-link-fav"),
   favMenu: document.querySelector(".header-favorite-menu"),
   select: document.querySelector('.custom-list-select'),
+  dropDownList: document.querySelector(".drop-down__list"),
   body: document.body,
 };
 

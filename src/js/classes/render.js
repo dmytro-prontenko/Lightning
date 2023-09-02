@@ -4,7 +4,7 @@ import { loadFromLocal } from '../storage.js';
 import icons from '../../images/icons.svg';
 
 export default class Render {
-  constructor() {}
+  constructor() { }
   /*
 │ =========================
 │  Рендер масиву коктейлів
@@ -41,7 +41,7 @@ export default class Render {
                 </svg>`;
         return;
       } else {
-        addToFavBtn.target.dataset.inLocalStorage = 'notInStorage';
+        addToFavBtn.dataset.inLocalStorage = 'notInStorage';
       }
     } else {
       Notiflix.Report.failure(
@@ -219,13 +219,17 @@ export default class Render {
       );
     }
   }
-
+  /*
+  │ =========================
+  │    Рендер алфавіту
+  │ =========================
+  */
   renderAlphabet(arr) {
     if (Array.isArray(arr)) {
       const alphabetList = arr
         .map(
           letter => `
-              <li class="custom-list-item"><button type="button" class="alphabet-btn" data-js-query="${letter}">${letter}</button></li>
+              <li class="custom-list-item" data-js-query="${letter}">${letter}</li>
         `
         )
         .join('');
@@ -239,35 +243,41 @@ export default class Render {
     }
   }
 
-  renderAlphabetForMob(arr) {
-    if (Array.isArray(arr)) {
-      const alphabetList = arr
-        .map(
-          letter => `
+ 
+    /*
+    │ =============================
+    │    Рендер алфавіту мобільна
+    │ =============================
+    */
+
+    renderAlphabetForMob(arr) {
+      if (Array.isArray(arr)) {
+        const alphabetList = arr
+          .map(
+            letter => `
           <option class="alphabet-select" value="${letter}">
           ${letter}
           </option>
          `
-        )
-        .join('');
-      refs.select.innerHTML = alphabetList;
-    } else {
-      Notiflix.Report.failure(
-        'ERROR',
-        'Oops! Something went wrong! Try reloading the page!',
-        'Okay'
-      );
+          )
+          .join('');
+        refs.select.innerHTML = alphabetList;
+      } else {
+        Notiflix.Report.failure(
+          'ERROR',
+          'Oops! Something went wrong! Try reloading the page!',
+          'Okay'
+        );
+      }
     }
-  }
-  /*
-│ =========================
-│    Рендер бургер меню
-│ =========================
-*/
-  renderBurgerModal() {
-    // додані класи header-link-burger  search-form-burger
-
-    const burgerModalMarkup = `
+    /*
+  │ =========================
+  │    Рендер бургер меню
+  │ =========================
+  */
+    renderBurgerModal() {
+      
+      const burgerModalMarkup = `
     <div class="modal-burger container">
 
     <div class="header-burger-wrap">
@@ -332,19 +342,7 @@ export default class Render {
     </div>
   </div>`;
 
-    refs.modalBurger.innerHTML = burgerModalMarkup;
+      refs.modalBurger.innerHTML = burgerModalMarkup;
+    }
   }
-}
 
-      // <ul class="modal-navi-list">
-      //   <li class="modal-navi-item">
-      //     <a href="favorite-cocktails.html" class="header-fav-unact"
-      //       >Favorite cocktails</a
-      //     >
-      //   </li>
-      //   <li class="modal-navi-item">
-      //     <a href="favorite-ingridients.html" class="header-fav-unact"
-      //       >Favorite ingredients</a
-      //     >
-      //   </li>
-      // </ul>

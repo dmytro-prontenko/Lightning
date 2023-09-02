@@ -4,11 +4,11 @@ import DropDownList from './classes/drop-down-search';
 import { refs } from './refs';
 import { saveToLocal, loadFromLocal, removeFromLocal } from './storage.js';
 import icons from '../images/icons.svg';
-import {headerLinkFav, favMenu, onLinkClick} from './header.js'
+import { headerLinkFav, favMenu, onLinkClick } from './header.js';
 refs.cocktailsList.addEventListener('click', onClick);
 
 // const renderCocktailModal = new Render();
-headerLinkFav.addEventListener("click", onLinkClick)
+headerLinkFav.addEventListener('click', onLinkClick);
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
 
@@ -167,9 +167,6 @@ function onBurgerMenuClick(event) {
   }
 }
 
-const buttonModalClose = document.querySelector('.btn-close');
-buttonModalClose.addEventListener('click', onBurgerModalClose);
-
 function onModalBurgerClick(event) {
   if (
     (event.target.nodeName === 'svg' &&
@@ -183,24 +180,26 @@ function onModalBurgerClick(event) {
   }
 }
 
-function onBurgerModalClose(event) {
-  console.log(event.target);
-}
-
 //TODO реалізувати закриття модалки при кліку на backdrop + Esc
 
 // =============== SEARCH INPUT ===============
 // TODO
-// 1. Підключити Slimselect до Search
-// 2. На подію інпут додати debounce для відправки запиту на апі
-// 3. Відрендерити список
-
 refs.searchField.addEventListener('input', onSearchInput);
-console.log(refs.searchField);
 
-const dropDownSearch = new DropDownList({ element: refs.searchField, data });
+function onSearchInput(event) {}
 
-function onSearchInput(event) {
-  // dropDownSearch.DropDownList({ element: refs.searchField, data });
+// =============== FILTER ===============
+// TODO
+refs.alphabet.addEventListener('click', onFilterSymbolClick);
+
+function onFilterSymbolClick(event) {
+  if (event.target.nodeName === 'LI') {
+    listCocktails
+      .fetchCocktailByLetter(event.target.dataset.jsQuery)
+      .then(data => {
+        listRender.renderList(data);
+      });
+    event.target.closest('.custom-list').dataset.render = 'stop-render';
+    refs.cocktailsTitle.scrollIntoView({behavior: 'smooth'})
+  }
 }
-
