@@ -356,7 +356,7 @@ export default class Render {
     const markupBtns = arrMarkupBtns.join('');
     refs.paginationContainer.innerHTML = markupBtns;
   }
-
+  
       
     }
   

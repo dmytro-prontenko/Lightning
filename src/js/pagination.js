@@ -1,24 +1,29 @@
 import CocktailAPI from './classes/cocktailAPI';
 import Render from './classes/render';
 import { refs } from './refs';
+import Notiflix from 'notiflix';
 
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
 const itemsPerPage = 9;
+let arrCocktail = [];
 
 refs.alphabet.addEventListener('click', onFilterSymbolClick);
 
-function onFilterSymbolClick(event) {
+async function onFilterSymbolClick(event) {
+    arrCocktail = [];
+    refs.paginationContainer.innerHTML = "";
     if (event.target.nodeName === 'LI') {
-        listCocktails
+        await listCocktails
         .fetchCocktailByLetter(event.target.dataset.jsQuery)
         .then(data => {
-           const pagObj = createPaginationObject(data, itemsPerPage);
-           listRender.renderPaginationBtns(Object.keys(pagObj).length);
-           console.log(Object.keys(pagObj));
+        data.forEach(el => {arrCocktail.push(el)});
             });
     event.target.closest('.custom-list').dataset.render = 'stop-render';
     refs.cocktailsTitle.scrollIntoView({behavior: 'smooth'})
+    const pagObj = createPaginationObject(arrCocktail, itemsPerPage);
+    Notiflix.Notify.info(`Found ${arrCocktail.length} cocktails!`)
+    if(Object.keys(pagObj).length>1) listRender.renderPaginationBtns(Object.keys(pagObj).length);
     };
 };
 
