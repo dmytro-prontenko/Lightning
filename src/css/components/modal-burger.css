@@ -131,6 +131,12 @@
     width: 768px;
       max-height: 1024px;
   }
+  .search-form-burger{
+    display: none;
+  }
+  .header-burger-wrap{
+    margin-bottom: 251px;
+  }
 }
 @media screen and (min-width: 1280px) {
   .modal-burger-container {
