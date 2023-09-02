@@ -177,7 +177,7 @@
 
   .alphabet-conteiner {
     max-width: 904px;
-    margin: 520px auto 0 117px;
+    margin: 520px auto  0 auto;
   }
 
   .custom-list-select {
@@ -197,7 +197,7 @@
   }
 
   .custom-list {
-    display: flex;
+    display: none;
     flex-direction: row;
     gap: 20px 8px;
     flex-wrap: wrap;
@@ -223,14 +223,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .section {
-    padding: 100px 0;
-  }
-  .container {
-    max-width: 768px;
-    padding: 0 32px;
-  }
-
+  
   .rent-side {
     display: flex;
     margin-top: 114px;
