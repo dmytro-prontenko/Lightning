@@ -1,3 +1,8 @@
+@media screen and (max-width: 320px) {
+  .modal-burger.container {
+    padding-left: 5px;
+  }
+}
 @media screen and (max-width: 375px) {
   .modal-burger-container {
     width: 375px;
@@ -11,9 +16,9 @@
   left: 0;
   top: 0;
   height: 100%;
-  /* width: 100%; */
-  min-width: 320px;
-  max-width: 375px;
+  width: 100%;
+  /* min-width: 320px;
+  max-width: 375px; */
   background: var(--general-violet-color);
   padding: 20px 20px;
   overflow-y: auto;
@@ -69,18 +74,21 @@
   padding: 0;
   position: relative;
   margin-bottom: 100px;
+  /* margin-left: auto;
+  margin-right: auto; */
   /* margin-left: 280px; */
   /* display: none; */
   /* margin-right: 29px; */
 }
 
 .search-form-burger__input {
-  max-width: 280px;
+  /* max-width: 280px; */
   height: 40px;
   border-radius: 80.179px;
   border: 2px solid var(--text-white-color);
   background-color: transparent;
   padding-left: 42px;
+  
 }
 .search-form-burger__input::placeholder {
   color: rgba(253, 253, 255, 0.2);
