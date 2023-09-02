@@ -4,7 +4,7 @@ import { loadFromLocal } from '../storage.js';
 import icons from '../../images/icons.svg';
 
 export default class Render {
-  constructor() {}
+  constructor() { }
   /*
 │ =========================
 │  Рендер масиву коктейлів
@@ -130,7 +130,7 @@ export default class Render {
             <h3 class="cocktail-name">${arr[0].type}</h3>
             <p class="ing-des">${arr[0].description}</p>
             <ul class="ing-info-list">
-            <li class="ing-info-item">Type: ${arr[0].alcohol === "Yes" ? "Alcoholic":"Non-Alcoholic"}</li>
+            <li class="ing-info-item">Type: ${arr[0].alcohol === "Yes" ? "Alcoholic" : "Non-Alcoholic"}</li>
             <li class="ing-info-item">Country of origin: ${arr[0].country}</li>
             <li class="ing-info-item">Alcohol by volume: ${arr[0].abv}</li>
             <li class="ing-info-item">Flavour: ${arr[0].flavour}</li>
@@ -201,7 +201,7 @@ export default class Render {
           card => `
               <li id=${card._id} class="cocktails-item">
                 <h2 class="cocktails-title">${card.title}</h2>
-                <h3 class="alco-title">${card.alcohol === "Yes" ? "Alcoholic":"Non-Alcoholic"}</h3>
+                <h3 class="alco-title">${card.alcohol === "Yes" ? "Alcoholic" : "Non-Alcoholic"}</h3>
                 <p class="ing-des">${card.description}</p>
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more"><span class="learn-more-text">Learn More</span></button>
@@ -222,11 +222,11 @@ export default class Render {
       );
     }
   }
-/*
-│ =========================
-│    Рендер алфавіту
-│ =========================
-*/
+  /*
+  │ =========================
+  │    Рендер алфавіту
+  │ =========================
+  */
   renderAlphabet(arr) {
     if (Array.isArray(arr)) {
       const alphabetList = arr
@@ -245,17 +245,19 @@ export default class Render {
       );
     }
   }
-/*
-│ =============================
-│    Рендер алфавіту мобільна
-│ =============================
-*/
 
-    renderAlphabetForMob(arr) {
+ 
+  /*
+  │ =============================
+  │    Рендер алфавіту мобільна
+  │ =============================
+  */
+
+  renderAlphabetForMob(arr) {
     if (Array.isArray(arr)) {
       const alphabetList = arr
         .map(
-          letter =>`
+          letter => `
           <option class="alphabet-select" value="${letter}">
           ${letter}
           </option>`
@@ -269,59 +271,77 @@ export default class Render {
         'Okay'
       );
     }
-  }
-/*
-│ =========================
-│    Рендер бургер меню
-│ =========================
-*/
-  renderBurgerModal() {
-    const burgerModalMarkup = `
-    <div class="modal-burger">
-    <a href="#" class="header-link"
-      >Drinkify
-      <svg class="header-svg" width="24" height="20">
-        <use href="./images/icons.svg#icon-hero-logo-cocktail"></use>
-      </svg>
+    /*
+  │ =========================
+  │    Рендер бургер меню
+  │ =========================
+  */
+      
+      const burgerModalMarkup = `
+    <div class="modal-burger container">
+
+    <div class="header-burger-wrap">
+    <a href="index.html" class=" header-link-burger">Drinkify
+        <svg class="header-svg-burger" width="24" height="20">
+            <use xlink:href="${icons}#icon-hero-logo-cocktail"></use>
+        </svg>
     </a>
 
-    <label class="toggle-modal">
-      <input class="toggle-checkbox" type="checkbox" />
-      <div class="toggle-switch"></div>
-    </label>
+     <div class="burger-wrap">
+  <label class="toggle-modal">
+    <input class="toggle-checkbox" type="checkbox" />
+    <div class="toggle-switch toggle-switch-burger"></div>
+  </label>
 
-    <button type="button" class="btn-close">
-      Close button
-      <svg class="close-btn-cock-svg" id="js-close-modal-cockt-svg">
-        <use xlink:href="#"></use>
-      </svg>
-    </button>
+  <button type="button" class="btn-close btn-close-burg">
+    <svg class=" close-btn-svg close-btn-svg-burger" width="32" height="32" >
+      <use xlink:href="${icons}#icon-close"></use>
+    </svg>
+  </button>
+</div>
+</div>
+
+
+   
+<form class="search-form-burger" id="search-form">
+  <input
+    class="search-form-burger__input"
+    id="input"
+    type="text"
+    name="searchQuery"
+    autocomplete="off"
+    placeholder="Search"
+  />
+  <svg class="svg-search svg-search-burger" width="16" height="16">
+    <use xlink:href="${icons}#icon-search"></use>
+  </svg>
+</form>
+
 
     <div class="modal-navi">
-      <a class="modal-nav-item" href="index.html">Home</a>
+      <a class="modal-nav-item modal-navi-ul" href="index.html">Home</a>
 
-      <button type="button">
+      <button type="button" class=" modal-navi-ul">
         Favorites
         <svg class="header-arrow" width="12" height="6">
-          <use href="./images/icons.svg#icon-header-arrow-down"></use>
+          <use xlink:href="${icons}#icon-header-arrow-down"></use>
         </svg>
       </button>
-
-      <ul>
-        <li>
-          <a href="favorite-cocktails.html" class="header-fav-unact"
-            >Favorite cocktails</a
-          >
-        </li>
-        <li>
-          <a href="favorite-ingridients.html" class="header-fav-unact"
-            >Favorite ingredients</a
-          >
-        </li>
-      </ul>
+  <ul class="header-favorite-menu">
+              <li>
+                <a href="favorite-cocktails.html" class="header-fav-unactive"
+                  >Favorite cocktails</a
+                >
+              </li>
+              <li>
+                <a href="favorite-ingridients.html" class="header-fav-unactive"
+                  >Favorite ingredients</a
+                >
+              </li>
+            </ul>
     </div>
   </div>`;
 
-    refs.modalBurger.innerHTML = burgerModalMarkup;
+      refs.modalBurger.innerHTML = burgerModalMarkup;
+    }
   }
-}
