@@ -22,6 +22,7 @@ export const refs = {
   alcoholic: document.querySelector(".alco-title"),
   viewCoctailsBtn: document.querySelector(".cocktails-btn"),
   paginationContainer: document.querySelector(".pagination-container"),
+  paginationBtn: document.querySelector(".pagination-page"),
   body: document.body,
 };
 

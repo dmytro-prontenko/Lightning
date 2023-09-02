@@ -5,23 +5,23 @@ import { refs } from './refs';
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
 const itemsPerPage = 9;
+const arrCocktail = [];
 
 refs.alphabet.addEventListener('click', onFilterSymbolClick);
-
 function onFilterSymbolClick(event) {
     if (event.target.nodeName === 'LI') {
         listCocktails
         .fetchCocktailByLetter(event.target.dataset.jsQuery)
         .then(data => {
-           const pagObj = createPaginationObject(data, itemsPerPage);
-           listRender.renderPaginationBtns(Object.keys(pagObj).length);
-           console.log(Object.keys(pagObj));
+        data.forEach(el => {arrCocktail.push(el)});
             });
     event.target.closest('.custom-list').dataset.render = 'stop-render';
     refs.cocktailsTitle.scrollIntoView({behavior: 'smooth'})
     };
 };
 
+const pagObj = createPaginationObject(arrCocktail, itemsPerPage);
+listRender.renderPaginationBtns(Object.keys(pagObj).length);
 
 
 function createPaginationObject(values, itemsPerPage) {
