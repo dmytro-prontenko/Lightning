@@ -198,6 +198,7 @@
     height: 40px;
     border-radius: 8px;
     background: rgba(126, 143, 221, 0.4);
+ 
   }
 
   .alphabet-btn {
@@ -398,6 +399,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    
   }
 
   .custom-list-item {
@@ -408,12 +410,10 @@
     height: 40px;
     border-radius: 8px;
     background: rgba(126, 143, 221, 0.4);
-  }
-
-  .alphabet-btn {
     color: #fdfdff;
     font-weight: 600;
     font-size: 20px;
+    cursor:pointer;
   }
 }
 
