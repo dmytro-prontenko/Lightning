@@ -7,22 +7,28 @@
   .modal-burger-container {
     width: 375px;
     max-height: 812px;
+    margin: 0 auto;
   }
 }
 
-
+ .backdrop.modal-burger-container{
+overflow: hidden;
+ }
  .modal-burger {
   position: fixed;
-  left: 0;
-  top: 0;
+  top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  /* left: 0;
+  top: 0; */
   height: 100%;
   width: 100%;
   /* min-width: 320px;
   max-width: 375px; */
   background: var(--general-violet-color);
   padding: 20px 20px;
-  overflow-y: auto;
-  z-index: 3000;
+  /* overflow: hidden; */
+  z-index: 150;
  
 } 
 .header-burger-wrap { 
@@ -130,6 +136,8 @@
   .modal-burger-container {
     width: 768px;
       max-height: 1024px;
+      
+      /* background-image: url(../../images/bg-image.png)50% 50% no-repeat;; */
   }
   .search-form-burger{
     display: none;
