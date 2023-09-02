@@ -145,13 +145,19 @@ export default class CocktailAPI {
   // Отримання обраних коктейлів в модалці (з localStorage)
 
   async fetchFavorites(key) {
-    const favCocktailIds = loadFromLocal(key);
-    const cocktailIds = favCocktailIds;
-    const cocktailDetailsArray = [];
-    for (const cocktailId of cocktailIds) {
-      const cocktailDetails = await this.fetchCocktailByID(cocktailId);
-      if (cocktailDetails) {
-        cocktailDetailsArray.push(cocktailDetails[0]);
+    const favIds = loadFromLocal(key);
+    const ids = favIds;
+    const detailsArray = [];
+    for (const id of ids) {
+      let details
+      if (key === 'cocktails') {
+        details = await this.fetchCocktailByID(id);
+      }
+      else if (key === 'ingredients') {
+        details = await this.fetchIngrByID(id);
+      }
+      if (details) {
+        detailsArray.push(details[0]);
       } else {
         Notiflix.Report.failure(
           'ERROR',
@@ -161,19 +167,16 @@ export default class CocktailAPI {
         break;
       }
     }
-    return cocktailDetailsArray;
+    return detailsArray;
   }
 
   //==========================================================
   // Отримання обраних інгридієнтів в модалці (з localStorage)
 
   async fetchIngrByID(id) {
-    // const PARAMS = new URLSearchParams({
-    //   id,
-    // });
     try {
       const response = await axios.get(
-        `${this.baseURL}${this.endPointIngredients}${PARAMS}`
+        `${this.baseURL}${this.endPointIngredients}${id}`
       );
       const ingredientDetails = response.data;
       return ingredientDetails;

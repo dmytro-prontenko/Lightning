@@ -19,6 +19,7 @@ export const refs = {
   favMenu: document.querySelector(".header-favorite-menu"),
   select: document.querySelector('.custom-list-select'),
   dropDownList: document.querySelector(".drop-down__list"),
+  alcoholic: document.querySelector(".alco-title"),
   body: document.body,
 };
 
