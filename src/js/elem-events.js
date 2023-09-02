@@ -167,9 +167,6 @@ function onBurgerMenuClick(event) {
   }
 }
 
-const buttonModalClose = document.querySelector('.btn-close');
-buttonModalClose.addEventListener('click', onBurgerModalClose);
-
 function onModalBurgerClick(event) {
   if (
     (event.target.nodeName === 'svg' &&
@@ -183,24 +180,7 @@ function onModalBurgerClick(event) {
   }
 }
 
-function onBurgerModalClose(event) {
-  console.log(event.target);
-}
-
 //TODO реалізувати закриття модалки при кліку на backdrop + Esc
 
 // =============== SEARCH INPUT ===============
 // TODO
-// 1. Підключити Slimselect до Search
-// 2. На подію інпут додати debounce для відправки запиту на апі
-// 3. Відрендерити список
-
-refs.searchField.addEventListener('input', onSearchInput);
-console.log(refs.searchField);
-
-const dropDownSearch = new DropDownList({ element: refs.searchField, data });
-
-function onSearchInput(event) {
-  // dropDownSearch.DropDownList({ element: refs.searchField, data });
-}
-
