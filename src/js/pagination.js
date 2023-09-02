@@ -13,6 +13,7 @@ refs.alphabet.addEventListener('click', onFilterSymbolClick);
 async function onFilterSymbolClick(event) {
     arrCocktail = [];
     refs.paginationContainer.innerHTML = "";
+    let pagObj={}
     if (event.target.nodeName === 'LI') {
         await listCocktails
         .fetchCocktailByLetter(event.target.dataset.jsQuery)
@@ -21,10 +22,17 @@ async function onFilterSymbolClick(event) {
             });
     event.target.closest('.custom-list').dataset.render = 'stop-render';
     refs.cocktailsTitle.scrollIntoView({behavior: 'smooth'})
-    const pagObj = createPaginationObject(arrCocktail, itemsPerPage);
+    pagObj = createPaginationObject(arrCocktail, itemsPerPage);
     Notiflix.Notify.info(`Found ${arrCocktail.length} cocktails!`)
-    if(Object.keys(pagObj).length>1) listRender.renderPaginationBtns(Object.keys(pagObj).length);
+    
+        if (Object.keys(pagObj).length > 1) {
+            listRender.renderPaginationBtns(Object.keys(pagObj).length);
+            listRender.renderList(pagObj.page_1);
+        } else {
+            listRender.renderList(pagObj.page_1);
+        }
     };
+    console.log(pagObj);
 };
 
 
@@ -36,9 +44,8 @@ function createPaginationObject(values, itemsPerPage) {
         const startIdx = (page - 1) * itemsPerPage;
         const endIdx = startIdx + itemsPerPage;
         const pageValues = values.slice(startIdx, endIdx);
-        paginationObject[page] = pageValues;
+        paginationObject['page_'+page] = pageValues;
     }
-    console.log(paginationObject);
     return paginationObject;
 }
 

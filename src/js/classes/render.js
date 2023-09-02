@@ -351,7 +351,7 @@ export default class Render {
   renderPaginationBtns(quant) {
     const arrMarkupBtns = [];
     for (let i = 1; i <= quant; i++) {
-      arrMarkupBtns.push(`<button type="button" class="pagination-page" id="${i}">${i}</button>`)
+      arrMarkupBtns.push(`<button type="button" class="pagination-page" id="page_${i}">${i}</button>`)
     }
     const markupBtns = arrMarkupBtns.join('');
     refs.paginationContainer.innerHTML = markupBtns;
