@@ -1,6 +1,7 @@
 import CocktailAPI from './cocktailAPI';
 import Render from './render';
 import { refs } from '../refs';
+import { gsap } from 'gsap';
 
 const itemForDropDown = new CocktailAPI();
 const renderInputedCocktail = new Render();
@@ -47,14 +48,18 @@ class DropDownList {
     this.bind();
   }
 
-  _onDocumentKeyDown({ keyCode }) {
-    // console.log(keyCode);
+  _onDocumentKeyDown({keyCode}) {
   }
 
   _onElementInput({ target }) {
     this.removeList();
 
     if (!target.value) {
+      gsap.to('.images-wrapper', {
+        x: 0,
+        duration: 0.1,
+        // delay: 0.2,
+      });
       return;
     }
 
@@ -64,6 +69,12 @@ class DropDownList {
       )
     );
     this.appendList();
+
+    gsap.to('.images-wrapper', {
+      x: 400,
+      duration: 0.1,
+      // delay: 0.2,
+    });
   }
 
   _onItemListClick({ target }) {
@@ -74,6 +85,11 @@ class DropDownList {
     refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
     refs.searchField.value = '';
     this.removeList();
+    gsap.to('.images-wrapper', {
+      x: 0,
+      duration: 0.2,
+      // delay: 0.2,
+    });
   }
 
   createList(data) {
