@@ -5,6 +5,7 @@ const listCocktails = new CocktailAPI();
 const listRender = new Render();
 
 
-listCocktails.fetchFavorites('cocktails').then(data => {
+listCocktails.fetchFavorites('ingredients').then(data => {
     listRender.renderFavIngPage(data)
 })
+

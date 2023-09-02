@@ -9,6 +9,7 @@
   .rent-side {
     display: flex;
     margin-top: 0;
+    flex-direction: column;
   }
 
   .right-side-container {
@@ -20,23 +21,21 @@
   }
 
   .hero-title {
-    color: #242424;
+    color: var #242424;
     font-family: Poppins;
-    font-size: 44px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 400;
-    line-height: 48px;
-
-    width: 384px;
+    line-height: 38px;
   }
 
   .hero-title-span {
     color: #7e8fdd;
     font-family: Poppins;
-    font-size: 44px;
+    font-size: 32px;
     font-style: italic;
     font-weight: 400;
-    line-height: 48px;
+    line-height: 38px;
   }
 
   .hero-text {
@@ -45,48 +44,49 @@
 
     color: #242424;
     font-family: Poppins;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 26px;
   }
 
   .hero-img-text {
-    width: 198px;
-    height: 48px;
+    width: 173px;
+    height: 40px;
     color: #242424;
     letter-spacing: 0.36px;
     text-transform: uppercase;
-    margin-top: 51px;
+    margin-top: 70px;
     margin-left: auto;
     margin-right: auto;
     font-family: Poppins;
-    font-size: 15px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 500;
     line-height: 24px;
     position: absolute;
-    transform: translate(27%, 760%);
+    transform: translate(79px, 365px);
   }
 
   .cocktails-btn {
-    margin-right: auto;
-    margin-top: 56px;
-    display: flex;
-    padding: 22px 44px;
-    align-items: flex-start;
-    gap: 10px;
-    border-radius: 12px;
-    background: #7e8fdd;
-
     color: #fdfdff;
-    font-family: Poppins;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
     letter-spacing: 0.36px;
     text-transform: uppercase;
+    background: #7e8fdd;
+
+    border-radius: 12px;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 42px;
+    margin-right: auto;
+    padding: 14px 28px;
+
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    display: flex;
   }
 
   /**
@@ -101,18 +101,18 @@
 
   .hero-img {
     position: absolute;
-    z-index: 100;
+    z-index: 1;
     top: 54%;
     left: 84%;
-    transform: translate(-10.7%, -16%);
+    transform: translate(1px, 43px);
 
     width: 333px;
     height: 451px;
   }
 
   .icon-hero-background {
-    width: 293px;
-    height: 417px;
+    width: 230px;
+    height: 338px;
     flex-shrink: 0;
     color: #7e8fdd;
     background-color: #7e8fdd;
@@ -122,51 +122,51 @@
     position: absolute;
     top: 55%;
     left: 90%;
-    transform: translate(1.5%, -9%);
+    transform: translate(50px, 70px);
   }
 
   .icon-hero-star-one {
+    width: 30px;
+    height: 30px;
     position: absolute;
     left: -5%;
-    transform: translate(-153%, 590%);
-    width: 46px;
-    height: 46px;
+    transform: translate(-2px, 330px);
   }
 
   .icon-hero-star-two {
     z-index: -1;
+    width: 120px;
+    height: 120px;
     position: absolute;
-
-    width: 160px;
-    height: 160px;
-
     left: 170%;
-    transform: translate(124%, -75%);
+    transform: translate(219px, 12px);
   }
 
   .icon-round-one {
     position: absolute;
     top: 1%;
     left: 140%;
-    transform: translate(1000%, -400%);
+    transform: translate(180px, 30px);
+    width: 12px;
+    height: 12px;
   }
 
   .icon-round-two {
+    width: 20px;
+    height: 20px;
     position: absolute;
     top: 112%;
     left: 40%;
-    transform: translate(70%, 2070%);
-    width: 20px;
-    height: 20px;
+    transform: translate(7px, 435px);
   }
 
   .icon-round-three {
+    width: 15px;
+    height: 15px;
     position: absolute;
     top: 118%;
     left: 170%;
-    transform: translate(1700%, 2996%);
-    width: 15px;
-    height: 15px;
+    transform: translate(265px, 480px);
   }
 
   /**
@@ -177,8 +177,23 @@
 
   .alphabet-conteiner {
     max-width: 904px;
-    margin: 132px auto 0;
-    margin-top: 500px;
+    margin: 520px auto 0 117px;
+  }
+
+  .custom-list-select {
+    width: 90px;
+    height: 34px;
+    color: #fdfdff;
+    cursor: pointer;
+    background: #7e8fdd66;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    border: none;
+    padding-left: 10px;
   }
 
   .custom-list {
@@ -198,7 +213,6 @@
     height: 40px;
     border-radius: 8px;
     background: rgba(126, 143, 221, 0.4);
- 
   }
 
   .alphabet-btn {
@@ -315,7 +329,7 @@
     z-index: 100;
     top: 54%;
     left: 84%;
-    transform: translate(-10.7%, -16%);
+    transform: translate(-36px, -71.6px);
 
     width: 333px;
     height: 451px;
@@ -399,7 +413,6 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    
   }
 
   .custom-list-item {
@@ -413,7 +426,7 @@
     color: #fdfdff;
     font-weight: 600;
     font-size: 20px;
-    cursor:pointer;
+    cursor: pointer;
   }
 }
 

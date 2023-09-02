@@ -90,38 +90,35 @@ function onClickModalCocktail(event) {
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.modalIngredient.classList.toggle('is-hidden');
+    console.log(listCocktails.fetchIngrByID(event.target.dataset.ingId)); 
+    listCocktails.fetchIngrByID(event.target.dataset.ingId).then(data => listRender.renderIngModal(data));
+
+
 
     //TODO переробити для інгридієнтів
     // modalCocktail.fetchCocktailByID(id).then(data => {
     //   listRender.renderModalCocktail(data);
     // });
 
-    refs.modalIngredient.innerHTML = `
-    <div class="modal-ing" id="123456">
-    <button type="button" class="btn-close">
-    <svg class="close-btn-svg" id="js-close-modal-ingr-svg">
-                <use xlink:href="${icons}#icon-close"></use>
-                </svg >
-                </button>
-    <h2 class="ing-name">Malina</h2>
-    <h3 class="cocktail-name">Malinovka</h3>
-    <p class="ing-des"><span class="first-word"></span></p>
-    <ul class="ing-info-list">
-    <li class="ing-info-item">Type: alcohol</li>
-    <li class="ing-info-item">Country of origin: Ukraine</li>
-    <li class="ing-info-item">Alcohol by volume: 30%</li>
-    <li class="ing-info-item">Flavour: sweet</li>
-</ul>
-<button type="button" class="add-to-fav-ing">Add to favorite</button>
-</div>
-`;
-
-    const addToFavBtnIng = document.querySelector('.add-to-fav-ing');
-
-    if (loadFromLocal('ingredients').includes('123456')) {
-      addToFavBtnIng.textContent = 'Remove from favorite';
-      return;
-    }
+//     refs.modalIngredient.innerHTML = `
+//     <div class="modal-ing" id="123456">
+//     <button type="button" class="btn-close">
+//     <svg class="close-btn-svg" id="js-close-modal-ingr-svg">
+//                 <use xlink:href="${icons}#icon-close"></use>
+//                 </svg >
+//                 </button>
+//     <h2 class="ing-name">Malina</h2>
+//     <h3 class="cocktail-name">Malinovka</h3>
+//     <p class="ing-des"><span class="first-word"></span></p>
+//     <ul class="ing-info-list">
+//     <li class="ing-info-item">Type: alcohol</li>
+//     <li class="ing-info-item">Country of origin: Ukraine</li>
+//     <li class="ing-info-item">Alcohol by volume: 30%</li>
+//     <li class="ing-info-item">Flavour: sweet</li>
+// </ul>
+// <button type="button" class="add-to-fav-ing">Add to favorite</button>
+// </div>
+// `;
   }
 }
 // =============== MODAL ING BUTTONS ===============
@@ -137,10 +134,10 @@ function onIngrCloseBtnClick(event) {
     refs.modalIngredient.classList.toggle('is-hidden');
     return;
   }
-
+console.log(event.target.dataset.ingId);
   if (
     event.target.nodeName === 'BUTTON' &&
-    event.target.className === 'add-to-fav-ing'
+    event.target.className === 'add-fav-ing'
   ) {
     const id = event.target.closest('.modal-ing').id;
     if (event.target.textContent === 'Remove from favorite') {

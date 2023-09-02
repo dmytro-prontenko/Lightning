@@ -50,7 +50,6 @@ export default class Render {
         'Okay'
       );
     }
-    // refs.favBtn = document.querySelector('.fav-btn');
   }
 
   /*
@@ -91,7 +90,7 @@ export default class Render {
       const ingToInsert = arr[0].ingredients
         .map(
           ing =>
-            `<li class="ingredients-modal-item"><button class="ingredient-list-item">${ing.title}</button></li>`
+            `<li class="ingredients-modal-item" data-ing-id="${ing.ingredientId}"><button class="ingredient-list-item" data-ing-id="${ing.ingredientId}">${ing.title}</button></li>`
         )
         .join('');
       ingridList.innerHTML = ingToInsert;
@@ -121,29 +120,29 @@ export default class Render {
       const ingrModal = arr
         .map(
           card => `
-            <div class="modal-ing">
+            <div class="modal-ing" id="${arr[0]._id}">
             <button type="button" class="btn-close">
             <svg class="close-btn-svg" id="js-close-modal-ingr-svg">
                 <use xlink:href="${icons}#icon-close"></use>
                 </svg >
                 </button>
-            <h2 class="ing-name">Malina</h2>
-            <h3 class="cocktail-name">Malinovka</h3>
-            <p class="ing-des"><span class="first-word"></span></p>
+            <h2 class="ing-name">${arr[0].title}</h2>
+            <h3 class="cocktail-name">${arr[0].type}</h3>
+            <p class="ing-des">${arr[0].description}</p>
             <ul class="ing-info-list">
-            <li class="ing-info-item">Type: alcohol</li>
-            <li class="ing-info-item">Country of origin: Ukraine</li>
-            <li class="ing-info-item">Alcohol by volume: 30%</li>
-            <li class="ing-info-item">Flavour: sweet</li>
+            <li class="ing-info-item">Type: ${arr[0].alcohol === "Yes" ? "Alcoholic" : "Non-Alcoholic"}</li>
+            <li class="ing-info-item">Country of origin: ${arr[0].country}</li>
+            <li class="ing-info-item">Alcohol by volume: ${arr[0].abv}</li>
+            <li class="ing-info-item">Flavour: ${arr[0].flavour}</li>
         </ul>
-        <button type="button" class="add-fav-ing">Add to favorite</button>
+        <button type="button" class="add-fav-ing" >Add to favorite</button>
     </div>
         `
         )
         .join('');
       refs.modalIngredient.innerHTML = ingrModal;
 
-      const addToFavBtnIng = document.querySelector('.add-to-fav-ing');
+      const addToFavBtnIng = document.querySelector('.add-fav-ing');
 
       if (loadFromLocal('ingredients').includes(arr[0]._id)) {
         addToFavBtnIng.textContent = 'Remove from favorite';
@@ -184,6 +183,7 @@ export default class Render {
         )
         .join('');
       refs.favCocktailsList.innerHTML = favPage;
+
     } else {
       Notiflix.Report.failure(
         'ERROR',
@@ -195,13 +195,14 @@ export default class Render {
 
   renderFavIngPage(arr) {
     if (Array.isArray(arr)) {
+      console.log(arr);
       const favIngPage = arr
         .map(
           card => `
               <li id=${card._id} class="cocktails-item">
-                <h2 class="${card.drink}"></h2>
-                <h3 class="${card.drink}"></h3>
-                <p class="ing-des">${elem.instructions}</p>
+                <h2 class="cocktails-title">${card.title}</h2>
+                <h3 class="alco-title">${card.alcohol === "Yes" ? "Alcoholic" : "Non-Alcoholic"}</h3>
+                <p class="ing-des">${card.description}</p>
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more"><span class="learn-more-text">Learn More</span></button>
                 <button type="button" class="del-btn"><span class="lel-btn-text">#</span></button>
@@ -211,6 +212,8 @@ export default class Render {
         )
         .join('');
       refs.ingredientsList.innerHTML = favIngPage;
+      
+
     } else {
       Notiflix.Report.failure(
         'ERROR',
@@ -244,39 +247,37 @@ export default class Render {
   }
 
  
-    /*
-    │ =============================
-    │    Рендер алфавіту мобільна
-    │ =============================
-    */
+  /*
+  │ =============================
+  │    Рендер алфавіту мобільна
+  │ =============================
+  */
 
-    renderAlphabetForMob(arr) {
-      if (Array.isArray(arr)) {
-        const alphabetList = arr
-          .map(
-            letter => `
+  renderAlphabetForMob(arr) {
+    if (Array.isArray(arr)) {
+      const alphabetList = arr
+        .map(
+          letter => `
           <option class="alphabet-select" value="${letter}">
           ${letter}
-          </option>
-         `
-          )
-          .join('');
-        refs.select.innerHTML = alphabetList;
-      } else {
-        Notiflix.Report.failure(
-          'ERROR',
-          'Oops! Something went wrong! Try reloading the page!',
-          'Okay'
-        );
-      }
+          </option>`
+        )
+        .join('');
+      refs.select.innerHTML = alphabetList;
+    } else {
+      Notiflix.Report.failure(
+        'ERROR',
+        'Oops! Something went wrong! Try reloading the page!',
+        'Okay'
+      );
     }
+  }
     /*
   │ =========================
   │    Рендер бургер меню
   │ =========================
   */
     renderBurgerModal() {
-      
       const burgerModalMarkup = `
     <div class="modal-burger container">
 
@@ -303,7 +304,7 @@ export default class Render {
 
 
    
-<form class="search-form-burger" id="search-form">
+<div class="search-form-burger" id="search-form">
   <input
     class="search-form-burger__input"
     id="input"
@@ -315,7 +316,7 @@ export default class Render {
   <svg class="svg-search svg-search-burger" width="16" height="16">
     <use xlink:href="${icons}#icon-search"></use>
   </svg>
-</form>
+</div>
 
 
     <div class="modal-navi">
@@ -341,8 +342,10 @@ export default class Render {
             </ul>
     </div>
   </div>`;
-
       refs.modalBurger.innerHTML = burgerModalMarkup;
     }
-  }
+
+      
+    }
+  
 
