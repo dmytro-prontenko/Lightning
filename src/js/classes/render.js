@@ -271,12 +271,13 @@ export default class Render {
         'Okay'
       );
     }
+  }
     /*
   │ =========================
   │    Рендер бургер меню
   │ =========================
   */
-      
+    renderBurgerModal() {
       const burgerModalMarkup = `
     <div class="modal-burger container">
 
@@ -303,7 +304,7 @@ export default class Render {
 
 
    
-<form class="search-form-burger" id="search-form">
+<div class="search-form-burger" id="search-form">
   <input
     class="search-form-burger__input"
     id="input"
@@ -315,7 +316,7 @@ export default class Render {
   <svg class="svg-search svg-search-burger" width="16" height="16">
     <use xlink:href="${icons}#icon-search"></use>
   </svg>
-</form>
+</div>
 
 
     <div class="modal-navi">
@@ -341,7 +342,10 @@ export default class Render {
             </ul>
     </div>
   </div>`;
-
       refs.modalBurger.innerHTML = burgerModalMarkup;
     }
-  }
+
+      
+    }
+  
+
