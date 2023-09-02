@@ -184,3 +184,16 @@ function onModalBurgerClick(event) {
 
 // =============== SEARCH INPUT ===============
 // TODO
+
+
+// =============== FILTER ===============
+// TODO
+refs.alphabet.addEventListener('click', onFilterSymbolClick)
+
+function onFilterSymbolClick(event) {
+  if (event.target.nodeName === 'LI') {
+    listCocktails.fetchCocktailByLetter(event.target.dataset.jsQuery).then(data => {
+      listRender.renderList(data)})
+      event.target.closest(".custom-list").dataset.render = 'stop-render'
+  }
+}

@@ -219,13 +219,17 @@ export default class Render {
       );
     }
   }
-
+/*
+│ =========================
+│    Рендер алфавіту
+│ =========================
+*/
   renderAlphabet(arr) {
     if (Array.isArray(arr)) {
       const alphabetList = arr
         .map(
           letter => `
-              <li class="custom-list-item"><button type="button" class="alphabet-btn" data-js-query="${letter}">${letter}</button></li>
+              <li class="custom-list-item" data-js-query="${letter}">${letter}</li>
         `
         )
         .join('');
@@ -238,7 +242,11 @@ export default class Render {
       );
     }
   }
-
+/*
+│ =============================
+│    Рендер алфавіту мобільна
+│ =============================
+*/
 
     renderAlphabetForMob(arr) {
     if (Array.isArray(arr)) {
