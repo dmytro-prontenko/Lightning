@@ -1,5 +1,6 @@
 export const refs = {
   cocktailsList: document.querySelector('.cocktails-list'),
+  cocktailsTitle:document.querySelector(".cocktails-section-title"),
   learnMoreBtn: document.querySelector('.learn-more'),
   favBtn: document.querySelector('.fav-btn'),
   modalCocktail: document.querySelector('.modal-cocktail'),

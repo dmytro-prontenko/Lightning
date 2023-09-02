@@ -70,6 +70,7 @@ class DropDownList {
     this.element.value = target.textContent;
     itemForDropDown
       .fetchCocktailByName(this.element.value).then(data => renderInputedCocktail.renderList(data))
+    refs.cocktailsTitle.scrollIntoView({behavior: 'smooth'})
     this.removeList();
   }
 

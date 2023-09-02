@@ -200,5 +200,6 @@ function onFilterSymbolClick(event) {
         listRender.renderList(data);
       });
     event.target.closest('.custom-list').dataset.render = 'stop-render';
+    refs.cocktailsTitle.scrollIntoView({behavior: 'smooth'})
   }
 }
