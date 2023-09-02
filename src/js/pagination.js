@@ -50,7 +50,6 @@ async function onFilterSymbolClick(event) {
     refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
     refs.btnPaginationBlock.addEventListener('click', onPaginationNavClick);
     function onPaginationNavClick(event) {
-      console.log(parseInt(event.target.id.match(/\d+/)));
        let pageInt = parseInt(event.target.id.match(/\d+/));
       if (pageInt > 1 && pageInt < Object.keys(pagObj).length) {
           refs.btnPaginationPrev.classList.remove('is-hidden')
