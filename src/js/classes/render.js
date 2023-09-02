@@ -128,7 +128,7 @@ export default class Render {
                 </button>
             <h2 class="ing-name">${arr[0].title}</h2>
             <h3 class="cocktail-name">${arr[0].type}</h3>
-            <p class="ing-des">${arr[0].description}</p>
+            <p class="ing-des-modal">${arr[0].description}</p>
             <ul class="ing-info-list">
             <li class="ing-info-item">Type: ${arr[0].alcohol === "Yes" ? "Alcoholic" : "Non-Alcoholic"}</li>
             <li class="ing-info-item">Country of origin: ${arr[0].country}</li>
@@ -205,7 +205,10 @@ export default class Render {
                 <p class="ing-des">${card.description}</p>
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more"><span class="learn-more-text">Learn More</span></button>
-                <button type="button" class="del-btn"><span class="lel-btn-text">#</span></button>
+                <button type="button" class="del-btn"><span class="lel-btn-text">
+                <svg class="del-btn-svg">
+                <use xlink:href="${icons}#icon-remove"></use>
+                </svg></span></button>
               </div>
           </li>
         `
