@@ -1,5 +1,5 @@
 import './js/fav-cocktails';
-import './js/onLoadPage.js';
+// import './js/onLoadPage.js';
 import './js/modal.js';
 import './js/classes/cocktailAPI.js';
 import './js/classes/render.js';

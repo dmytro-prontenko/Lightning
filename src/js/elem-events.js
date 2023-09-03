@@ -4,12 +4,11 @@ import DropDownList, { dropDownList } from './classes/drop-down-search';
 import { refs } from './refs';
 import { saveToLocal, loadFromLocal, removeFromLocal } from './storage.js';
 import icons from '../images/icons.svg';
-import {headerLinkFav, favMenu, onLinkClick, onBodyClick} from './header.js'
+import { headerLinkFav, favMenu, onLinkClick, onBodyClick } from './header.js';
 import Notiflix from 'notiflix';
 refs.cocktailsList.addEventListener('click', onClick);
 
 // const renderCocktailModal = new Render();
-headerLinkFav.addEventListener("click", onLinkClick)
 
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
@@ -66,6 +65,7 @@ function onClickModalCocktail(event) {
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
+    
     return;
   }
 
@@ -77,10 +77,15 @@ function onClickModalCocktail(event) {
     if (event.target.textContent === 'Remove from favorite') {
       removeFromLocal('cocktails', id);
       event.target.textContent = 'Add to favorite';
+
+
       return;
     }
 
     saveToLocal('cocktails', id);
+    // refs.favBtn.innerHTML = `<svg class="del-btn-svg">
+    // <use xlink:href="${icons}#icon-remove"></use>
+    // </svg>`;
     event.target.textContent = 'Remove from favorite';
   }
 
@@ -90,8 +95,10 @@ function onClickModalCocktail(event) {
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.modalIngredient.classList.toggle('is-hidden');
-    console.log(listCocktails.fetchIngrByID(event.target.dataset.ingId)); 
-    listCocktails.fetchIngrByID(event.target.dataset.ingId).then(data => listRender.renderIngModal(data));
+    console.log(listCocktails.fetchIngrByID(event.target.dataset.ingId));
+    listCocktails
+      .fetchIngrByID(event.target.dataset.ingId)
+      .then(data => listRender.renderIngModal(data));
   }
 }
 // =============== MODAL ING BUTTONS ===============
@@ -100,14 +107,14 @@ refs.modalIngredient.addEventListener('click', onIngrCloseBtnClick);
 function onIngrCloseBtnClick(event) {
   if (
     (event.target.nodeName === 'svg' &&
-    event.target.id === 'js-close-modal-ingr-svg') ||
+      event.target.id === 'js-close-modal-ingr-svg') ||
     event.target.nodeName === 'use'
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.modalIngredient.classList.toggle('is-hidden');
     return;
   }
-console.log(event.target.dataset.ingId);
+  console.log(event.target.dataset.ingId);
   if (
     event.target.nodeName === 'BUTTON' &&
     event.target.className === 'add-fav-ing'
@@ -157,18 +164,20 @@ function onModalBurgerClick(event) {
 // TODO
 refs.searchField.addEventListener('input', onSearchInput);
 function onSearchInput(event) {
-    refs.searchField.addEventListener('keydown', onEnterPress);
-};
+  refs.searchField.addEventListener('keydown', onEnterPress);
+}
 
 function onEnterPress(event) {
-  if (event.keyCode === 13 ) {
+  if (event.keyCode === 13) {
     if (event.target.value.length >= 3) {
-      listCocktails.fetchCocktailByName(event.target.value.trim()).then(data => listRender.renderList(data))
+      listCocktails
+        .fetchCocktailByName(event.target.value.trim())
+        .then(data => listRender.renderList(data));
       refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
       refs.searchField.value = '';
       dropDownList.removeList();
-    }else {
-    Notiflix.Notify.failure("Enter more than two symbols!")
+    } else {
+      Notiflix.Notify.failure('Enter more than two symbols!');
+    }
   }
-  }
-};
+}

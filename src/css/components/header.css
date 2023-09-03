@@ -145,7 +145,7 @@ nav {
 
 .header-favorite-menu {
   margin-top: 10px;
-  display: inline-flex;
+  /* display: inline-flex; */
   padding: 18px 24px;
   flex-direction: column;
   justify-content: center;
@@ -157,7 +157,7 @@ nav {
   top: 22px;
   left: 50px;
   position: absolute;
-  display: none;
+  /* display: none; */
   transition: left 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* #container1{
@@ -264,4 +264,17 @@ position: absolute;
   .toggle {
     display: inline-block;
   }
+}
+
+.header-favorite-menu {
+  opacity: 0; /* Начальное значение прозрачности */
+  transition: opacity 0.4s ease-in-out; /* Используем переход для прозрачности */
+}
+
+.show {
+  opacity: 1; /* Значение при показе */
+}
+
+.hide {
+  opacity: 0; /* Значение при скрытии */
 }
