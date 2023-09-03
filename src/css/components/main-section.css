@@ -180,11 +180,17 @@ border: 4px solid rgb(175, 198, 198);
         font-size: 16px;
         font-weight: 400;
         line-height: normal;
-       
         
 }
 
-.pagination-page:focus{
+.is-active {
+  color: #FDFDFF;
+  background: #9CDFDF;
+  outline: transparent;
+  cursor: not-allowed;
+}
+
+/* .pagination-page:focus{
   color: #FDFDFF;
   background: #9CDFDF;
   outline: transparent;
@@ -215,5 +221,5 @@ border: 4px solid rgb(175, 198, 198);
 }
 .pagination-svg-prev{
   fill: #7E8FDD;
- 
+
 }
