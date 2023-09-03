@@ -36,7 +36,9 @@ async function onFilterSymbolClick(event) {
     if (Object.keys(pagObj).length > 1) {
       listRender.renderPaginationBtns(Object.keys(pagObj).length);
       listRender.renderList(pagObj.page_1);
-      refs.btnPaginationNext.classList.remove("is-hidden")
+      refs.btnPaginationNext.classList.remove("is-hidden");
+      refs.paginationContainer.childNodes[0].classList.add("is-active")
+      refs.paginationContainer.childNodes[0].disabled = true;
     }
     else if(arrCocktail.length <= itemsPerPage.perPage) {
       listRender.renderList(pagObj.page_1);
@@ -46,45 +48,37 @@ async function onFilterSymbolClick(event) {
         refs.btnPaginationNext.classList.add("is-hidden")
         refs.btnPaginationPrev.classList.add("is-hidden")
       }
-      
-      
   }
 
 
   refs.paginationContainer.addEventListener('click', onClickPageChanges);
   function onClickPageChanges(event) {
     
-      currentPage = event.target.textContent;
+    currentPage = event.target.textContent;
   
-      listRender.renderList(pagObj[event.target.id]);
-      refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
+    listRender.renderList(pagObj[event.target.id]);
+    refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
     
-  }
+    if (event.target.nodeName === 'BUTTON') {
+      pageInt = Number(currentPage);
 
-  refs.btnPaginationBlock.addEventListener('click', onPaginationNavClick);
-    function onPaginationNavClick(event) {
-      // if (event.target.nodeName === 'BUTTON') {
-        pageInt = Number(currentPage);
-
-      changeStateCurrentPageNumber(event.target) 
-      
+      changeStateCurrentPageNumber(event.target)
       
       if (pageInt > 1 && pageInt < Object.keys(pagObj).length) {
-          refs.btnPaginationPrev.classList.remove('is-hidden')
-          refs.btnPaginationNext.classList.remove('is-hidden')
+        refs.btnPaginationPrev.classList.remove('is-hidden')
+        refs.btnPaginationNext.classList.remove('is-hidden')
       }
       else if (pageInt === 1) {
-          refs.btnPaginationNext.classList.remove('is-hidden') 
-          refs.btnPaginationPrev.classList.add('is-hidden')
+        refs.btnPaginationNext.classList.remove('is-hidden')
+        refs.btnPaginationPrev.classList.add('is-hidden')
           
       }
       else if (pageInt === Object.keys(pagObj).length) {
-          refs.btnPaginationNext.classList.add('is-hidden') 
-          refs.btnPaginationPrev.classList.remove('is-hidden')
+        refs.btnPaginationNext.classList.add('is-hidden')
+        refs.btnPaginationPrev.classList.remove('is-hidden')
       }
-      // }
-      }
-
+    }
+  }
 
     refs.btnPaginationNext.addEventListener('click', onNextClick)
     function onNextClick(event) {
@@ -126,8 +120,6 @@ refs.btnPaginationPrev.addEventListener('click', onPrevClick)
       console.log(event.target.nextElementSibling);
       changeStateCurrentPagePrevNext(event.target.nextElementSibling) 
 
-      
-
       if (pageInt > 1 && pageInt < Object.keys(pagObj).length) {
           refs.btnPaginationPrev.classList.remove('is-hidden')
           refs.btnPaginationNext.classList.remove('is-hidden')
@@ -138,7 +130,7 @@ refs.btnPaginationPrev.addEventListener('click', onPrevClick)
           
       }
       else if (pageInt === Object.keys(pagObj).length) {
-           refs.btnPaginationNext.classList.add('is-hidden') 
+          refs.btnPaginationNext.classList.add('is-hidden') 
           refs.btnPaginationPrev.classList.remove('is-hidden')
       }
 };
@@ -157,26 +149,27 @@ function createPaginationObject(values, itemsPerPage) {
   return paginationObject;
 }
 
-
-
-
 function changeStateCurrentPageNumber(target){
   for (const child of refs.paginationContainer.childNodes) {
-    child.classList.remove('is-active')
+    child.classList.remove('is-active');
+    child.disabled = false;
   };
   target.classList.add('is-active')
+  target.disabled = true;
 }
 
 
 function changeStateCurrentPagePrevNext(target) {
   for (const child of refs.paginationContainer.childNodes) {
-          child.classList.remove('is-active')
+    child.classList.remove('is-active')
+    child.disabled = false;
   };
   for (const child of refs.paginationContainer.childNodes) {
     if (Number(child.textContent) === currentPage) {
       child.classList.add('is-active')
-      break
-  }
+      child.disabled = true;
+      break;
+    }
   }  
 }
 
