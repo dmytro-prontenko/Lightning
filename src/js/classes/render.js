@@ -317,8 +317,8 @@ export default class Render {
         </div>
 
         <div class="burger-navi">
-    <a class="burger-navi-ul" href="index.html">Home</a>
-    <button  class="burger-navi-btn burger-navi-ul">
+    <a class="burger-navi-ul burger-home" href="index.html">Home</a>
+    <button type="button" class="burger-navi-btn burger-navi-ul">
         Favorite
         <svg class="burger-arrow" width="24" height="24">
             <use xlink:href="${icons}#icon-burger-arrow-down"></use>
