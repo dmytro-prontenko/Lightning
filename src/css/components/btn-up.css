@@ -3,9 +3,9 @@
     /* фиксированная позиция */
     background-color: #673ab7;
     /* цвет заднего фона */
-    right: 30px;
+    right: 5vw;
     /* расстояние от правого края */
-    bottom: 10px;
+    bottom: 10vh;
     /* расстояние от нижнего края */
     border-top-left-radius: 8px;
     /* скругление верхнего левого угла */
@@ -21,6 +21,7 @@
     width: 80px;
     height: 60px;
     opacity: 1;
+    margin-left: auto;
 }
 
 .btn-up::before {

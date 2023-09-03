@@ -1,19 +1,15 @@
 import Render from './classes/render';
 import CocktailAPI from './classes/cocktailAPI';
-import DropDownList, { dropDownList } from './classes/drop-down-search';
+import { dropDownList } from './classes/drop-down-search';
 import { refs } from './refs';
-import { saveToLocal, loadFromLocal, removeFromLocal } from './storage.js';
+import { saveToLocal, removeFromLocal } from './storage.js';
 import icons from '../images/icons.svg';
-import { headerLinkFav, favMenu, onLinkClick, onBodyClick } from './header.js';
 import Notiflix from 'notiflix';
-refs.cocktailsList.addEventListener('click', onClick);
 
-// const renderCocktailModal = new Render();
+refs.cocktailsList.addEventListener('click', onClick);
 
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
-
-//?? Чи будемо розносити по файлам fav-cocktails / fav-ingridients?
 
 function onClick(event) {
   // Details button event
@@ -22,7 +18,6 @@ function onClick(event) {
     event.target.className === 'learn-more'
   ) {
     console.log(event.target);
-    //TODO дописати логіку до кнопки на відкриття модалки
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
     const id = event.target.closest('.cocktails-item').id;
@@ -38,7 +33,6 @@ function onClick(event) {
     event.target.className === 'fav-btn'
   ) {
     const id = event.target.closest('.cocktails-item').id;
-    // console.log(event.target.dataset.inLocalStorage)
     if (event.target.dataset.inLocalStorage === 'inStorage') {
       removeFromLocal('cocktails', id);
       event.target.dataset.inLocalStorage = 'notInStorage';
@@ -83,9 +77,6 @@ function onClickModalCocktail(event) {
     }
 
     saveToLocal('cocktails', id);
-    // refs.favBtn.innerHTML = `<svg class="del-btn-svg">
-    // <use xlink:href="${icons}#icon-remove"></use>
-    // </svg>`;
     event.target.textContent = 'Remove from favorite';
   }
 
@@ -143,7 +134,7 @@ function onBurgerMenuClick(event) {
     listRender.renderBurgerModal();
     return;
   }
-}
+};
 
 function onModalBurgerClick(event) {
   if (
@@ -156,12 +147,11 @@ function onModalBurgerClick(event) {
     refs.body.classList.toggle('modal-open');
     return;
   }
-}
+};
 
-//TODO реалізувати закриття модалки при кліку на backdrop + Esc
 
 // =============== SEARCH INPUT ===============
-// TODO
+
 refs.searchField.addEventListener('input', onSearchInput);
 function onSearchInput(event) {
   refs.searchField.addEventListener('keydown', onEnterPress);
@@ -180,4 +170,4 @@ function onEnterPress(event) {
       Notiflix.Notify.failure('Enter more than two symbols!');
     }
   }
-}
+};
