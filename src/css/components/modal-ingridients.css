@@ -1,9 +1,8 @@
 
 .modal-ing {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: sticky;
+  top: 17%;
+
   max-width: 335px;
   /* max-height: 80%; */
   height: auto;
@@ -12,7 +11,7 @@
   background: var(--color-4);
   padding: 40px 20px;
   overflow-y: auto;
-  z-index: 100;
+  z-index: 10;
 }
 .cocktail-name::after {
   content: "";
@@ -31,7 +30,7 @@
 }
 
 
-.backdrop {
+/* .backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -42,13 +41,13 @@
     0,
     0,
     0.7
-  ); /* Затемнение с полупрозрачным черным цветом */
+  ); 
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10;
   overflow: hidden;
-}
+} */
 
 .modal-open {
   overflow: hidden;

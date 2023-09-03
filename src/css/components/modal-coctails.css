@@ -12,13 +12,17 @@
   ); /* Затемнение с полупрозрачным черным цветом */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   z-index: 10;
   /* overflow: hidden; */
+  min-width: 375px;
+  
 }
 
 .modal-open {
   /* overflow: hidden; */
+      min-width: 320px;
+      position: relative;
 }
 .cocktail-ingr-list {
   list-style: disc;
@@ -56,7 +60,7 @@
 /* //////////// */
 
 .modal-cocktail {
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -65,8 +69,17 @@
   background: var(--color-4);
   padding: 40px 20px;
   overflow-y: auto;
-  z-index: 100;
+  z-index: 100; */
+    position:sticky;
+     top: 17%;
+    width: 335px;
+    border-radius: 20px;
+    background: var(--color-4);
+    padding: 40px 20px;
+    overflow-y: auto;
+    z-index: 100;
 }
+
 .modal-cocktail-img {
   width: 295px;
   height: 277px;
@@ -109,6 +122,15 @@
 }
 .modal-cocktail-instuction-text,
 .alco-title {
+  max-height: 50px;
+ padding-right: 10px;
+}
+@media screen and (min-width: 768px){
+  .modal-cocktail>p{
+    max-height: 100px;
+  }
+}
+.modal-cocktail-instuction-text, .alco-title{
   margin-bottom: 40px;
   color: rgba(36, 36, 36, 0.5);
   font-size: 14px;
@@ -155,9 +177,12 @@
     right: 14px;
     top: 14px;
   }
+   .cocktail-ingr-list {
+     overflow-y: auto;
+     max-height: 50px;
 }
-.close-btn-svg,
-.close-btn-cock-svg {
+
+.close-btn-svg, .close-btn-cock-svg{
   width: 22px;
   height: 22px;
   stroke: #242424;

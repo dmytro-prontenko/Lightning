@@ -1,6 +1,7 @@
 .section-burger {
   width: 100%;
   height: 100%;
+  height: 100vh;
   background-color: var(--general-violet-color);
   overflow: hidden;
   z-index: 200;
@@ -24,6 +25,7 @@
   background: var(--general-violet-color);
   padding: 20px 20px;
   z-index: 250;
+  overflow: hidden;
 }
 .header-burger-wrap {
   display: flex;
@@ -215,4 +217,7 @@
   .modal-burger-container {
     display: none;
   }
+}
+.modal-burger-container, body{
+  min-width: 375px;
 }
