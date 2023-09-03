@@ -189,16 +189,16 @@ function onSearchInput(event) {}
 
 // =============== FILTER ===============
 // TODO
-refs.alphabet.addEventListener('click', onFilterSymbolClick);
+// refs.alphabet.addEventListener('click', onFilterSymbolClick);
 
-function onFilterSymbolClick(event) {
-  if (event.target.nodeName === 'LI') {
-    listCocktails
-      .fetchCocktailByLetter(event.target.dataset.jsQuery)
-      .then(data => {
-        listRender.renderList(data);
-      });
-    event.target.closest('.custom-list').dataset.render = 'stop-render';
-    refs.cocktailsTitle.scrollIntoView({behavior: 'smooth'})
-  }
-}
+// function onFilterSymbolClick(event) {
+//   if (event.target.nodeName === 'LI') {
+//     listCocktails
+//       .fetchCocktailByLetter(event.target.dataset.jsQuery)
+//       .then(data => {
+//         listRender.renderList(data);
+//       });
+//     event.target.closest('.custom-list').dataset.render = 'stop-render';
+//     refs.cocktailsTitle.scrollIntoView({behavior: 'smooth'})
+//   }
+// }

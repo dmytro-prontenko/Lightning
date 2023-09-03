@@ -49,6 +49,8 @@ const dataAlphabet = [
   '0',
 ];
 
+
+
 let currentWidth = 0;
 let windowWidth = 0;
 function adjustLayout() {
@@ -115,4 +117,10 @@ function reRenderFilter() {
     refs.alphabet.classList.remove('is-hidden');
     refs.select.classList.add('is-hidden');
   }
+}
+
+refs.viewCoctailsBtn.addEventListener('click', onClickView);
+
+function onClickView() {
+  refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
 }
