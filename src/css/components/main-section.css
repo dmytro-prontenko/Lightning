@@ -184,10 +184,10 @@ border: 4px solid rgb(175, 198, 198);
 }
 
 .is-active {
-  color: #FDFDFF;
-  background: #9CDFDF;
-  outline: transparent;
-  cursor: not-allowed;
+  color: #FDFDFF !important;
+  background: #9CDFDF !important;
+  outline: transparent !important;
+  cursor: not-allowed !important;
 }
 
 
