@@ -190,11 +190,7 @@ border: 4px solid rgb(175, 198, 198);
   cursor: not-allowed;
 }
 
-/* .pagination-page:focus{
-  color: #FDFDFF;
-  background: #9CDFDF;
-  outline: transparent;
-}
+
 .pagination-block{
   margin-top: 40px;
 }
@@ -221,5 +217,4 @@ border: 4px solid rgb(175, 198, 198);
 }
 .pagination-svg-prev{
   fill: #7E8FDD;
-
 }

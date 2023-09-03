@@ -16,11 +16,11 @@
   justify-content: center;
   align-items: center;
   z-index: 10;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .modal-open {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .cocktail-ingr-list {
   list-style: disc;
@@ -61,7 +61,7 @@ color: #7E8FDD;
 /* //////////// */
 
 .modal-cocktail {
-  position: absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
