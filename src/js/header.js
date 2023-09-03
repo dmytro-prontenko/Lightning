@@ -8,8 +8,7 @@ function onLinkClick() {
   } else {
     favMenu.style.display = "none";
   }
- 
-}
+};
 
 // window.addEventListener("click", function(event) {
 //   if (favMenu.style.display !== "inline-flex"){ 
@@ -31,12 +30,12 @@ button.addEventListener("click", onClick);
 
 function onClick() {
   flip([box], swapPosition);
-}
+};
 
 function swapPosition() {
   let parent = box.parentElement === container1 ? container2 : container1;
   parent.appendChild(box);
-}
+};
 
 function flip(elements, changeFunc, vars) {
   elements = gsap.utils.toArray(elements);
