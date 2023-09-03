@@ -1,0 +1,86 @@
+.dark-theme {
+    background: linear-gradient(290deg, rgb(0, 0, 0) 0%, rgb(8, 8, 8) 65%, rgb(147, 186, 175) 100%);
+    backdrop-filter: blur(100px);
+    color: #FDFDFF;
+}
+
+.cocktails-item-dark {
+    background-color: #232330;
+    ;
+}
+
+/**
+  |============================
+  | dark theme hero
+  |============================
+*/
+/*  
+.hero-title {
+    color: #fdfdff;
+}
+
+.hero-text {
+    color: #fdfdff;
+}
+
+.icon-hero-star-one {
+    fill: #fdfdff;
+}
+
+.icon-hero-star-two {
+    fill: #fdfdff;
+}
+
+.hero-img-text {
+    color: #fdfdff;
+}
+
+
+
+/**
+  |============================
+  | cocktail-modal
+  |============================
+*/
+/* 
+.modal-cocktail-text-wrapper-dark>h1 {
+    color: #fdfdff;
+}
+
+.modal-cocktail-text-wrapper-dark>h2 {
+    color: #fdfdff;
+}
+
+.modal-cocktail-instuction-dark {
+    color: #fdfdff;
+}
+
+.modal-cocktail-instuction-text-dark {
+    color: rgba(253, 253, 255, 0.5);
+}
+
+.ingredient-list-item-dark {
+    color: rgba(253, 253, 255, 0.99);
+} */
+
+/**
+  |============================
+  | modal inrgidients
+  |============================
+*/
+/* 
+.ing-name-dark {
+    color: #fdfdff;
+}
+
+.cocktail-name-dark {
+    color: rgba(253, 253, 255, 0.5);
+}
+
+.ing-des-modal-dark {
+    color: rgba(253, 253, 255, 0.5);
+}
+
+.ing-info-item-dark {
+    color: rgba(253, 253, 255, 0.8);
+} */
