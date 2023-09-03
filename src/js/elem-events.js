@@ -9,7 +9,7 @@ import Notiflix from 'notiflix';
 refs.cocktailsList.addEventListener('click', onClick);
 
 // const renderCocktailModal = new Render();
-headerLinkFav.addEventListener("click", onLinkClick)
+
 
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
