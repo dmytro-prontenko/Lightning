@@ -1,5 +1,6 @@
 export const refs = {
   alphabet: document.querySelector('.custom-list'),
+  select: document.querySelector('.custom-list-select'),
   alcoholic: document.querySelector('.alco-title'),
   body: document.body,
   burgerMenu: document.querySelector('.header-menu'),
@@ -25,7 +26,6 @@ export const refs = {
   paginationBtn: document.querySelector('.pagination-page'),
   paginationContainer: document.querySelector('.pagination-container'),
   searchField: document.querySelector('.search-form__input'),
-  select: document.querySelector('.custom-list-select'),
   viewCoctailsBtn: document.querySelector('.cocktails-btn'),
 }
 

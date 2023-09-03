@@ -90,12 +90,14 @@ function reRenderStartCoctailList() {
   if (windowWidth < 768) {
     listRender.renderAlphabetForMob(dataAlphabet);
     listCocktails.fetchCocktail(startRenderTablMobCocktail).then(data => {
-      listRender.renderList(data);
+    listRender.renderList(data);
+    
     });
   } else if (windowWidth < 1280) {
     listRender.renderAlphabet(dataAlphabet);
     listCocktails.fetchCocktail(startRenderTablMobCocktail).then(data => {
-      listRender.renderList(data);
+    listRender.renderList(data);
+
     });
   } else {
     listRender.renderAlphabet(dataAlphabet);

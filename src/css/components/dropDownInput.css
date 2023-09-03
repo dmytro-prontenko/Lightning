@@ -13,7 +13,7 @@
 
 .drop-down__item {
   padding: 7px;
-  background: #7E8FDD;
+  background: var(--switcher-pages-color);
   color: #fff;
   margin-bottom: 2px;
   transition: all .2s;
