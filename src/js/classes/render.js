@@ -172,7 +172,7 @@ export default class Render {
               <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more">Learn More</button>
-                <button type="button" class="del-btn">
+                <button type="button" class="fav-btn">
                 <svg class="del-btn-svg">
                 <use xlink:href="${icons}#icon-remove"></use>
                 </svg></button>
@@ -204,7 +204,7 @@ export default class Render {
                 <p class="ing-des">${card.description}</p>
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more"><span class="learn-more-text">Learn More</span></button>
-                <button type="button" class="del-btn"><span class="lel-btn-text">
+                <button type="button" class="fav-btn"><span class="lel-btn-text">
                 <svg class="del-btn-svg">
                 <use xlink:href="${icons}#icon-remove"></use>
                 </svg></span></button>
