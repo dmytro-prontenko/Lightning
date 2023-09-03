@@ -29,3 +29,22 @@ export const refs = {
   viewCoctailsBtn: document.querySelector('.cocktails-btn'),
 }
 
+export const refsDark = {
+    
+    // herotitle: document.querySelector('.hero-title'), 
+    // herotext: document.querySelector('.hero-text'), 
+    // iconHeroStarOne: document.querySelector('.icon-hero-star-one '),
+    // iconHeroStarTwo: document.querySelector('.icon-hero-star-two'),
+    // heroImgText : document.querySelector('.hero-img-text'),
+    // modalCocktailTextWrapperDarkH1: document.querySelector('.modal-cocktail-text-wrapper > h1'),
+    // modalCocktailTextWrapperDarkH2: document.querySelector('.modal-cocktail-text-wrapper > h2'),
+    // modalCocktailInstuctionDark: document.querySelector('.modal-cocktail-instuction'),
+    // modalCocktailInstuctionTextDark: document.querySelector('.modal-cocktail-instuction-text'),
+    // ingredientListItemDark: document.querySelector('.ingredient-list-item'),
+    // ingNameDark: document.querySelector('.ing-name'),
+    // cocktailNameDark: document.querySelector('.cocktail-name'),
+    // ingDesModalDark: document.querySelector('.ing-des-modal'),
+    // ingDesModalDark: document.querySelector('.ing-info-item'),
+    // cocktailsItemDark: document.querySelector('.cocktails-item'),
+    body: document.querySelector('body'),
+}
