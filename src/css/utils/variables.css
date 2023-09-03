@@ -26,7 +26,7 @@ body{
           rgba(8, 2, 21, 0));
       backdrop-filter: blur(100px);
       background-color: rgba(156, 223, 223, 0.5);
-    
+    min-width: 384px;
 }
 
 .dark-theme {

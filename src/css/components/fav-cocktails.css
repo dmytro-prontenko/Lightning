@@ -2,6 +2,7 @@
 .fav-title {
     font-family: Poppins;
     margin-bottom: 138px;
+    margin-top: 100px;
     font-size: 24px;
     font-weight: 500;
     line-height: 28px;
@@ -10,13 +11,26 @@
 .success {
     margin-bottom: 40px;
 }
-
 .error {
     text-align: center;
-    padding-bottom: 58px;
-
+   
+    width: 372px;
+}
+@media only screen and (min-width: 768px){
+.error {
+        text-align: center;
+        margin-left: 165px;
+        width: 372px;
+    }
 }
 
+@media only screen and (min-width: 1280px){
+    .error {
+            text-align: center;
+            margin-left: 340px;
+            width: 372px;
+        }
+}
 .fav-svg {
     margin-bottom: 20px;
     width: 142.001px;
