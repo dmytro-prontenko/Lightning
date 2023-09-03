@@ -6,11 +6,7 @@
     margin: 0 auto;
   }
 
-  .hero-section {
-    padding-top: 75px;
-  }
-
-  .rent-side {
+  .hero-side {
     display: flex;
     padding-top: 0;
     flex-direction: column;
@@ -43,7 +39,6 @@
   }
 
   .hero-text {
-    width: 338px;
     margin-top: 28px;
 
     color: #242424;
@@ -232,11 +227,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .hero-section {
-    padding-top: 50px;
-  }
-
-  .rent-side {
+  .hero-side {
     display: flex;
     padding-top: 114px;
   }
@@ -449,10 +440,6 @@
     padding: 0 100px;
   }
 
-  .hero-section {
-    padding-top: 120px;
-  }
-
   .hero-title {
     width: 555px;
     margin-top: 90px;
@@ -530,7 +517,7 @@
     background: #6e7fcf;
   }
 
-  .rent-side {
+  .hero-side {
     display: flex;
     padding-top: 0;
     gap: 70px;

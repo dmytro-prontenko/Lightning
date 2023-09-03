@@ -98,6 +98,7 @@
   padding-top: 20px;
   display: flex;
   align-items: center;
+  padding-bottom: 65px;
 }
 
 nav {
@@ -224,6 +225,10 @@ position: absolute;
     height: 40px;
   }
 
+  .header-wrapper {
+    padding-bottom: 40px;
+  }
+
   .header-link {
     font-size: 22px;
     line-height: 24px;
@@ -237,6 +242,10 @@ position: absolute;
 @media only screen and (min-width: 1280px) {
   .header-menu {
     display: none;
+  }
+
+  .header-wrapper {
+    padding-bottom: 75px;
   }
 
   .search-form {
