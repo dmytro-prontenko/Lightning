@@ -12,15 +12,16 @@ let currentPage;
 let forRender;
 let pageInt;
 let pagObj = {};
+
 refs.alphabet.addEventListener('click', onFilterSymbolClick);
 
 async function onFilterSymbolClick(event) {
   currentPage = '1';
-  console.log(currentPage);
   arrCocktail = [];
   refs.paginationContainer.innerHTML = '';
   pagObj = {};
-  if (event.target.nodeName === 'LI') {
+  if (event.target.nodeName === 'BUTTON') {
+    changeStateAlphabetBtns(event.target);
     await listCocktails
       .fetchCocktailByLetter(event.target.dataset.jsQuery)
       .then(data => {
@@ -32,6 +33,8 @@ async function onFilterSymbolClick(event) {
     refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
     pagObj = createPaginationObject(arrCocktail, itemsPerPage);
     Notiflix.Notify.info(`Found ${arrCocktail.length} cocktails!`);
+   
+    
 
     if (Object.keys(pagObj).length > 1) {
       listRender.renderPaginationBtns(Object.keys(pagObj).length);
@@ -148,6 +151,17 @@ function createPaginationObject(values, itemsPerPage) {
   }
   return paginationObject;
 }
+
+
+function changeStateAlphabetBtns(target) {
+  for (const child of refs.alphabet.children) {
+    child.classList.remove('is-active');
+    child.disabled = false;
+  };
+  target.classList.add('is-active')
+  target.disabled = true;
+}
+
 
 function changeStateCurrentPageNumber(target){
   for (const child of refs.paginationContainer.childNodes) {
