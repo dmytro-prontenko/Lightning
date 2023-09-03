@@ -99,43 +99,48 @@
   align-items: center;
   gap: 14px;
 }
+.burger-navi-ul:hover,
+.burger-navi-ul:focus {
+  font-weight: 410;
+}
 
 .burger-navi-ul {
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
-  /* 133.333% */
+  line-height: 1.33;
   letter-spacing: 0.36px;
   color: var(--text-white-color);
 }
+.burger-navi-btn {
+  padding-left: 22px;
+}
+.burger-navi-btn:focus + .burger-favorite-menu,
+.burger-favorite-menu:focus {
+  display: block;
+}
+
 .burger-arrow {
   width: 32px;
   height: 32px;
-  stroke: var(--text-white-color);
-  fill: var(--text-white-color);
+  padding-top: 6px;
+  padding-left: 3px;
+}
+.burger-favorite-menu li {
+  display: list-item;
 }
 .burger-favorite-menu {
-  display: none;
-
+  text-align: center;
   color: var(--footer-social-svg-border);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px;
-  /* 128.571% */
+  line-height: 1.28;
   letter-spacing: 0.28px;
-  display: inline-flex;
-
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-
-  letter-spacing: 0.28px;
-  transition: left 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: none;
+  
 }
 .burger-fav-active {
   color: var(--text-white-color);
@@ -143,24 +148,13 @@
 
 .burger-fav-unactive {
   color: rgba(253, 253, 255, 0.5);
+  margin-bottom: 8px;
 }
 
 .burger-fav-unactive:hover,
 .burger-fav-unactive:hover {
   color: var(--text-white-color);
 }
-/* 
-
-.modal-navi-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-
-
-}  */
 
 @media screen and (min-width: 376px) {
   .modal-burger {
@@ -179,11 +173,18 @@
   .header-burger-wrap {
     margin-bottom: 251px;
   }
+  .header-link-burger {
+    font-size: 22px;
+    line-height: 1.09;
+    letter-spacing: -0.22px;
+  }
+  .header-svg-burger {
+    width: 35px;
+    height: 30px;
+  }
   .burger-navi-ul {
     font-size: 24px;
-
-    line-height: 32px;
-    /* 133.333% */
+    line-height: 1.33;
     letter-spacing: 0.48px;
   }
   .burger-bg {

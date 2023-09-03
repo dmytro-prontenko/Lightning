@@ -318,18 +318,18 @@ export default class Render {
 
         <div class="burger-navi">
     <a class="burger-navi-ul" href="index.html">Home</a>
-    <button type="button" class="burger-navi-btn burger-navi-ul">
-        Favorites
+    <button  class="burger-navi-btn burger-navi-ul">
+        Favorite
         <svg class="burger-arrow" width="24" height="24">
-            <use xlink:href="${icons}#icon-search"></use>
+            <use xlink:href="${icons}#icon-burger-arrow-down"></use>
         </svg>
     </button>
     <ul class="burger-favorite-menu">
-        <li>
-            <a href="favorite-cocktails.html" class="burger-fav-unactive">Favorite cocktails</a>
+        <li class="burger-fav-unactive">
+            <a href="favorite-cocktails.html" >Favorite cocktails</a>
         </li>
-        <li>
-            <a href="favorite-ingridients.html" class="burger-fav-unactive">Favorite ingredients</a>
+        <li class="burger-fav-unactive">
+            <a href="favorite-ingridients.html" >Favorite ingredients</a>
         </li>
     </ul>
 
