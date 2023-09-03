@@ -99,8 +99,8 @@
   align-items: center;
   gap: 14px;
 }
-.burger-navi-ul:hover,
-.burger-navi-ul:focus {
+.burger-home:hover,
+.burger-home:focus {
   font-weight: 410;
 }
 
@@ -115,8 +115,20 @@
 }
 .burger-navi-btn {
   padding-left: 22px;
+  cursor: default;
 }
-.burger-navi-btn:focus + .burger-favorite-menu,
+
+/* 
+.burger-navi-btn:hover+.burger-favorite-menu,
+.burger-navi-btn:focus+.burger-favorite-menu,
+.burger-favorite-menu:hover,
+.burger-favorite-menu:focus {
+  display: block;
+} */
+
+.burger-navi-btn:hover+.burger-arrow,
+.burger-navi-btn:focus+.burger-favorite-menu,
+.burger-favorite-menu:hover,
 .burger-favorite-menu:focus {
   display: block;
 }
@@ -126,6 +138,7 @@
   height: 32px;
   padding-top: 6px;
   padding-left: 3px;
+  cursor:pointer;
 }
 .burger-favorite-menu li {
   display: list-item;
