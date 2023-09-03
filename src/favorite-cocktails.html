@@ -8,35 +8,29 @@
   </head>
   <body>
     <div class="page page-container">
-    <!-- <include src="./partials/header.html"></include> -->
-    <include src="./partials/header.html"></include>
-    <main class="main-section">
-
-
-      <section class="galery section">
-        <div class="container">
-          <h1 class="fav-title">Favorite cocktails</h1>
-          <ul class="fav-cocktails-list list">
-            <li class="error">
-            
-              <svg class="fav-svg">
-                <use href="./images/icons.svg#icon-error-cocktails"></use>
-              </svg>
-              <h2 class="fav-error-text">You haven't added any <br>
-                <span class="fav-error-span">favorite cocktails</span> yet
-              </h2>
-            
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      
-
-    </main>
-    <include src="./partials/footer.html"></include>
-    <include src="./partials/modal-burger.html"></include>
+      <!-- <include src="./partials/header.html"></include> -->
+      <include src="./partials/header.html"></include>
+      <main class="main-section">
+        <section class="galery section">
+          <div class="container">
+            <h1 class="fav-title">Favorite cocktails</h1>
+            <ul class="fav-cocktails-list cocktails-list list">
+              <li class="error">
+                <svg class="fav-svg">
+                  <use href="./images/icons.svg#icon-error-cocktails"></use>
+                </svg>
+                <h2 class="fav-error-text">
+                  You haven't added any <br />
+                  <span class="fav-error-span">favorite cocktails</span> yet
+                </h2>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
       <include src="./partials/modal-cocktails.html"></include>
+      <include src="./partials/modal-ing.html"></include>
+      <include src="./partials/modal-burger.html"></include>
     </div>
     <div class="btn-up btn-up_hide"></div>
     <script type="module" src="./index-fav-cocktails.js"></script>
