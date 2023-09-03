@@ -1,31 +1,31 @@
-@media screen and (max-width: 320px) {
-  .modal-burger.container {
-    padding-left: 5px;
-  }
+.section-burger {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--general-violet-color);
+  overflow: hidden;
+  z-index: 200;
 }
+.burger-bg {
+  display: none;
+}
+
 @media screen and (max-width: 375px) {
-  .modal-burger-container {
-    width: 375px;
-    max-height: 812px;
+  .modal-burger {
+    min-width: 100%;
+    height: 812px;
   }
 }
 
-
- .modal-burger {
+.modal-burger {
   position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  /* min-width: 320px;
-  max-width: 375px; */
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
   background: var(--general-violet-color);
   padding: 20px 20px;
-  overflow-y: auto;
-  z-index: 3000;
- 
-} 
-.header-burger-wrap { 
+  z-index: 250;
+}
+.header-burger-wrap {
   display: flex;
   justify-content: space-between;
   text-align: center;
@@ -34,8 +34,8 @@
 .burger-wrap {
   display: flex;
   justify-content: space-between;
-    text-align: center;
-    gap: 18px;
+  text-align: center;
+  gap: 18px;
 }
 .header-link-burger {
   font-family: Poppins;
@@ -51,7 +51,6 @@
   margin: 0;
 }
 .header-svg-burger {
- 
   fill: var(--switcher-pages-color);
 }
 
@@ -61,7 +60,6 @@
 .btn-close.btn-close-burg {
   position: static;
   padding-top: 6px;
-  
 }
 .close-btn-svg.close-btn-svg-burger {
   width: 32px;
@@ -74,21 +72,16 @@
   padding: 0;
   position: relative;
   margin-bottom: 100px;
-  /* margin-left: auto;
-  margin-right: auto; */
-  /* margin-left: 280px; */
-  /* display: none; */
-  /* margin-right: 29px; */
 }
-
+.search-form-burger__input#input {
+  width: 100%;
+}
 .search-form-burger__input {
-  /* max-width: 280px; */
   height: 40px;
   border-radius: 80.179px;
   border: 2px solid var(--text-white-color);
   background-color: transparent;
   padding-left: 42px;
-  
 }
 .search-form-burger__input::placeholder {
   color: rgba(253, 253, 255, 0.2);
@@ -99,22 +92,15 @@
   left: 14px;
   fill: var(--text-white-color);
 }
-
-.modal-navi {
+.burger-navi {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 14px;
 }
-.modal-navi-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-.modal-navi-ul {
+
+.burger-navi-ul {
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;
@@ -124,18 +110,91 @@
   letter-spacing: 0.36px;
   color: var(--text-white-color);
 }
+.burger-arrow {
+  width: 32px;
+  height: 32px;
+  stroke: var(--text-white-color);
+  fill: var(--text-white-color);
+}
+.burger-favorite-menu {
+  display: none;
+
+  color: var(--footer-social-svg-border);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  /* 128.571% */
+  letter-spacing: 0.28px;
+  display: inline-flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  letter-spacing: 0.28px;
+  transition: left 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.burger-fav-active {
+  color: var(--text-white-color);
+}
+
+.burger-fav-unactive {
+  color: rgba(253, 253, 255, 0.5);
+}
+
+.burger-fav-unactive:hover,
+.burger-fav-unactive:hover {
+  color: var(--text-white-color);
+}
+/* 
+
+.modal-navi-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
 
 
-@media screen and (min-width: 768px) {
-  .modal-burger-container {
-    width: 768px;
-      max-height: 1024px;
+}  */
+
+@media screen and (min-width: 376px) {
+  .modal-burger {
+    width: 375px;
+    height: 812px;
   }
-  .search-form-burger{
+}
+@media screen and (min-width: 768px) {
+  .modal-burger {
+    width: 768px;
+    height: 1024px;
+  }
+  .search-form-burger {
     display: none;
   }
-  .header-burger-wrap{
+  .header-burger-wrap {
     margin-bottom: 251px;
+  }
+  .burger-navi-ul {
+    font-size: 24px;
+
+    line-height: 32px;
+    /* 133.333% */
+    letter-spacing: 0.48px;
+  }
+  .burger-bg {
+    display: block;
+    position: absolute;
+    bottom: -120px;
+    right: -108px;
+    z-index: 255;
+  }
+  .burger-bg-svg {
+    fill: rgba(253, 253, 255, 0.2);
   }
 }
 @media screen and (min-width: 1280px) {

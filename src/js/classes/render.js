@@ -282,69 +282,67 @@ export default class Render {
   */
     renderBurgerModal() {
       const burgerModalMarkup = `
+<div class="section-burger">
     <div class="modal-burger container">
+    
+        <div class="header-burger-wrap">
+            <a href="index.html" class=" header-link-burger">Drinkify
+                <svg class="header-svg-burger" width="24" height="20">
+                    <use xlink:href="${icons}#icon-hero-logo-cocktail"></use>
+                </svg>
+            </a>
+    
+            <div class="burger-wrap">
+                <label class="toggle-modal">
+                    <input class="toggle-checkbox" type="checkbox" />
+                    <div class="toggle-switch toggle-switch-burger"></div>
+                </label>
+    
+                <button type="button" class="btn-close btn-close-burg">
+                    <svg class=" close-btn-svg close-btn-svg-burger" width="32" height="32">
+                        <use xlink:href="${icons}#icon-close"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    
+    
+    
+        <div class="search-form-burger" id="search-form">
+            <input class="search-form-burger__input" id="input" type="text" name="searchQuery" autocomplete="off"
+                placeholder="Search" />
+            <svg class="svg-search svg-search-burger" width="16" height="16">
+                <use xlink:href="${icons}#icon-search"></use>
+            </svg>
+        </div>
 
-    <div class="header-burger-wrap">
-    <a href="index.html" class=" header-link-burger">Drinkify
-        <svg class="header-svg-burger" width="24" height="20">
-            <use xlink:href="${icons}#icon-hero-logo-cocktail"></use>
-        </svg>
-    </a>
-
-     <div class="burger-wrap">
-  <label class="toggle-modal">
-    <input class="toggle-checkbox" type="checkbox" />
-    <div class="toggle-switch toggle-switch-burger"></div>
-  </label>
-
-  <button type="button" class="btn-close btn-close-burg">
-    <svg class=" close-btn-svg close-btn-svg-burger" width="32" height="32" >
-      <use xlink:href="${icons}#icon-close"></use>
-    </svg>
-  </button>
-</div>
-</div>
-
-
-   
-<div class="search-form-burger" id="search-form">
-  <input
-    class="search-form-burger__input"
-    id="input"
-    type="text"
-    name="searchQuery"
-    autocomplete="off"
-    placeholder="Search"
-  />
-  <svg class="svg-search svg-search-burger" width="16" height="16">
-    <use xlink:href="${icons}#icon-search"></use>
-  </svg>
-</div>
-
-
-    <div class="modal-navi">
-      <a class="modal-nav-item modal-navi-ul" href="index.html">Home</a>
-
-      <button type="button" class=" modal-navi-ul">
+        <div class="burger-navi">
+    <a class="burger-navi-ul" href="index.html">Home</a>
+    <button type="button" class="burger-navi-btn burger-navi-ul">
         Favorites
-        <svg class="header-arrow" width="12" height="6">
-          <use xlink:href="${icons}#icon-header-arrow-down"></use>
+        <svg class="burger-arrow" width="24" height="24">
+            <use xlink:href="${icons}#icon-search"></use>
         </svg>
-      </button>
-  <ul class="header-favorite-menu">
-              <li>
-                <a href="favorite-cocktails.html" class="header-fav-unactive"
-                  >Favorite cocktails</a
-                >
-              </li>
-              <li>
-                <a href="favorite-ingridients.html" class="header-fav-unactive"
-                  >Favorite ingredients</a
-                >
-              </li>
-            </ul>
+    </button>
+    <ul class="burger-favorite-menu">
+        <li>
+            <a href="favorite-cocktails.html" class="burger-fav-unactive">Favorite cocktails</a>
+        </li>
+        <li>
+            <a href="favorite-ingridients.html" class="burger-fav-unactive">Favorite ingredients</a>
+        </li>
+    </ul>
+
+</div>
+
+
+            <div class="burger-bg">
+        <svg class="burger-bg-svg" width="391" height="391">
+            <use xlink:href="${icons}#icon-hero-background"></use>
+        </svg>
     </div>
-  </div>`;
+    </div>
+</div>`;
       refs.modalBurger.innerHTML = burgerModalMarkup;
   }
   
