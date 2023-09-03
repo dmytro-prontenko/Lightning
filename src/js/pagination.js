@@ -7,13 +7,18 @@ const listCocktails = new CocktailAPI();
 const listRender = new Render();
 const itemsPerPage = 9;
 let arrCocktail = [];
-
+let currentPage;
+let forRender;
+let pageInt;
+let pagObj = {};
 refs.alphabet.addEventListener('click', onFilterSymbolClick);
 
 async function onFilterSymbolClick(event) {
+  currentPage = '1';
+  console.log(currentPage);
   arrCocktail = [];
   refs.paginationContainer.innerHTML = '';
-  let pagObj = {};
+  pagObj = {};
   if (event.target.nodeName === 'LI') {
     await listCocktails
       .fetchCocktailByLetter(event.target.dataset.jsQuery)
@@ -45,12 +50,18 @@ async function onFilterSymbolClick(event) {
   }
   refs.paginationContainer.addEventListener('click', onClickPageChanges);
   function onClickPageChanges(event) {
-      listRender.renderList(pagObj[event.target.id]);
+    currentPage = event.target.textContent;
+    
 
+    console.log(currentPage);
+    listRender.renderList(pagObj[event.target.id]);
     refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
+
     refs.btnPaginationBlock.addEventListener('click', onPaginationNavClick);
     function onPaginationNavClick(event) {
-       let pageInt = parseInt(event.target.id.match(/\d+/));
+
+      pageInt = currentPage;
+      
       if (pageInt > 1 && pageInt < Object.keys(pagObj).length) {
           refs.btnPaginationPrev.classList.remove('is-hidden')
           refs.btnPaginationNext.classList.remove('is-hidden')
@@ -64,10 +75,58 @@ async function onFilterSymbolClick(event) {
            refs.btnPaginationNext.classList.add('is-hidden') 
           refs.btnPaginationPrev.classList.remove('is-hidden')
       }
-      }
-      
+    }
   }
-}
+
+    refs.btnPaginationNext.addEventListener('click', onNextClick)
+    function onNextClick(event) {
+      forRender ='page_'+(parseInt(currentPage) + 1);
+      listRender.renderList(pagObj[forRender]);
+      currentPage = parseInt(currentPage) + 1;
+      refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
+      pageInt = Number(currentPage);
+
+      if (pageInt > 1 && pageInt < Object.keys(pagObj).length) {
+          refs.btnPaginationPrev.classList.remove('is-hidden')
+          refs.btnPaginationNext.classList.remove('is-hidden')
+      }
+      else if (pageInt === 1) {
+          refs.btnPaginationNext.classList.remove('is-hidden') 
+          refs.btnPaginationPrev.classList.add('is-hidden')
+          
+      }
+      else if (pageInt === Object.keys(pagObj).length) {
+           refs.btnPaginationNext.classList.add('is-hidden') 
+          refs.btnPaginationPrev.classList.remove('is-hidden')
+      }
+    }
+    }
+    
+    refs.btnPaginationPrev.addEventListener('click', onPrevClick)
+    function onPrevClick(event) {
+      
+      forRender ='page_'+(parseInt(currentPage) - 1);
+      listRender.renderList(pagObj[forRender]);
+      refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
+      currentPage = parseInt(currentPage) - 1;
+      
+       pageInt = Number(currentPage);
+
+      if (pageInt > 1 && pageInt < Object.keys(pagObj).length) {
+          refs.btnPaginationPrev.classList.remove('is-hidden')
+          refs.btnPaginationNext.classList.remove('is-hidden')
+      }
+      else if (pageInt === 1) {
+          refs.btnPaginationNext.classList.remove('is-hidden') 
+          refs.btnPaginationPrev.classList.add('is-hidden')
+          
+      }
+      else if (pageInt === Object.keys(pagObj).length) {
+           refs.btnPaginationNext.classList.add('is-hidden') 
+          refs.btnPaginationPrev.classList.remove('is-hidden')
+      }
+    }
+
 
 function createPaginationObject(values, itemsPerPage) {
   const paginationObject = {};
@@ -80,6 +139,11 @@ function createPaginationObject(values, itemsPerPage) {
   }
   return paginationObject;
 }
+
+
+
+
+
 
 // `
 //         <li id=${card._id} class="cocktails-item">
