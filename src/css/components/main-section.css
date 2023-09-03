@@ -184,13 +184,21 @@ border: 4px solid rgb(175, 198, 198);
         
 }
 
-.pagination-page:focus{
+/* .pagination-page:focus{
   color: #FDFDFF;
   background: #9CDFDF;
   outline: transparent;
-}
+} */
 @media screen and (min-width: 768px){
   .pagination-page{
     margin-bottom: 100px;
   }
+}
+
+
+
+.is-active{
+    color: #FDFDFF;
+    background: #9CDFDF;
+    outline: transparent;
 }
