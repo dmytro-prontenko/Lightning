@@ -13,13 +13,93 @@ let forRender;
 let pageInt;
 let pagObj = {};
 
+
+
 refs.alphabet.addEventListener('click', onFilterSymbolClick);
+refs.select.addEventListener('change', onFilterSymbolClickSelect);
+
+
+async function onFilterSymbolClickSelect(event){
+  currentPage = '1';
+  arrCocktail = [];
+  refs.paginationContainer.innerHTML = '';
+  pagObj = {};
+  windowWidth = window.innerWidth;
+  if (windowWidth < 1280) {
+    itemsPerPage.perPage = 8
+    }
+  else {
+   itemsPerPage.perPage = 9
+    }
+    await listCocktails
+      .fetchCocktailByLetter(event.target.options[refs.select.selectedIndex].value)
+      .then(data => {
+        data.forEach(el => {
+          arrCocktail.push(el);
+        });
+      });
+    // event.target.closest('.custom-list').dataset.render = 'stop-render';
+    refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
+    pagObj = createPaginationObject(arrCocktail, itemsPerPage);
+    Notiflix.Notify.info(`Found ${arrCocktail.length} cocktails!`);
+
+    if (Object.keys(pagObj).length > 1) {
+      listRender.renderPaginationBtns(Object.keys(pagObj).length);
+      listRender.renderList(pagObj.page_1);
+      refs.btnPaginationNext.classList.remove("is-hidden");
+      refs.paginationContainer.childNodes[0].classList.add("is-active")
+      refs.paginationContainer.childNodes[0].disabled = true;
+    }
+    else if(arrCocktail.length <= itemsPerPage.perPage) {
+      listRender.renderList(pagObj.page_1);
+      refs.paginationContainer.innerHTML = `<button type="button" class="pagination-page is-active" disabled id="page_${
+        Object.keys(pagObj).length
+            }">${Object.keys(pagObj).length}</button>`;
+        refs.btnPaginationNext.classList.add("is-hidden")
+        refs.btnPaginationPrev.classList.add("is-hidden")
+  }
+  refs.paginationContainer.addEventListener('click', onClickPageChanges);
+  function onClickPageChanges(event) {
+    
+    currentPage = event.target.textContent;
+  
+    listRender.renderList(pagObj[event.target.id]);
+    refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
+    
+    if (event.target.nodeName === 'BUTTON') {
+      pageInt = Number(currentPage);
+
+      changeStateCurrentPageNumber(event.target)
+      
+      if (pageInt > 1 && pageInt < Object.keys(pagObj).length) {
+        refs.btnPaginationPrev.classList.remove('is-hidden')
+        refs.btnPaginationNext.classList.remove('is-hidden')
+      }
+      else if (pageInt === 1) {
+        refs.btnPaginationNext.classList.remove('is-hidden')
+        refs.btnPaginationPrev.classList.add('is-hidden')
+          
+      }
+      else if (pageInt === Object.keys(pagObj).length) {
+        refs.btnPaginationNext.classList.add('is-hidden')
+        refs.btnPaginationPrev.classList.remove('is-hidden')
+      }
+    }
+  }
+  }
 
 async function onFilterSymbolClick(event) {
   currentPage = '1';
   arrCocktail = [];
   refs.paginationContainer.innerHTML = '';
   pagObj = {};
+  windowWidth = window.innerWidth;
+  if (windowWidth < 1280) {
+    itemsPerPage.perPage = 8
+    }
+  else {
+  itemsPerPage.perPage = 9
+    }
   if (event.target.nodeName === 'BUTTON') {
     changeStateAlphabetBtns(event.target);
     await listCocktails
@@ -33,7 +113,6 @@ async function onFilterSymbolClick(event) {
     refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
     pagObj = createPaginationObject(arrCocktail, itemsPerPage);
     Notiflix.Notify.info(`Found ${arrCocktail.length} cocktails!`);
-   
     
 
     if (Object.keys(pagObj).length > 1) {
