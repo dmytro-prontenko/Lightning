@@ -4,15 +4,30 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 620px;
+  max-width: 335px;
   /* max-height: 80%; */
   height: auto;
   width: 90%;
   border-radius: 20px;
   background: var(--color-4);
-  padding: 40px 15px;
+  padding: 40px 20px;
   overflow-y: auto;
   z-index: 100;
+}
+.cocktail-name::after {
+  content: "";
+  position: absolute;
+  top: 40;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+@media screen and (min-width: 768px){
+.modal-ing{
+    max-width: 600px;
+    padding: 40px;
+}
 }
 
 
@@ -46,9 +61,7 @@
   color: var(--text-white-color);
   content: '123';
 }
-.modal-ing {
-  padding: 40px;
-}
+
 
 .ing-name {
   color: #242424;
@@ -69,15 +82,7 @@
     margin-bottom: 40px;
     position: relative;
 }
-.cocktail-name::after{
-  content: "";
-  position: absolute;
-  top: 40;
-  left: 0;
-  width: 520px;
-  height: 1px;
-  background: rgba(36, 36, 36, 0.10);
-}
+
 
 
 .ing-info-list {

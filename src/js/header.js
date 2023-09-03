@@ -11,14 +11,14 @@ function onLinkClick() {
  
 }
 
-window.addEventListener("click", function(event) {
-  if (favMenu.style.display !== "inline-flex"){ 
-  return
-  }
-    if (event.target !== headerLinkFav) {
-   favMenu.style.display = "none";
-  }
-})
+// window.addEventListener("click", function(event) {
+//   if (favMenu.style.display !== "inline-flex"){ 
+//   return
+//   }
+//     if (event.target !== headerLinkFav) {
+//    favMenu.style.display = "none";
+//   }
+// })
 
 export { headerLinkFav, favMenu, onLinkClick, onBodyClick }
 
