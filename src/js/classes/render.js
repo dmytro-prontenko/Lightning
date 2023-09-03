@@ -85,7 +85,6 @@ export default class Render {
         )
         .join('');
       refs.modal.innerHTML = cocktailModal;
-      // TODO скопіювати до інгридієнтів
       const ingridList = document.querySelector('.cocktail-ingr-list');
       const ingToInsert = arr[0].ingredients
         .map(
@@ -334,8 +333,6 @@ export default class Render {
     </ul>
 
 </div>
-
-
             <div class="burger-bg">
         <svg class="burger-bg-svg" width="391" height="391">
             <use xlink:href="${icons}#icon-hero-background"></use>
@@ -354,8 +351,6 @@ export default class Render {
     const markupBtns = arrMarkupBtns.join('');
     refs.paginationContainer.innerHTML = markupBtns;
   }
-  
-      
-    }
-  
+};
+
 

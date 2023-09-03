@@ -11,7 +11,7 @@ export default class CocktailAPI {
     this.endPointLookup = 'cocktails/lookup/';
     this.endPointSearch = 'cocktails/search/';
     this.endPointCount = 'cocktails/count/';
-  }
+  };
 
   /*
 │ =============================================================
@@ -32,7 +32,7 @@ export default class CocktailAPI {
     } catch (error) {
       console.log(error.message);
     }
-  }
+  };
   /*
 │ =============================================================
 │  Запит на отримання визначеної кількості рандомних коктейлів
@@ -52,7 +52,7 @@ export default class CocktailAPI {
     } catch (error) {
       console.log(error.message);
     }
-  }
+  };
 
   //=============================
   // Запит на один коктейль по ID
@@ -75,7 +75,7 @@ export default class CocktailAPI {
       );
       return null;
     }
-  }
+  };
 
   //===========================================================
   // Запит на отримання масив коктейлів по першим літерам назви
@@ -96,7 +96,7 @@ export default class CocktailAPI {
       );
       return null;
     }
-  }
+  };
 
   //=============================================
   // Запит на отримання коктейлю за повною назвою
@@ -117,7 +117,7 @@ export default class CocktailAPI {
       );
       return null;
     }
-  }
+  };
 
   //========================================
   // Отримання стартових рандомних коктейлів
@@ -139,7 +139,7 @@ export default class CocktailAPI {
       }
     }
     return cocktailDetailsArray;
-  }
+  };
 
   //=======================================================
   // Отримання обраних коктейлів в модалці (з localStorage)
@@ -168,7 +168,7 @@ export default class CocktailAPI {
       }
     }
     return detailsArray;
-  }
+  };
 
   //==========================================================
   // Отримання обраних інгридієнтів в модалці (з localStorage)
@@ -186,7 +186,7 @@ export default class CocktailAPI {
       );
       return null;
     }
-  }
+  };
 
   //=============================================================
   // Отримання загальної кількості коктейлів на API(для dropDown)
@@ -206,6 +206,5 @@ export default class CocktailAPI {
       );
     }
   }
-  
-}
+};
 

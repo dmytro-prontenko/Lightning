@@ -5,8 +5,10 @@ import { refs } from './refs';
 import _debounce from 'debounce';
 
 btnUp.addEventListener();
+
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
+const windowWidth = window.innerWidth;
 
 const startRenderDeskCocktail = 9;
 const startRenderTablMobCocktail = 8;
@@ -50,42 +52,17 @@ const dataAlphabet = [
 ];
 
 
+refs.viewCoctailsBtn.addEventListener('click', onClickView);
 
-let currentWidth = 0;
-let windowWidth = 0;
-function adjustLayout() {
-  windowWidth = window.innerWidth;
-  if (currentWidth <= 375 && windowWidth <= 375) {
-    currentWidth = windowWidth;
-    return;
-  } else if (
-    currentWidth > 375 &&
-    currentWidth < 768 &&
-    windowWidth > 375 &&
-    windowWidth < 768
-  ) {
-    currentWidth = windowWidth;
-    return;
-  } else if (
-    currentWidth > 768 &&
-    currentWidth < 1280 &&
-    windowWidth > 768 &&
-    windowWidth < 1280
-  ) {
-    currentWidth = windowWidth;
-    return;
-  }
-  reRenderStartCoctailList();
-  currentWidth = windowWidth;
-}
+function onClickView() {
+  refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
+};
 
-adjustLayout();
-window.addEventListener('resize', _debounce(adjustLayout, 700));
-reRenderFilter();
-window.addEventListener('resize', reRenderFilter);
+renderFilter();
+renderStartCoctailList();
 
-function reRenderStartCoctailList() {
-  if (refs.alphabet.dataset.render === 'stop-render') return;
+
+function renderStartCoctailList() {
 
   if (windowWidth < 768) {
     listRender.renderAlphabetForMob(dataAlphabet);
@@ -106,8 +83,7 @@ function reRenderStartCoctailList() {
     });
   }
 }
-
-function reRenderFilter() {
+function renderFilter() {
   const windowWidthF = window.innerWidth;
   if (windowWidthF < 768) {
     refs.alphabet.classList.add('is-hidden');
@@ -119,10 +95,4 @@ function reRenderFilter() {
     refs.alphabet.classList.remove('is-hidden');
     refs.select.classList.add('is-hidden');
   }
-}
-
-refs.viewCoctailsBtn.addEventListener('click', onClickView);
-
-function onClickView() {
-  refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
-}
+};

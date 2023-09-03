@@ -27,5 +27,5 @@ export const refs = {
   paginationContainer: document.querySelector('.pagination-container'),
   searchField: document.querySelector('.search-form__input'),
   viewCoctailsBtn: document.querySelector('.cocktails-btn'),
-}
+};
 

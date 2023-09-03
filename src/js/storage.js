@@ -1,5 +1,5 @@
 function saveToLocal(key, value) {
-  let storageValues;
+  
   try {
     const existingData = loadFromLocal(key);
 
@@ -17,7 +17,7 @@ function saveToLocal(key, value) {
   } catch (error) {
     console.error('Set state error: ', error.message);
   }
-}
+};
 
 function loadFromLocal(key) {
   try {
@@ -26,22 +26,21 @@ function loadFromLocal(key) {
   } catch (error) {
     console.error('Get state error: ', error.message);
   }
-}
+};
 
 function removeFromLocal(key, value) {
-  let storageValues;
+  
   try {
-    let newData;
+    
     let existingData = loadFromLocal(key);
 
     const index = existingData.indexOf(value);
     existingData.splice(index, 1);
 
-
     localStorage.setItem(key, JSON.stringify(existingData));
   } catch (error) {
     console.error('Set state error: ', error.message);
   }
-}
+};
 
 export { saveToLocal, loadFromLocal, removeFromLocal };

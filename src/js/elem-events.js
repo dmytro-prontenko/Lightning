@@ -1,11 +1,11 @@
 import Render from './classes/render';
 import CocktailAPI from './classes/cocktailAPI';
-import DropDownList from './classes/drop-down-search';
+import DropDownList, { dropDownList } from './classes/drop-down-search';
 import { refs } from './refs';
 import { saveToLocal, loadFromLocal, removeFromLocal } from './storage.js';
 import icons from '../images/icons.svg';
-
 import {headerLinkFav, favMenu, onLinkClick, onBodyClick} from './header.js'
+import Notiflix from 'notiflix';
 refs.cocktailsList.addEventListener('click', onClick);
 
 // const renderCocktailModal = new Render();
@@ -92,33 +92,6 @@ function onClickModalCocktail(event) {
     refs.modalIngredient.classList.toggle('is-hidden');
     console.log(listCocktails.fetchIngrByID(event.target.dataset.ingId)); 
     listCocktails.fetchIngrByID(event.target.dataset.ingId).then(data => listRender.renderIngModal(data));
-
-
-
-    //TODO переробити для інгридієнтів
-    // modalCocktail.fetchCocktailByID(id).then(data => {
-    //   listRender.renderModalCocktail(data);
-    // });
-
-//     refs.modalIngredient.innerHTML = `
-//     <div class="modal-ing" id="123456">
-//     <button type="button" class="btn-close">
-//     <svg class="close-btn-svg" id="js-close-modal-ingr-svg">
-//                 <use xlink:href="${icons}#icon-close"></use>
-//                 </svg >
-//                 </button>
-//     <h2 class="ing-name">Malina</h2>
-//     <h3 class="cocktail-name">Malinovka</h3>
-//     <p class="ing-des"><span class="first-word"></span></p>
-//     <ul class="ing-info-list">
-//     <li class="ing-info-item">Type: alcohol</li>
-//     <li class="ing-info-item">Country of origin: Ukraine</li>
-//     <li class="ing-info-item">Alcohol by volume: 30%</li>
-//     <li class="ing-info-item">Flavour: sweet</li>
-// </ul>
-// <button type="button" class="add-to-fav-ing">Add to favorite</button>
-// </div>
-// `;
   }
 }
 // =============== MODAL ING BUTTONS ===============
@@ -127,7 +100,7 @@ refs.modalIngredient.addEventListener('click', onIngrCloseBtnClick);
 function onIngrCloseBtnClick(event) {
   if (
     (event.target.nodeName === 'svg' &&
-      event.target.id === 'js-close-modal-ingr-svg') ||
+    event.target.id === 'js-close-modal-ingr-svg') ||
     event.target.nodeName === 'use'
   ) {
     refs.modal.classList.toggle('is-hidden');
@@ -145,7 +118,6 @@ console.log(event.target.dataset.ingId);
       event.target.textContent = 'Add to favorite';
       return;
     }
-
     saveToLocal('ingredients', id);
     event.target.textContent = 'Remove from favorite';
   }
@@ -184,21 +156,19 @@ function onModalBurgerClick(event) {
 // =============== SEARCH INPUT ===============
 // TODO
 refs.searchField.addEventListener('input', onSearchInput);
+function onSearchInput(event) {
+    refs.searchField.addEventListener('keydown', onEnterPress);
+};
 
-function onSearchInput(event) {}
-
-// =============== FILTER ===============
-// TODO
-// refs.alphabet.addEventListener('click', onFilterSymbolClick);
-
-// function onFilterSymbolClick(event) {
-//   if (event.target.nodeName === 'LI') {
-//     listCocktails
-//       .fetchCocktailByLetter(event.target.dataset.jsQuery)
-//       .then(data => {
-//         listRender.renderList(data);
-//       });
-//     event.target.closest('.custom-list').dataset.render = 'stop-render';
-//     refs.cocktailsTitle.scrollIntoView({behavior: 'smooth'})
-//   }
-// }
+function onEnterPress(event) {
+  if (event.keyCode === 13 ) {
+    if (event.target.value.length >= 3) {
+      listCocktails.fetchCocktailByName(event.target.value.trim()).then(data => listRender.renderList(data))
+      refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
+      refs.searchField.value = '';
+      dropDownList.removeList();
+    }else {
+    Notiflix.Notify.failure("Enter more than two symbols!")
+  }
+  }
+};
