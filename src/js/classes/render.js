@@ -174,7 +174,7 @@ export default class Render {
 │ =====================================
 */
   renderFavCocktailPage(arr) {
-    if (Array.isArray(arr)&& arr.length > 0) {
+    if (Array.isArray(arr) && arr.length > 0) {
       const favPage = arr
         .map(
           card => `
@@ -194,8 +194,10 @@ export default class Render {
         `
         )
         .join('');
-      refs.favCocktailsList.innerHTML = favPage;
-    } 
+
+     
+        refs.favCocktailsList.innerHTML = favPage;
+    }
   }
 
   renderFavIngPage(arr) {
