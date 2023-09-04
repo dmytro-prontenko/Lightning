@@ -213,7 +213,7 @@ export default class Render {
                 }</h3>
                 <p class=" ing-des-modal ing-des">${card.description}</p>
               <div class="buttons-wrapper">
-                <button type="button" class="learn-more"><span class="learn-more-text">Learn More</span></button>
+                <button type="button" class="learn-more">Learn More</button>
                 <button type="button" class="fav-btn"><span class="lel-btn-text">
                 <svg class="del-btn-svg">
                 <use xlink:href="${icons}#icon-remove"></use>
@@ -224,6 +224,7 @@ export default class Render {
         )
         .join('');
       refs.ingredientsList.innerHTML = favIngPage;
+      // refs.cocktailsList.innerHTML = favIngPage;
     } else {
       Notiflix.Report.failure(
         'ERROR',
