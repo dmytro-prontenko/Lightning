@@ -10,7 +10,7 @@ export const refs = {
   cocktailsList: document.querySelector('.cocktails-list'),
   cocktailsTitle: document.querySelector('.cocktails-section-title'),
   cocktailsItems: document.querySelector('.cocktails-item'),
-
+  hero: document.querySelector(".hero-section"),
   dropDownList: document.querySelector('.drop-down__list'),
   errorDiv: document.querySelector('.error'),
   favBtn: document.querySelector('.fav-btn'),
@@ -52,6 +52,6 @@ export const refsDark = {
   // ----------------- cocktails
 
   cocktailsSectionTitle: document.querySelector('.cocktails-section-title'),
-    cocktailsList: document.querySelector('.cocktails-list'),
+  cocktailsList: document.querySelector('.cocktails-list'),
  
 }
