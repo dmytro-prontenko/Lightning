@@ -174,7 +174,7 @@ export default class Render {
 │ =====================================
 */
   renderFavCocktailPage(arr) {
-    if (Array.isArray(arr)) {
+    if (Array.isArray(arr)&& arr.length > 0) {
       const favPage = arr
         .map(
           card => `
@@ -185,7 +185,7 @@ export default class Render {
               <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more">Learn More</button>
-                <button type="button" class="fav-btn">
+                <button type="button" class="fav-btn fav-btn-del" id="${card._id}">
                 <svg class="del-btn-svg">
                 <use xlink:href="${icons}#icon-remove"></use>
                 </svg></button>
@@ -195,13 +195,7 @@ export default class Render {
         )
         .join('');
       refs.favCocktailsList.innerHTML = favPage;
-    } else {
-      Notiflix.Report.failure(
-        'ERROR',
-        'Oops! Something went wrong! Try reloading the page!',
-        'Okay'
-      );
-    }
+    } 
   }
 
   renderFavIngPage(arr) {

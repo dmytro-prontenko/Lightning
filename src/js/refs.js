@@ -9,6 +9,8 @@ export const refs = {
   btnPaginationPrev: document.querySelector("#pagination-btn-prev"),
   cocktailsList: document.querySelector('.cocktails-list'),
   cocktailsTitle: document.querySelector('.cocktails-section-title'),
+  cocktailsItems: document.querySelector('.cocktails-item'),
+
   dropDownList: document.querySelector('.drop-down__list'),
   errorDiv: document.querySelector('.error'),
   favBtn: document.querySelector('.fav-btn'),
