@@ -44,11 +44,7 @@
   row-gap: var(--indent-horizontal);
 } */
 
-/* .card-set-item {
-  flex-basis: calc(
-    (100% - var(--indent-vertical) * (var(--items) - 1)) / var(--items)
-  );
-} */
+
 .visually-hidden {
   position: absolute;
   white-space: nowrap;
