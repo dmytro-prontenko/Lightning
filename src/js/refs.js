@@ -35,7 +35,7 @@ export const refsDark = {
     
   darkToggle: document.querySelector('.toggle-checkbox'), // перемикач теми
   darkToggleBurger: document.querySelector('.burger-checkbox'),
-  
+  modalInstrText:document.querySelector(".modal-cocktail-instuction-text"),
   body: document.querySelector('body'),
   // --------- header
   headerNavLinkFav: document.querySelector('.header-nav-link-fav'),
