@@ -33,20 +33,25 @@ export const refs = {
 
 export const refsDark = {
     
-    // herotitle: document.querySelector('.hero-title'), 
-    // herotext: document.querySelector('.hero-text'), 
-    // iconHeroStarOne: document.querySelector('.icon-hero-star-one '),
-    // iconHeroStarTwo: document.querySelector('.icon-hero-star-two'),
-    // heroImgText : document.querySelector('.hero-img-text'),
-    // modalCocktailTextWrapperDarkH1: document.querySelector('.modal-cocktail-text-wrapper > h1'),
-    // modalCocktailTextWrapperDarkH2: document.querySelector('.modal-cocktail-text-wrapper > h2'),
-    // modalCocktailInstuctionDark: document.querySelector('.modal-cocktail-instuction'),
-    // modalCocktailInstuctionTextDark: document.querySelector('.modal-cocktail-instuction-text'),
-    // ingredientListItemDark: document.querySelector('.ingredient-list-item'),
-    // ingNameDark: document.querySelector('.ing-name'),
-    // cocktailNameDark: document.querySelector('.cocktail-name'),
-    // ingDesModalDark: document.querySelector('.ing-des-modal'),
-    // ingDesModalDark: document.querySelector('.ing-info-item'),
-    // cocktailsItemDark: document.querySelector('.cocktails-item'),
-    body: document.querySelector('body'),
+  darkToggle: document.querySelector('.toggle-checkbox'), // перемикач теми
+  darkToggleBurger: document.querySelector('.burger-checkbox'),
+  
+  body: document.querySelector('body'),
+  // --------- header
+  headerNavLinkFav: document.querySelector('.header-nav-link-fav'),
+  svgSearch: document.querySelector('.svg-search'),
+  toggleSwitch: document.querySelector('.toggle-switch'),
+  headerMenuSvg: document.querySelector('.header-menu-svg'),
+  
+  // --------------hero
+  herotitle: document.querySelector('.hero-title'), 
+  herotext: document.querySelector('.hero-text'), 
+  iconHeroStarOne: document.querySelector('.icon-hero-star-one '),
+  iconHeroStarTwo: document.querySelector('.icon-hero-star-two'),
+  heroImgText: document.querySelector('.hero-img-text'),
+  // ----------------- cocktails
+
+  cocktailsSectionTitle: document.querySelector('.cocktails-section-title'),
+    cocktailsList: document.querySelector('.cocktails-list'),
+ 
 }

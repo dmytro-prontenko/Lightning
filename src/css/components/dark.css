@@ -4,83 +4,16 @@
     color: #FDFDFF;
 }
 
-.cocktails-item-dark {
+.dark-cocktails-item {
     background-color: #232330;
-    ;
-}
-
-/**
-  |============================
-  | dark theme hero
-  |============================
-*/
-/*  
-.hero-title {
     color: #fdfdff;
+    
 }
-
-.hero-text {
-    color: #fdfdff;
-}
-
-.icon-hero-star-one {
+.dark-white {
+    color: #FDFDFF;
     fill: #fdfdff;
+    stroke: #fdfdff;
 }
-
-.icon-hero-star-two {
-    fill: #fdfdff;
+.dark-toggle-switch {
+    background-color: #9CDFDF;
 }
-
-.hero-img-text {
-    color: #fdfdff;
-}
-
-
-
-/**
-  |============================
-  | cocktail-modal
-  |============================
-*/
-/* 
-.modal-cocktail-text-wrapper-dark>h1 {
-    color: #fdfdff;
-}
-
-.modal-cocktail-text-wrapper-dark>h2 {
-    color: #fdfdff;
-}
-
-.modal-cocktail-instuction-dark {
-    color: #fdfdff;
-}
-
-.modal-cocktail-instuction-text-dark {
-    color: rgba(253, 253, 255, 0.5);
-}
-
-.ingredient-list-item-dark {
-    color: rgba(253, 253, 255, 0.99);
-} */
-
-/**
-  |============================
-  | modal inrgidients
-  |============================
-*/
-/* 
-.ing-name-dark {
-    color: #fdfdff;
-}
-
-.cocktail-name-dark {
-    color: rgba(253, 253, 255, 0.5);
-}
-
-.ing-des-modal-dark {
-    color: rgba(253, 253, 255, 0.5);
-}
-
-.ing-info-item-dark {
-    color: rgba(253, 253, 255, 0.8);
-} */

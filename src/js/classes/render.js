@@ -204,12 +204,12 @@ export default class Render {
       const favIngPage = arr
         .map(
           card => `
-              <li id=${card._id} class="cocktails-item">
-                <h2 class="cocktails-title">${card.title}</h2>
-                <h3 class="alco-title">${
+                     <li id=${card._id} class="cocktails-item">
+                <h2 class=" ing-name cocktails-title">${card.title}</h2>
+                <h3 class=" ing-info-item alco-title">${
                   card.alcohol === 'Yes' ? 'Alcoholic' : 'Non-Alcoholic'
                 }</h3>
-                <p class="ing-des">${card.description}</p>
+                <p class=" ing-des-modal ing-des">${card.description}</p>
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more"><span class="learn-more-text">Learn More</span></button>
                 <button type="button" class="fav-btn"><span class="lel-btn-text">
@@ -298,7 +298,7 @@ export default class Render {
     
             <div class="burger-wrap">
                 <label class="toggle-modal">
-                    <input class="toggle-checkbox" type="checkbox" />
+                    <input class="toggle-checkbox burger-checkbox " type="checkbox" />
                     <div class="toggle-switch toggle-switch-burger"></div>
                 </label>
     
