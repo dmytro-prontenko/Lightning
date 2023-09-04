@@ -12,7 +12,7 @@ let currentPage;
 let forRender;
 let pageInt;
 let pagObj = {};
-
+let windowWidth = window.innerWidth;
 
 
 refs.alphabet.addEventListener('click', onFilterSymbolClick);
@@ -23,8 +23,8 @@ async function onFilterSymbolClickSelect(event){
   currentPage = '1';
   arrCocktail = [];
   refs.paginationContainer.innerHTML = '';
+
   pagObj = {};
-  windowWidth = window.innerWidth;
   if (windowWidth < 1280) {
     itemsPerPage.perPage = 8
     }
