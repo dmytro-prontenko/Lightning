@@ -140,8 +140,7 @@ function onModalBurgerClick(event) {
   if (
     (event.target.nodeName === 'svg' &&
       event.target.classList === 'close-btn-cock-svg') ||
-    event.target.nodeName === 'use' ||
-    event.target.nodeName === 'BUTTON'
+    event.target.nodeName === 'use'
   ) {
     refs.modalBurger.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
