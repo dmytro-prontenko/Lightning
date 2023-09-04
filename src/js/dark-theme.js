@@ -1,29 +1,49 @@
 import { refsDark } from './refs.js';
+import { refs } from './refs.js';
 
-const darkToggle = document.querySelector('.toggle-checkbox');
 
+refs.modalBurger.addEventListener('click', onModalBurgerClick);
+function onModalBurgerClick(event) {
+  if (
+    event.target.classList.contains('burger-checkbox')
+  ) {
+    toggleDarkMode();
+    return;
+  }
+}
+// -----------------------------
+refsDark.darkToggle.addEventListener('click', toggleDarkMode); // перемикає тему
 
-// darkToggle.addEventListener('click', toggleDarkTheme);
+function toggleDarkMode() {
 
-// function toggleDarkTheme() {
-//     for (const key in refsDark) {
-//         const element = refsDark[key];
-//         element.classList.toggle('dark-theme');
-//     }
-// }
+  // --- сoctails
 
-function convertToArray(obj) {
-  return Object.values(obj);
+const cocktlist = refsDark.cocktailsList.children 
+  for (const el of cocktlist) {
+    el.classList.toggle("dark-cocktails-item")
+
+  }
+
+  // ------------------------
+  refsDark.body.classList.toggle('dark-theme');
+
+  refsDark.headerMenuSvg.classList.toggle('dark-white');
+  refsDark.headerNavLinkFav.classList.toggle('dark-white');
+  refsDark.svgSearch.classList.toggle('dark-white');
+  refsDark.toggleSwitch.classList.toggle('dark-toggle-switch');
+  
+  refsDark.herotitle.classList.toggle('dark-white');
+  refsDark.herotext.classList.toggle('dark-white');
+  refsDark.heroImgText.classList.toggle('dark-white');
+  refsDark.iconHeroStarOne.classList.toggle('dark-white');
+  refsDark.iconHeroStarTwo.classList.toggle('dark-white');
+
+  refsDark.cocktailsSectionTitle.classList.toggle('dark-white'); 
+  
+
 }
 
-const arrayRefsDark = convertToArray(refsDark);
-darkToggle.addEventListener('click', addDarkTheme);
 
-function addDarkTheme() {
-  Object.values(refsDark).forEach((item) => {
-    item.classList.toggle('dark-theme');
-  });
-}
 
 
 

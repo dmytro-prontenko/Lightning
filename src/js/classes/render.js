@@ -304,7 +304,7 @@ export default class Render {
     
             <div class="burger-wrap">
                 <label class="toggle-modal">
-                    <input class="toggle-checkbox" type="checkbox" />
+                    <input class="toggle-checkbox burger-checkbox " type="checkbox" />
                     <div class="toggle-switch toggle-switch-burger"></div>
                 </label>
     
