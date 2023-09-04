@@ -13,7 +13,6 @@ function onModalBurgerClick(event) {
 }
 // -----------------------------
 refsDark.darkToggle.addEventListener('click', toggleDarkMode); // перемикає тему
-console.log(refs.modalCocktail);
 function toggleDarkMode() {
   
   // --- сoctails

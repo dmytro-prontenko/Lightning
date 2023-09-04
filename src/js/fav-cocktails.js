@@ -26,7 +26,7 @@ function onClickInFav(event) {
   ) {
     const list = refs.favCocktailsList.children;
     for (const el of list) {
-      if (el.id === event.target.id) {
+      if (el.id === event.target.closest('.cocktails-item').id) {
         removeFromLocal('cocktails', el.id)
         el.style.opacity = '0';
         setTimeout(function () {
