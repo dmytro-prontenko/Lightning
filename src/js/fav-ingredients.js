@@ -97,7 +97,7 @@ function onIngrCloseBtnClick(event) {
     refs.modalIngredient.classList.toggle('is-hidden');
     return;
   }
-  console.log(event.target.dataset.ingId);
+
   if (
     event.target.nodeName === 'BUTTON' &&
     event.target.className === 'add-fav-ing'

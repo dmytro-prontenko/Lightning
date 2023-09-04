@@ -185,7 +185,7 @@ export default class Render {
               <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more">Learn More</button>
-                <button type="button" class="fav-btn fav-btn-del" id="${card._id}">
+                <button type="button" class="fav-btn fav-btn-del" >
                 <svg class="del-btn-svg">
                 <use xlink:href="${icons}#icon-remove"></use>
                 </svg></button>
