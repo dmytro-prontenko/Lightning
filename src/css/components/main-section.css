@@ -80,6 +80,13 @@
 .fav-ing-list>li>h2{
   margin-bottom: 4px;
 }
+.ing-des-modal {
+  overflow-y: auto;
+  height: 100px;
+  max-width: 295px;
+  margin-left: 0;
+  padding-right: 10px;
+}
 .cocktails-desc, .ing-des {
   width: 295px;
   height: 54px;
@@ -99,13 +106,7 @@
 .ing-des{
   margin-bottom: 20px;
 }
-.ing-des-modal{
-overflow-y: auto;
-  height: 100px;
-  max-width: 295px;
-  margin-left: 0;
-  padding-right: 10px;
-}
+
 @media screen and (min-width: 768px){
   .ing-des-modal{
     max-width: 530px;
