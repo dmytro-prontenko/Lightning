@@ -60,16 +60,6 @@
 /* //////////// */
 
 .modal-cocktail {
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 335px;
-  border-radius: 20px;
-  background: var(--color-4);
-  padding: 40px 20px;
-  overflow-y: auto;
-  z-index: 100; */
     position:sticky;
      top: 17%;
     width: 335px;
