@@ -4,7 +4,7 @@
 
 
 .cocktails-section-title {
-  color: #242424;
+  /* color: #242424; */
   font-family: Poppins;
   font-size: 24px;
   font-weight: 500;
@@ -69,7 +69,7 @@
   margin-bottom: 24px;
 }
 .cocktails-title, .fav-ing-list>li>h2 {
-  color: #242424;
+  /* color: #242424; */
   font-family: Poppins;
   font-size: 18px;
   font-weight: 600;
@@ -85,7 +85,7 @@
   height: 54px;
   flex-shrink: 0;
   overflow: hidden;
-  color: #242424;
+  /* color: #242424; */
   text-overflow: ellipsis;
   display: -webkit-box;
 -webkit-line-clamp: 3;
@@ -112,19 +112,25 @@ overflow-y: auto;
   }
 }
 .ing-des-modal::-webkit-scrollbar, 
-.modal-cocktail-instuction-text::-webkit-scrollbar{
+.modal-cocktail-instuction-text::-webkit-scrollbar,
+.drop-down__list::-webkit-scrollbar,
+select::-webkit-scrollbar{
 width: 4px;
 border: 4px solid rgb(175, 198, 198);
 }
 .ing-des-modal::-webkit-scrollbar-thumb,
-.modal-cocktail-instuction-text::-webkit-scrollbar-thumb{
+.modal-cocktail-instuction-text::-webkit-scrollbar-thumb,
+.drop-down__list::-webkit-scrollbar-thumb,
+select::-webkit-scrollbar-thumb{
   background-color: #4759a8 ;
 }
+
+
 .learn-more {
    padding: 16px 55px;
   border-radius: 12px;
   border: 1px solid #7E8FDD;
-  color: #242424;
+  color: inherit;
     font-family: Poppins;
     font-size: 18px;
     font-weight: 600;
