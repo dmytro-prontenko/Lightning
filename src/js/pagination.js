@@ -198,7 +198,6 @@ refs.btnPaginationPrev.addEventListener('click', onPrevClick)
       currentPage = parseInt(currentPage) - 1;
       
       pageInt = Number(currentPage);
-      console.log(event.target.nextElementSibling);
       changeStateCurrentPagePrevNext(event.target.nextElementSibling) 
 
       if (pageInt > 1 && pageInt < Object.keys(pagObj).length) {

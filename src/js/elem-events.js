@@ -17,7 +17,6 @@ function onClick(event) {
     event.target.nodeName === 'BUTTON' &&
     event.target.className === 'learn-more'
   ) {
-    console.log(event.target);
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
     const id = event.target.closest('.cocktails-item').id;
@@ -86,7 +85,6 @@ function onClickModalCocktail(event) {
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.modalIngredient.classList.toggle('is-hidden');
-    console.log(listCocktails.fetchIngrByID(event.target.dataset.ingId));
     listCocktails
       .fetchIngrByID(event.target.dataset.ingId)
       .then(data => listRender.renderIngModal(data));
@@ -105,7 +103,7 @@ function onIngrCloseBtnClick(event) {
     refs.modalIngredient.classList.toggle('is-hidden');
     return;
   }
-  console.log(event.target.dataset.ingId);
+  
   if (
     event.target.nodeName === 'BUTTON' &&
     event.target.className === 'add-fav-ing'
@@ -127,7 +125,7 @@ refs.burgerMenu.addEventListener('click', onBurgerMenuClick);
 refs.modalBurger.addEventListener('click', onModalBurgerClick);
 
 function onBurgerMenuClick(event) {
-  console.log(event.target);
+
   if (event.target.nodeName === 'svg' || event.target.nodeName === 'use') {
     refs.modalBurger.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');

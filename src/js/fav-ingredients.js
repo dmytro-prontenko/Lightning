@@ -70,14 +70,11 @@ function onEnterPress(event) {
 refs.ingredientsList.addEventListener('click', onClickLearnMoreIng);
 
 function onClickLearnMoreIng(event) {
-  console.log(event.target);
  if (
     (event.target.nodeName === 'BUTTON' &&
     event.target.className === 'learn-more')|| event.target.nodeName === 'SPAN'
   ) {
    refs.modalIngredient.classList.toggle('is-hidden');
-   console.log(event.target);
-    console.log(listCocktails.fetchIngrByID(event.target.closest(".cocktails-item").id));
     listCocktails
       .fetchIngrByID(event.target.closest(".cocktails-item").id)
       .then(data => listRender.renderIngModal(data));
@@ -102,23 +99,47 @@ function onIngrCloseBtnClick(event) {
     event.target.nodeName === 'BUTTON' &&
     event.target.className === 'add-fav-ing'
   ) {
-    const id = event.target.closest('.modal-ing').id;
-    if (event.target.textContent === 'Remove from favorite') {
-      removeFromLocal('ingredients', id);
-      event.target.textContent = 'Add to favorite';
-      return;
-    }
-    saveToLocal('ingredients', id);
-    event.target.textContent = 'Remove from favorite';
-  }
-  if (
-    (event.target.nodeName === 'svg' &&
-      event.target.id === 'js-close-modal-cockt-svg') ||
-    event.target.nodeName === 'use'
-  ) {
-    refs.modalIngredient.classList.toggle('is-hidden');
-    refs.body.classList.toggle('modal-open');
-    
     return;
   }
-}
+  
+};
+
+
+//   const id = event.target.closest('.modal-ing').id;
+//   if (event.target.textContent === 'Remove from favorite') {
+//     removeFromLocal('ingredients', id);
+//     event.target.textContent = 'Add to favorite';
+//     return;
+//   }
+//   saveToLocal('ingredients', id);
+//   event.target.textContent = 'Remove from favorite';
+// }
+// if (
+//   (event.target.nodeName === 'svg' &&
+//     event.target.id === 'js-close-modal-cockt-svg') ||
+//   event.target.nodeName === 'use'
+// ) {
+//   refs.modalIngredient.classList.toggle('is-hidden');
+//   refs.body.classList.toggle('modal-open');
+//   const list = refs.ingredientsList.children;
+//   for (const el of list) {
+//     if (el.id === event.target.closest('.cocktails-item').id) {
+//       removeFromLocal('ingredients', el.id)
+//       el.style.opacity = '0';
+//       setTimeout(function () {
+//         el.style.display = 'none';
+//       }, 500);
+//       if (loadFromLocal('ingredients').length === 0) {
+//         refs.ingredientsList.innerHTML = `<li class="error">
+//               <svg class="fav-svg">
+//                 <use xlink:href="${icons}#icon-error-cocktails"></use>
+//               </svg>
+//               <h2 class="fav-error-text">
+//                 You haven't added any <br />
+//                 <span class="fav-error-span">favorite cocktails</span> yet
+//               </h2>
+//             </li>`
+//       }
+//     }
+//   }
+
