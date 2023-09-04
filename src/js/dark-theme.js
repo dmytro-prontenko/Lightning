@@ -13,20 +13,20 @@ function onModalBurgerClick(event) {
 }
 // -----------------------------
 refsDark.darkToggle.addEventListener('click', toggleDarkMode); // перемикає тему
-
+console.log(refs.modalCocktail);
 function toggleDarkMode() {
-
+  
   // --- сoctails
 
 const cocktlist = refsDark.cocktailsList.children 
   for (const el of cocktlist) {
-    el.classList.toggle("dark-cocktails-item")
-
+    if (!el.classList.contains("error")) {
+      el.classList.toggle("dark-cocktails-item")
+    }
   }
-
   // ------------------------
   refsDark.body.classList.toggle('dark-theme');
-
+  
   refsDark.headerMenuSvg.classList.toggle('dark-white');
   refsDark.headerNavLinkFav.classList.toggle('dark-white');
   refsDark.svgSearch.classList.toggle('dark-white');
