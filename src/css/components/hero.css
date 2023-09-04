@@ -6,7 +6,7 @@
     margin: 0 auto;
   }
 
-  .rent-side {
+  .hero-side {
     display: flex;
     padding-top: 0;
     flex-direction: column;
@@ -21,7 +21,7 @@
   }
 
   .hero-title {
-    color: var #242424;
+    color: #242424;
     font-family: Poppins;
     font-size: 32px;
     font-style: normal;
@@ -39,7 +39,6 @@
   }
 
   .hero-text {
-    width: 338px;
     margin-top: 28px;
 
     color: #242424;
@@ -228,7 +227,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .rent-side {
+  .hero-side {
     display: flex;
     padding-top: 114px;
   }
@@ -426,6 +425,11 @@
     font-size: 20px;
     cursor: pointer;
   }
+
+  .custom-list-item:hover,
+  .custom-list-item:focus {
+    background: #9cdfdf;
+  }
 }
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////// */
@@ -513,7 +517,7 @@
     background: #6e7fcf;
   }
 
-  .rent-side {
+  .hero-side {
     display: flex;
     padding-top: 0;
     gap: 70px;
@@ -637,6 +641,11 @@
     height: 40px;
     border-radius: 8px;
     background: rgba(126, 143, 221, 0.4);
+  }
+
+  .custom-list-item:hover,
+  .custom-list-item:focus {
+    background: #9cdfdf;
   }
 
   .alphabet-btn {

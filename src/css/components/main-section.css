@@ -4,7 +4,7 @@
 
 
 .cocktails-section-title {
-  color: #242424;
+  /* color: #242424; */
   font-family: Poppins;
   font-size: 24px;
   font-weight: 500;
@@ -69,7 +69,7 @@
   margin-bottom: 24px;
 }
 .cocktails-title, .fav-ing-list>li>h2 {
-  color: #242424;
+  /* color: #242424; */
   font-family: Poppins;
   font-size: 18px;
   font-weight: 600;
@@ -80,12 +80,19 @@
 .fav-ing-list>li>h2{
   margin-bottom: 4px;
 }
+.ing-des-modal {
+  overflow-y: auto;
+  height: 100px;
+  max-width: 295px;
+  margin-left: 0;
+  padding-right: 10px;
+}
 .cocktails-desc, .ing-des {
   width: 295px;
   height: 54px;
   flex-shrink: 0;
   overflow: hidden;
-  color: #242424;
+  /* color: #242424; */
   text-overflow: ellipsis;
   display: -webkit-box;
 -webkit-line-clamp: 3;
@@ -99,32 +106,32 @@
 .ing-des{
   margin-bottom: 20px;
 }
-.ing-des-modal{
-overflow-y: auto;
-  height: 100px;
-  max-width: 295px;
-  margin-left: 0;
-  padding-right: 10px;
-}
+
 @media screen and (min-width: 768px){
   .ing-des-modal{
     max-width: 530px;
   }
 }
 .ing-des-modal::-webkit-scrollbar, 
-.modal-cocktail-instuction-text::-webkit-scrollbar{
+.modal-cocktail-instuction-text::-webkit-scrollbar,
+.drop-down__list::-webkit-scrollbar,
+select::-webkit-scrollbar{
 width: 4px;
 border: 4px solid rgb(175, 198, 198);
 }
 .ing-des-modal::-webkit-scrollbar-thumb,
-.modal-cocktail-instuction-text::-webkit-scrollbar-thumb{
+.modal-cocktail-instuction-text::-webkit-scrollbar-thumb,
+.drop-down__list::-webkit-scrollbar-thumb,
+select::-webkit-scrollbar-thumb{
   background-color: #4759a8 ;
 }
+
+
 .learn-more {
    padding: 16px 55px;
   border-radius: 12px;
   border: 1px solid #7E8FDD;
-  color: #242424;
+  color: inherit;
     font-family: Poppins;
     font-size: 18px;
     font-weight: 600;
@@ -210,10 +217,20 @@ border: 4px solid rgb(175, 198, 198);
   display: flex;
   column-gap: 39px;
   justify-content: center;
+  position: relative;
 }
 #pagination-btn-prev,
 #pagination-btn-next {
-  margin: 0;
+  position: absolute;
+  min-height: 41px;
+}
+#pagination-btn-prev{
+top: 0;
+left: 0;
+}
+#pagination-btn-next{
+  top: 0;
+  right: 0;
 }
 .pagination-svg-prev{
   fill: #7E8FDD;

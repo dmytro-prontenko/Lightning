@@ -7,44 +7,26 @@ const itemForDropDown = new CocktailAPI();
 const renderInputedCocktail = new Render();
 
 let data = [];
+getAllCocktailsNames();
 
 async function getAllCocktailsNames() {
   try {
-    const totalCount = await itemForDropDown.fetchTotalCountCocktails();
-    const resp = await itemForDropDown.fetchRandomCocktailsNames(totalCount);
+    // const totalCount = await itemForDropDown.fetchTotalCountCocktails(); довгий час запиту. проблема з беком.
+    const resp = await itemForDropDown.fetchRandomCocktailsNames(441); // сюди передається totalCount
     resp.forEach(el => data.push(el));
   } catch (error) {
     console.log(error);
   }
 }
 
-getAllCocktailsNames();
-
-// async function test() {
-//   try {
-//     const totalCount = await itemForDropDown.fetchTotalCountCocktails();
-//     const cocktailIds = await itemForDropDown.fetchRandomCocktailsNames(totalCount);
-//     return cocktailIds;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-// let arr;
-// test().then(data => arr = data)
-// console.log(arr)
-
 class DropDownList {
   constructor({ element, data }) {
     this.element = element;
     this.data = data;
-
     this.listElement = null;
-
     this._onElementInput = this._onElementInput.bind(this);
     this._onItemListClick = this._onItemListClick.bind(this);
-
     this._onDocumentKeyDown = this._onDocumentKeyDown.bind(this);
-
     this.bind();
   }
 
@@ -118,6 +100,11 @@ class DropDownList {
     if (this.listElement) {
       this.listElement.remove();
       this.listElement = null;
+       gsap.to('.images-wrapper', {
+        x: 0,
+        duration: 0.1,
+        // delay: 0.2,
+      });
     }
 
     document.removeEventListener(`keydown`, this._onDocumentKeyDown);
@@ -126,6 +113,6 @@ class DropDownList {
   bind() {
     this.element.addEventListener(`input`, this._onElementInput);
   }
-}
+};
 
-new DropDownList({ element: document.querySelector(`#input`), data });
+export const dropDownList = new DropDownList({ element: document.querySelector(`#input`), data });

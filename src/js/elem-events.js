@@ -1,20 +1,15 @@
 import Render from './classes/render';
 import CocktailAPI from './classes/cocktailAPI';
-import DropDownList from './classes/drop-down-search';
+import { dropDownList } from './classes/drop-down-search';
 import { refs } from './refs';
-import { saveToLocal, loadFromLocal, removeFromLocal } from './storage.js';
+import { saveToLocal, removeFromLocal } from './storage.js';
 import icons from '../images/icons.svg';
+import Notiflix from 'notiflix';
 
-import {headerLinkFav, favMenu, onLinkClick, onBodyClick} from './header.js'
 refs.cocktailsList.addEventListener('click', onClick);
-
-// const renderCocktailModal = new Render();
-headerLinkFav.addEventListener("click", onLinkClick)
 
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
-
-//?? Чи будемо розносити по файлам fav-cocktails / fav-ingridients?
 
 function onClick(event) {
   // Details button event
@@ -22,8 +17,6 @@ function onClick(event) {
     event.target.nodeName === 'BUTTON' &&
     event.target.className === 'learn-more'
   ) {
-    console.log(event.target);
-    //TODO дописати логіку до кнопки на відкриття модалки
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
     const id = event.target.closest('.cocktails-item').id;
@@ -39,7 +32,6 @@ function onClick(event) {
     event.target.className === 'fav-btn'
   ) {
     const id = event.target.closest('.cocktails-item').id;
-    // console.log(event.target.dataset.inLocalStorage)
     if (event.target.dataset.inLocalStorage === 'inStorage') {
       removeFromLocal('cocktails', id);
       event.target.dataset.inLocalStorage = 'notInStorage';
@@ -66,6 +58,7 @@ function onClickModalCocktail(event) {
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
+    
     return;
   }
 
@@ -77,6 +70,8 @@ function onClickModalCocktail(event) {
     if (event.target.textContent === 'Remove from favorite') {
       removeFromLocal('cocktails', id);
       event.target.textContent = 'Add to favorite';
+
+
       return;
     }
 
@@ -90,35 +85,9 @@ function onClickModalCocktail(event) {
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.modalIngredient.classList.toggle('is-hidden');
-    console.log(listCocktails.fetchIngrByID(event.target.dataset.ingId)); 
-    listCocktails.fetchIngrByID(event.target.dataset.ingId).then(data => listRender.renderIngModal(data));
-
-
-
-    //TODO переробити для інгридієнтів
-    // modalCocktail.fetchCocktailByID(id).then(data => {
-    //   listRender.renderModalCocktail(data);
-    // });
-
-//     refs.modalIngredient.innerHTML = `
-//     <div class="modal-ing" id="123456">
-//     <button type="button" class="btn-close">
-//     <svg class="close-btn-svg" id="js-close-modal-ingr-svg">
-//                 <use xlink:href="${icons}#icon-close"></use>
-//                 </svg >
-//                 </button>
-//     <h2 class="ing-name">Malina</h2>
-//     <h3 class="cocktail-name">Malinovka</h3>
-//     <p class="ing-des"><span class="first-word"></span></p>
-//     <ul class="ing-info-list">
-//     <li class="ing-info-item">Type: alcohol</li>
-//     <li class="ing-info-item">Country of origin: Ukraine</li>
-//     <li class="ing-info-item">Alcohol by volume: 30%</li>
-//     <li class="ing-info-item">Flavour: sweet</li>
-// </ul>
-// <button type="button" class="add-to-fav-ing">Add to favorite</button>
-// </div>
-// `;
+    listCocktails
+      .fetchIngrByID(event.target.dataset.ingId)
+      .then(data => listRender.renderIngModal(data));
   }
 }
 // =============== MODAL ING BUTTONS ===============
@@ -134,7 +103,7 @@ function onIngrCloseBtnClick(event) {
     refs.modalIngredient.classList.toggle('is-hidden');
     return;
   }
-console.log(event.target.dataset.ingId);
+  
   if (
     event.target.nodeName === 'BUTTON' &&
     event.target.className === 'add-fav-ing'
@@ -145,7 +114,6 @@ console.log(event.target.dataset.ingId);
       event.target.textContent = 'Add to favorite';
       return;
     }
-
     saveToLocal('ingredients', id);
     event.target.textContent = 'Remove from favorite';
   }
@@ -157,48 +125,46 @@ refs.burgerMenu.addEventListener('click', onBurgerMenuClick);
 refs.modalBurger.addEventListener('click', onModalBurgerClick);
 
 function onBurgerMenuClick(event) {
-  console.log(event.target);
+
   if (event.target.nodeName === 'svg' || event.target.nodeName === 'use') {
     refs.modalBurger.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
     listRender.renderBurgerModal();
     return;
   }
-}
+};
 
 function onModalBurgerClick(event) {
   if (
     (event.target.nodeName === 'svg' &&
       event.target.classList === 'close-btn-cock-svg') ||
-    event.target.nodeName === 'use' ||
-    event.target.nodeName === 'BUTTON'
+    event.target.nodeName === 'use'
   ) {
     refs.modalBurger.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
     return;
   }
-}
+};
 
-//TODO реалізувати закриття модалки при кліку на backdrop + Esc
 
 // =============== SEARCH INPUT ===============
-// TODO
+
 refs.searchField.addEventListener('input', onSearchInput);
+function onSearchInput(event) {
+  refs.searchField.addEventListener('keydown', onEnterPress);
+}
 
-function onSearchInput(event) {}
-
-// =============== FILTER ===============
-// TODO
-// refs.alphabet.addEventListener('click', onFilterSymbolClick);
-
-// function onFilterSymbolClick(event) {
-//   if (event.target.nodeName === 'LI') {
-//     listCocktails
-//       .fetchCocktailByLetter(event.target.dataset.jsQuery)
-//       .then(data => {
-//         listRender.renderList(data);
-//       });
-//     event.target.closest('.custom-list').dataset.render = 'stop-render';
-//     refs.cocktailsTitle.scrollIntoView({behavior: 'smooth'})
-//   }
-// }
+function onEnterPress(event) {
+  if (event.keyCode === 13) {
+    if (event.target.value.length >= 3) {
+      listCocktails
+        .fetchCocktailByName(event.target.value.trim())
+        .then(data => listRender.renderList(data));
+      refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
+      refs.searchField.value = '';
+      dropDownList.removeList();
+    } else {
+      Notiflix.Notify.failure('Enter more than two symbols!');
+    }
+  }
+};

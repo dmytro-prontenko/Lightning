@@ -38,10 +38,9 @@ async function onFilterSymbolClickSelect(event){
           arrCocktail.push(el);
         });
       });
-    // event.target.closest('.custom-list').dataset.render = 'stop-render';
     refs.cocktailsTitle.scrollIntoView({ behavior: 'smooth' });
     pagObj = createPaginationObject(arrCocktail, itemsPerPage);
-    Notiflix.Notify.info(`Found ${arrCocktail.length} cocktails!`);
+    Notiflix.Notify.success(`Found ${arrCocktail.length} cocktails!`);
 
     if (Object.keys(pagObj).length > 1) {
       listRender.renderPaginationBtns(Object.keys(pagObj).length);
@@ -199,7 +198,6 @@ refs.btnPaginationPrev.addEventListener('click', onPrevClick)
       currentPage = parseInt(currentPage) - 1;
       
       pageInt = Number(currentPage);
-      console.log(event.target.nextElementSibling);
       changeStateCurrentPagePrevNext(event.target.nextElementSibling) 
 
       if (pageInt > 1 && pageInt < Object.keys(pagObj).length) {
@@ -217,7 +215,6 @@ refs.btnPaginationPrev.addEventListener('click', onPrevClick)
       }
 };
 
-
 function createPaginationObject(values, itemsPerPage) {
   const { perPage } = itemsPerPage 
   const paginationObject = {};
@@ -231,7 +228,6 @@ function createPaginationObject(values, itemsPerPage) {
   return paginationObject;
 }
 
-
 function changeStateAlphabetBtns(target) {
   for (const child of refs.alphabet.children) {
     child.classList.remove('is-active');
@@ -241,7 +237,6 @@ function changeStateAlphabetBtns(target) {
   target.disabled = true;
 }
 
-
 function changeStateCurrentPageNumber(target){
   for (const child of refs.paginationContainer.childNodes) {
     child.classList.remove('is-active');
@@ -250,7 +245,6 @@ function changeStateCurrentPageNumber(target){
   target.classList.add('is-active')
   target.disabled = true;
 }
-
 
 function changeStateCurrentPagePrevNext(target) {
   for (const child of refs.paginationContainer.childNodes) {

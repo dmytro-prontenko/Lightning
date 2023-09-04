@@ -4,7 +4,7 @@ import { loadFromLocal } from '../storage.js';
 import icons from '../../images/icons.svg';
 
 export default class Render {
-  constructor() { }
+  constructor() {}
   /*
 │ =========================
 │  Рендер масиву коктейлів
@@ -33,15 +33,26 @@ export default class Render {
         .join('');
       refs.cocktailsList.innerHTML = cocktailCard;
 
+      const item = document.querySelector('.cocktails-item');
+      const tempBtn = item.lastElementChild.lastElementChild;
+
       const addToFavBtn = document.querySelector('.fav-btn');
+      const children = [...refs.cocktailsList.children];
+    
       if (loadFromLocal('cocktails').includes(arr[0]._id)) {
-        addToFavBtn.target.dataset.inLocalStorage = 'inStorage';
-        addToFavBtn.textContent = `<svg class="del-btn-svg">
-                <use xlink:href="${icons}#icon-remove"></use>
-                </svg>`;
-        return;
-      } else {
-        addToFavBtn.dataset.inLocalStorage = 'notInStorage';
+        for (const child of children) {
+          if (loadFromLocal('cocktails').includes(child.id)) {
+            // tempBtn.dataset.inLocalStorage = 'inStorage';
+            child.lastElementChild.lastElementChild.classList.add('inStorage');
+            child.lastElementChild.lastElementChild.innerHTML = `<svg class="del-btn-svg">
+                    <use xlink:href="${icons}#icon-remove"></use>
+                    </svg>`;
+            // return;
+          } else {
+            // tempBtn.dataset.inLocalStorage = 'notInStorage';
+            child.lastElementChild.lastElementChild.classList.add('notInStorage')
+          }
+        }
       }
     } else {
       Notiflix.Report.failure(
@@ -85,7 +96,6 @@ export default class Render {
         )
         .join('');
       refs.modal.innerHTML = cocktailModal;
-      // TODO скопіювати до інгридієнтів
       const ingridList = document.querySelector('.cocktail-ingr-list');
       const ingToInsert = arr[0].ingredients
         .map(
@@ -130,7 +140,9 @@ export default class Render {
             <h3 class="cocktail-name">${arr[0].type}</h3>
             <p class="ing-des-modal">${arr[0].description}</p>
             <ul class="ing-info-list">
-            <li class="ing-info-item">Type: ${arr[0].alcohol === "Yes" ? "Alcoholic" : "Non-Alcoholic"}</li>
+            <li class="ing-info-item">Type: ${
+              arr[0].alcohol === 'Yes' ? 'Alcoholic' : 'Non-Alcoholic'
+            }</li>
             <li class="ing-info-item">Country of origin: ${arr[0].country}</li>
             <li class="ing-info-item">Alcohol by volume: ${arr[0].abv}</li>
             <li class="ing-info-item">Flavour: ${arr[0].flavour}</li>
@@ -162,7 +174,7 @@ export default class Render {
 │ =====================================
 */
   renderFavCocktailPage(arr) {
-    if (Array.isArray(arr)) {
+    if (Array.isArray(arr) && arr.length > 0) {
       const favPage = arr
         .map(
           card => `
@@ -173,7 +185,7 @@ export default class Render {
               <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
                 <button type="button" class="learn-more">Learn More</button>
-                <button type="button" class="del-btn">
+                <button type="button" class="fav-btn fav-btn-del" >
                 <svg class="del-btn-svg">
                 <use xlink:href="${icons}#icon-remove"></use>
                 </svg></button>
@@ -182,31 +194,27 @@ export default class Render {
         `
         )
         .join('');
-      refs.favCocktailsList.innerHTML = favPage;
 
-    } else {
-      Notiflix.Report.failure(
-        'ERROR',
-        'Oops! Something went wrong! Try reloading the page!',
-        'Okay'
-      );
+     
+        refs.favCocktailsList.innerHTML = favPage;
     }
   }
 
   renderFavIngPage(arr) {
     if (Array.isArray(arr)) {
-      console.log(arr);
       const favIngPage = arr
         .map(
           card => `
-              <li id=${card._id} class="cocktails-item">
-                <h2 class="cocktails-title">${card.title}</h2>
-                <h3 class="alco-title">${card.alcohol === "Yes" ? "Alcoholic" : "Non-Alcoholic"}</h3>
-                <p class="ing-des">${card.description}</p>
+                     <li id=${card._id} class="cocktails-item">
+                <h2 class=" ing-name cocktails-title">${card.title}</h2>
+                <h3 class=" ing-info-item alco-title">${
+                  card.alcohol === 'Yes' ? 'Alcoholic' : 'Non-Alcoholic'
+                }</h3>
+                <p class=" ing-des-modal ing-des">${card.description}</p>
               <div class="buttons-wrapper">
-                <button type="button" class="learn-more"><span class="learn-more-text">Learn More</span></button>
-                <button type="button" class="del-btn"><span class="lel-btn-text">
-                <svg class="del-btn-svg">
+                <button type="button" class="learn-more">Learn More</button>
+                <button type="button" class="fav-btn-del"><span class="lel-btn-text">
+                <svg class="del-btn-svg" id="del-btn-svg">
                 <use xlink:href="${icons}#icon-remove"></use>
                 </svg></span></button>
               </div>
@@ -215,8 +223,7 @@ export default class Render {
         )
         .join('');
       refs.ingredientsList.innerHTML = favIngPage;
-      
-
+      // refs.cocktailsList.innerHTML = favIngPage;
     } else {
       Notiflix.Report.failure(
         'ERROR',
@@ -249,7 +256,6 @@ export default class Render {
     }
   }
 
- 
   /*
   │ =============================
   │    Рендер алфавіту мобільна
@@ -275,13 +281,13 @@ export default class Render {
       );
     }
   }
-    /*
+  /*
   │ =========================
   │    Рендер бургер меню
   │ =========================
   */
-    renderBurgerModal() {
-      const burgerModalMarkup = `
+  renderBurgerModal() {
+    const burgerModalMarkup = `
 <div class="section-burger">
     <div class="modal-burger container">
     
@@ -294,7 +300,7 @@ export default class Render {
     
             <div class="burger-wrap">
                 <label class="toggle-modal">
-                    <input class="toggle-checkbox" type="checkbox" />
+                    <input class="toggle-checkbox burger-checkbox " type="checkbox" />
                     <div class="toggle-switch toggle-switch-burger"></div>
                 </label>
     
@@ -334,8 +340,6 @@ export default class Render {
     </ul>
 
 </div>
-
-
             <div class="burger-bg">
         <svg class="burger-bg-svg" width="391" height="391">
             <use xlink:href="${icons}#icon-hero-background"></use>
@@ -343,19 +347,17 @@ export default class Render {
     </div>
     </div>
 </div>`;
-      refs.modalBurger.innerHTML = burgerModalMarkup;
+    refs.modalBurger.innerHTML = burgerModalMarkup;
   }
-  
+
   renderPaginationBtns(quant) {
     const arrMarkupBtns = [];
     for (let i = 1; i <= quant; i++) {
-      arrMarkupBtns.push(`<button type="button" class="pagination-page" id="page_${i}">${i}</button>`)
+      arrMarkupBtns.push(
+        `<button type="button" class="pagination-page" id="page_${i}">${i}</button>`
+      );
     }
     const markupBtns = arrMarkupBtns.join('');
     refs.paginationContainer.innerHTML = markupBtns;
   }
-  
-      
-    }
-  
-
+}
