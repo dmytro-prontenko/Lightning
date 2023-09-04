@@ -4,7 +4,7 @@
 
 
 .cocktails-section-title {
-  color: #242424;
+  /* color: #242424; */
   font-family: Poppins;
   font-size: 24px;
   font-weight: 500;
@@ -80,6 +80,13 @@
 .fav-ing-list>li>h2{
   margin-bottom: 4px;
 }
+.ing-des-modal {
+  overflow-y: auto;
+  height: 100px;
+  max-width: 295px;
+  margin-left: 0;
+  padding-right: 10px;
+}
 .cocktails-desc, .ing-des {
   width: 295px;
   height: 54px;
@@ -99,27 +106,27 @@
 .ing-des{
   margin-bottom: 20px;
 }
-.ing-des-modal{
-overflow-y: auto;
-  height: 100px;
-  max-width: 295px;
-  margin-left: 0;
-  padding-right: 10px;
-}
+
 @media screen and (min-width: 768px){
   .ing-des-modal{
     max-width: 530px;
   }
 }
 .ing-des-modal::-webkit-scrollbar, 
-.modal-cocktail-instuction-text::-webkit-scrollbar{
+.modal-cocktail-instuction-text::-webkit-scrollbar,
+.drop-down__list::-webkit-scrollbar,
+select::-webkit-scrollbar{
 width: 4px;
 border: 4px solid rgb(175, 198, 198);
 }
 .ing-des-modal::-webkit-scrollbar-thumb,
-.modal-cocktail-instuction-text::-webkit-scrollbar-thumb{
+.modal-cocktail-instuction-text::-webkit-scrollbar-thumb,
+.drop-down__list::-webkit-scrollbar-thumb,
+select::-webkit-scrollbar-thumb{
   background-color: #4759a8 ;
 }
+
+
 .learn-more {
    padding: 16px 55px;
   border-radius: 12px;
