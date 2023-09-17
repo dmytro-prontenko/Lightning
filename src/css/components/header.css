@@ -45,9 +45,6 @@
 .toggle-switch:after {
   content: '';
 }
-/* .toggle-switch:after {
-  background: #9cdfdf;
-} */
 
 .toggle-switch:before {
   display: block;
@@ -68,7 +65,6 @@
 }
 
 .toggle-checkbox:checked + .toggle-switch {
-  /* background: #fdfdff; */
   border-color: #7e8fdd;
 }
 

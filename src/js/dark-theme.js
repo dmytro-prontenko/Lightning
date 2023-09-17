@@ -25,6 +25,7 @@ function toggleDarkMode() {
   refsDark.headerMenuSvg.classList.toggle('dark-white');
   refsDark.headerNavLinkFav.classList.toggle('dark-white');
   refsDark.svgSearch.classList.toggle('dark-white');
+  refs.searchField.classList.toggle('dark-white');
   refsDark.toggleSwitch.classList.toggle('dark-toggle-switch');
 
   refsDark.herotitle.classList.toggle('dark-white');
