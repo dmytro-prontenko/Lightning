@@ -16,13 +16,12 @@
   z-index: 10;
   /* overflow: hidden; */
   min-width: 375px;
-  
 }
 
 .modal-open {
   /* overflow: hidden; */
-      min-width: 320px;
-      position: relative;
+  min-width: 320px;
+  position: relative;
 }
 .cocktail-ingr-list {
   list-style: disc;
@@ -60,14 +59,14 @@
 /* //////////// */
 
 .modal-cocktail {
-    position:sticky;
-     top: 17%;
-    width: 335px;
-    border-radius: 20px;
-    background: var(--color-4);
-    padding: 40px 20px;
-    overflow-y: auto;
-    z-index: 100;
+  position: sticky;
+  top: 17%;
+  width: 335px;
+  border-radius: 20px;
+  background: var(--color-4);
+  padding: 40px 20px;
+  overflow-y: auto;
+  z-index: 100;
 }
 
 .modal-cocktail-img {
@@ -113,14 +112,15 @@
 .modal-cocktail-instuction-text,
 .alco-title {
   max-height: 50px;
- padding-right: 10px;
+  padding-right: 10px;
 }
-@media screen and (min-width: 768px){
-  .modal-cocktail>p{
+@media screen and (min-width: 768px) {
+  .modal-cocktail > p {
     max-height: 100px;
   }
 }
-.modal-cocktail-instuction-text, .alco-title{
+.modal-cocktail-instuction-text,
+.alco-title {
   margin-bottom: 40px;
   color: rgba(36, 36, 36, 0.5);
   font-size: 14px;
@@ -136,6 +136,7 @@
   font-weight: 600;
   line-height: 24px;
   margin-bottom: 20px;
+  color: #242424;
 }
 .modal-cocktail-text-wrapper > h2 {
   margin-bottom: 8px;
@@ -167,12 +168,13 @@
     right: 14px;
     top: 14px;
   }
-   .cocktail-ingr-list {
-     overflow-y: auto;
-     max-height: 50px;
+  .cocktail-ingr-list {
+    overflow-y: auto;
+    max-height: 50px;
+  }
 }
-}
-.close-btn-svg, .close-btn-cock-svg{
+.close-btn-svg,
+.close-btn-cock-svg {
   width: 22px;
   height: 22px;
   stroke: #242424;
@@ -184,11 +186,10 @@
 }
 .modal-cocktail-dark {
   background: #232330;
-  ;
 }
 
 .dark-white {
-  color: #FDFDFF;
+  color: #fdfdff;
   fill: #fdfdff;
   stroke: #fdfdff;
 }
