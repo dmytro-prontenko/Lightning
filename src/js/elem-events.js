@@ -51,14 +51,16 @@ function onClick(event) {
 refs.modal.addEventListener('click', onClickModalCocktail);
 
 function onClickModalCocktail(event) {
+  console.log(event.target.className === 'backdrop modal-cockt-container');
   if (
     (event.target.nodeName === 'svg' &&
       event.target.id === 'js-close-modal-cockt-svg') ||
-    event.target.nodeName === 'use'
+    event.target.nodeName === 'use' ||
+    event.target.className === 'backdrop modal-cockt-container'
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
-    
+
     return;
   }
 
@@ -70,7 +72,6 @@ function onClickModalCocktail(event) {
     if (event.target.textContent === 'Remove from favorite') {
       removeFromLocal('cocktails', id);
       event.target.textContent = 'Add to favorite';
-
 
       return;
     }
@@ -97,13 +98,14 @@ function onIngrCloseBtnClick(event) {
   if (
     (event.target.nodeName === 'svg' &&
       event.target.id === 'js-close-modal-ingr-svg') ||
-    event.target.nodeName === 'use'
+    event.target.nodeName === 'use' ||
+    event.target.className === 'backdrop modal-ing-container'
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.modalIngredient.classList.toggle('is-hidden');
     return;
   }
-  
+
   if (
     event.target.nodeName === 'BUTTON' &&
     event.target.className === 'add-fav-ing'
@@ -125,27 +127,26 @@ refs.burgerMenu.addEventListener('click', onBurgerMenuClick);
 refs.modalBurger.addEventListener('click', onModalBurgerClick);
 
 function onBurgerMenuClick(event) {
-
   if (event.target.nodeName === 'svg' || event.target.nodeName === 'use') {
     refs.modalBurger.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
     listRender.renderBurgerModal();
     return;
   }
-};
+}
 
 function onModalBurgerClick(event) {
   if (
     (event.target.nodeName === 'svg' &&
       event.target.classList === 'close-btn-cock-svg') ||
-    event.target.nodeName === 'use'
+    event.target.nodeName === 'use' ||
+    event.target.classList.value === ' close-btn-svg close-btn-svg-burger'
   ) {
     refs.modalBurger.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
     return;
   }
-};
-
+}
 
 // =============== SEARCH INPUT ===============
 
@@ -167,4 +168,4 @@ function onEnterPress(event) {
       Notiflix.Notify.failure('Enter more than two symbols!');
     }
   }
-};
+}
