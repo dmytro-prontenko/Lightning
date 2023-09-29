@@ -1,22 +1,31 @@
 .dark-theme {
-    background: linear-gradient(290deg, rgb(0, 0, 0) 0%, rgb(8, 8, 8) 65%, rgb(147, 186, 175) 100%);
-    backdrop-filter: blur(100px);
-    color: #FDFDFF;
+  background: linear-gradient(
+    290deg,
+    rgb(0, 0, 0) 0%,
+    rgb(8, 8, 8) 65%,
+    rgb(147, 186, 175) 100%
+  );
+  backdrop-filter: blur(100px);
+  color: #fdfdff;
 }
 
 .dark-cocktails-item {
-    background-color: #232330;
-    color: #fdfdff;
-    
+  background-color: #232330;
+  color: #fdfdff;
 }
-.modal-cocktail-dark{
-    background: #232330;;
+.modal-cocktail-dark {
+  background: #232330;
 }
 .dark-white {
-    color: #FDFDFF;
-    fill: #fdfdff;
-    stroke: #fdfdff;
+  color: #fdfdff;
+  fill: #fdfdff;
+  stroke: #fdfdff;
 }
 .dark-toggle-switch {
-    background-color: #9CDFDF;
+  background-color: #9cdfdf;
+}
+
+.dark-white-stars {
+  color: #fdfdff;
+  fill: #fdfdff;
 }
