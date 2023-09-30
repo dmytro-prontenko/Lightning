@@ -6,36 +6,34 @@
     <link rel="stylesheet" href="./css/main.css" />
     <title>Page title</title>
   </head>
-        <body>
+  <body>
     <include src="./partials/header.html"></include>
     <main class="main-section">
-  <include src="./partials/hero.html"></include>
+      <include src="./partials/hero.html"></include>
       <section class="galery section">
         <div class="container">
-          <h2 class="fav-title cocktails-section-title">Favorite ingredients</h2>
+          <h2 class="fav-title cocktails-section-title">
+            Favorite ingredients
+          </h2>
           <ul class="fav-ing-list cocktails-list">
             <li class="error">
-            
-                <svg class="fav-svg">
-                  <use href="./images/icons.svg#icon-error-cocktails"></use>
-                </svg>
-                <h2 class="fav-error-text">You haven't added any <br>
-                  <span class="fav-error-span">favorite ingredients</span> yet
-                </h2>
-              
+              <svg class="fav-svg">
+                <use href="./images/icons.svg#icon-error-cocktails"></use>
+              </svg>
+              <h2 class="fav-error-text">
+                You haven't added any <br />
+                <span class="fav-error-span">favorite ingredients</span> yet
+              </h2>
             </li>
           </ul>
         </div>
-            </section>
+      </section>
     </main>
     <include src="./partials/footer.html"></include>
     <include src="./partials/modal-ing.html"></include>
     <include src="./partials/modal-burger.html"></include>
     <div class="btn-up btn-up_hide"></div>
     <script type="module" src="./index-fav-ingredients.js"></script>
+    <script type="module" src="./js/dark-theme.js"></script>
   </body>
 </html>
-
-
-
-
