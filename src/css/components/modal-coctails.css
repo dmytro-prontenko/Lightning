@@ -120,7 +120,8 @@
   }
 }
 .modal-cocktail-instuction-text,
-.alco-title {
+.alco-title,
+.ing-des-modal {
   margin-bottom: 40px;
   color: rgba(36, 36, 36, 0.5);
   font-size: 14px;
@@ -131,7 +132,8 @@
   margin-bottom: 14px;
   margin-left: 10px;
 }
-.modal-cocktail-text-wrapper > h1 {
+.modal-cocktail-text-wrapper > h1,
+.modal-cock-title {
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
@@ -140,6 +142,7 @@
 }
 .modal-cocktail-text-wrapper > h2 {
   margin-bottom: 8px;
+  color: #242424;
 }
 .modal-cocktail-text-wrapper > h3 {
   margin-bottom: 20px;

@@ -6,7 +6,6 @@
     rgb(147, 186, 175) 100%
   );
   backdrop-filter: blur(100px);
-  color: #fdfdff;
 }
 
 .dark-cocktails-item {
@@ -28,4 +27,5 @@
 .dark-white-stars {
   color: #fdfdff;
   fill: #fdfdff;
+
 }
