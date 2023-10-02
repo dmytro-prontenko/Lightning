@@ -38,7 +38,7 @@ export default class Render {
 
       const addToFavBtn = document.querySelector('.fav-btn');
       const children = [...refs.cocktailsList.children];
-    
+
       if (loadFromLocal('cocktails').includes(arr[0]._id)) {
         for (const child of children) {
           if (loadFromLocal('cocktails').includes(child.id)) {
@@ -50,7 +50,9 @@ export default class Render {
             // return;
           } else {
             // tempBtn.dataset.inLocalStorage = 'notInStorage';
-            child.lastElementChild.lastElementChild.classList.add('notInStorage')
+            child.lastElementChild.lastElementChild.classList.add(
+              'notInStorage'
+            );
           }
         }
       }
@@ -82,7 +84,7 @@ export default class Render {
           <div class="modal-cocktail-img-text-wrapper">
           <img src=${elem.drinkThumb} alt="" class="modal-cocktail-img" width="295" height="277" />
           <div class="modal-cocktail-text-wrapper">
-          <h1>${elem.drink}</h1>
+          <h1 class='modal-cock-title'>${elem.drink}</h1>
           <h2>Ingredients:</h2>
           <h3 class="modal-cocktail-instuction-text">Per cocktail</h3>
           <ul class="cocktail-ingr-list"></ul>
@@ -195,8 +197,7 @@ export default class Render {
         )
         .join('');
 
-     
-        refs.favCocktailsList.innerHTML = favPage;
+      refs.favCocktailsList.innerHTML = favPage;
     }
   }
 
