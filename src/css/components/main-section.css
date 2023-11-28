@@ -163,6 +163,7 @@ select::-webkit-scrollbar-thumb {
   fill: transparent;
   width: 24px;
   height: 24px;
+  pointer-events: none;
 }
 .del-btn {
   display: flex;

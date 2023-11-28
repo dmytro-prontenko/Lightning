@@ -2,7 +2,7 @@ import { refs } from '../refs';
 import Notiflix from 'notiflix';
 import { loadFromLocal } from '../storage.js';
 import icons from '../../images/icons.svg';
-import noImg from '../../images/no_cocktail.svg'
+import noImg from '../../images/no_cocktail.svg';
 
 export default class Render {
   constructor() {}
@@ -19,7 +19,6 @@ export default class Render {
         <li id=${card._id} class="cocktails-item">
         <h2 class="name-section"></h2>
               <img class="cocktails-img" src="${card.drinkThumb}" alt="${card.drink}" onerror="this.onerror=null; this.src='${noImg}'" />
-
               <h3 class="cocktails-title">${card.drink}</h3>
               <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
@@ -45,8 +44,8 @@ export default class Render {
         for (const child of children) {
           if (loadFromLocal('cocktails').includes(child.id)) {
             // tempBtn.dataset.inLocalStorage = 'inStorage';
-            child.lastElementChild.lastElementChild.classList.add('inStorage');
-            child.lastElementChild.lastElementChild.innerHTML = `<svg class="del-btn-svg">
+            child.lastElementChild.classList.add('inStorage');
+            child.lastElementChild.innerHTML = `<svg class="del-btn-svg">
                     <use xlink:href="${icons}#icon-remove"></use>
                     </svg>`;
             // return;
@@ -84,7 +83,7 @@ export default class Render {
                 </svg >
                 </button>
           <div class="modal-cocktail-img-text-wrapper">
-          <img src=${elem.drinkThumb} alt="" class="modal-cocktail-img" width="295" height="277" />
+          <img src=${elem.drinkThumb} alt=${elem.drink} class="modal-cocktail-img" width="295" height="277" onerror="this.onerror=null; this.src='${noImg}'" />
           <div class="modal-cocktail-text-wrapper">
           <h1 class='modal-cock-title'>${elem.drink}</h1>
           <h2>Ingredients:</h2>
@@ -184,7 +183,7 @@ export default class Render {
           card => `
               <li id=${card._id} class="cocktails-item">
         <h2 class="name-section"></h2>
-              <img class="cocktails-img" src="${card.drinkThumb}" alt="${card.drink}">
+        <img class="cocktails-img" src="${card.drinkThumb}" alt="${card.drink}" onerror="this.onerror=null; this.src='${noImg}'" />
               <h3 class="cocktails-title">${card.drink}</h3>
               <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
@@ -208,19 +207,19 @@ export default class Render {
       const favIngPage = arr
         .map(
           card => `
-                     <li id=${card._id} class="cocktails-item">
+                <li id=${card._id} class="cocktails-item">
                 <h2 class=" ing-name cocktails-title">${card.title}</h2>
                 <h3 class=" ing-info-item alco-title">${
                   card.alcohol === 'Yes' ? 'Alcoholic' : 'Non-Alcoholic'
                 }</h3>
                 <p class=" ing-des-modal ing-des">${card.description}</p>
-              <div class="buttons-wrapper">
-                <button type="button" class="learn-more">Learn More</button>
-                <button type="button" class="fav-btn-del"><span class="lel-btn-text">
-                <svg class="del-btn-svg" id="del-btn-svg">
+                <div class="buttons-wrapper">
+                  <button type="button" class="learn-more">Learn More</button>
+                  <button type="button" class="fav-btn fav-btn-del" >
+                <svg class="del-btn-svg">
                 <use xlink:href="${icons}#icon-remove"></use>
-                </svg></span></button>
-              </div>
+                </svg></button>
+                </div>
           </li>
         `
         )
