@@ -69,6 +69,7 @@
   height: 257px;
   border-radius: 16px;
   margin-bottom: 24px;
+  object-fit: cover;
 }
 .cocktails-title,
 .fav-ing-list > li > h2 {

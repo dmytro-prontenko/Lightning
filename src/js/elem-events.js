@@ -11,6 +11,20 @@ refs.cocktailsList.addEventListener('click', onClick);
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
 
+function handleKeyDown(event) {
+  if (event.key === 'Escape' && !refs.modal.classList.contains('is-hidden')) {
+    refs.modal.classList.toggle('is-hidden');
+    refs.body.classList.toggle('modal-open');
+  }
+  if (!refs.body.classList.contains('modal-open')) {
+    document.removeEventListener('keydown', handleKeyDown);
+  } else {
+    document.addEventListener('keydown', handleKeyDown);
+  }
+}
+
+document.addEventListener('keydown', handleKeyDown);
+
 function onClick(event) {
   // Details button event
   if (
@@ -19,6 +33,9 @@ function onClick(event) {
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
+    if (refs.body.classList.contains('modal-open')) {
+      document.addEventListener('keydown', handleKeyDown);
+    }
     const id = event.target.closest('.cocktails-item').id;
     listCocktails.fetchCocktailByID(id).then(data => {
       listRender.renderModalCocktail(data);
@@ -28,9 +45,12 @@ function onClick(event) {
 
   // Favorite button event
   if (
-    event.target.nodeName === 'BUTTON' &&
-    event.target.className === 'fav-btn'
+    (event.target.nodeName === 'BUTTON' &&
+      event.target.className === 'fav-btn') ||
+    event.target.className === 'fav-button-svg' ||
+    event.target.nodeName === 'svg'
   ) {
+    console.log(event.target);
     const id = event.target.closest('.cocktails-item').id;
     if (event.target.dataset.inLocalStorage === 'inStorage') {
       removeFromLocal('cocktails', id);
@@ -51,7 +71,6 @@ function onClick(event) {
 refs.modal.addEventListener('click', onClickModalCocktail);
 
 function onClickModalCocktail(event) {
-  console.log(event.target.className === 'backdrop modal-cockt-container');
   if (
     (event.target.nodeName === 'svg' &&
       event.target.id === 'js-close-modal-cockt-svg') ||

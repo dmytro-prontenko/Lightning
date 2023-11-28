@@ -2,6 +2,7 @@ import { refs } from '../refs';
 import Notiflix from 'notiflix';
 import { loadFromLocal } from '../storage.js';
 import icons from '../../images/icons.svg';
+import noImg from '../../images/no_cocktail.svg'
 
 export default class Render {
   constructor() {}
@@ -17,7 +18,8 @@ export default class Render {
           card => `
         <li id=${card._id} class="cocktails-item">
         <h2 class="name-section"></h2>
-              <img class="cocktails-img" src="${card.drinkThumb}" alt="${card.drink}">
+              <img class="cocktails-img" src="${card.drinkThumb}" alt="${card.drink}" onerror="this.onerror=null; this.src='${noImg}'" />
+
               <h3 class="cocktails-title">${card.drink}</h3>
               <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
