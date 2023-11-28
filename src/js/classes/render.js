@@ -2,7 +2,7 @@ import { refs } from '../refs';
 import Notiflix from 'notiflix';
 import { loadFromLocal } from '../storage.js';
 import icons from '../../images/icons.svg';
-import noImg from '../../images/no_cocktail.svg'
+import noImg from '../../images/no_cocktail.svg';
 
 export default class Render {
   constructor() {}
@@ -207,19 +207,19 @@ export default class Render {
       const favIngPage = arr
         .map(
           card => `
-                     <li id=${card._id} class="cocktails-item">
+                <li id=${card._id} class="cocktails-item">
                 <h2 class=" ing-name cocktails-title">${card.title}</h2>
                 <h3 class=" ing-info-item alco-title">${
                   card.alcohol === 'Yes' ? 'Alcoholic' : 'Non-Alcoholic'
                 }</h3>
                 <p class=" ing-des-modal ing-des">${card.description}</p>
-              <div class="buttons-wrapper">
-                <button type="button" class="learn-more">Learn More</button>
-                <button type="button" class="fav-btn-del"><span class="lel-btn-text">
-                <svg class="del-btn-svg" id="del-btn-svg">
+                <div class="buttons-wrapper">
+                  <button type="button" class="learn-more">Learn More</button>
+                  <button type="button" class="fav-btn fav-btn-del" >
+                <svg class="del-btn-svg">
                 <use xlink:href="${icons}#icon-remove"></use>
-                </svg></span></button>
-              </div>
+                </svg></button>
+                </div>
           </li>
         `
         )
