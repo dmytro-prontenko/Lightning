@@ -48,7 +48,10 @@ function onClick(event) {
     (event.target.nodeName === 'BUTTON' &&
       event.target.className === 'fav-btn') ||
     event.target.className === 'fav-button-svg' ||
-    event.target.nodeName === 'svg'
+    event.target.nodeName === 'svg' ||
+    event.target.nodeName === 'use' ||
+    event.target.closest('svg') ||
+    event.target.closest('use')
   ) {
     console.log(event.target);
     const id = event.target.closest('.cocktails-item').id;
