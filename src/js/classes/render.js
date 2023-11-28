@@ -44,8 +44,8 @@ export default class Render {
         for (const child of children) {
           if (loadFromLocal('cocktails').includes(child.id)) {
             // tempBtn.dataset.inLocalStorage = 'inStorage';
-            child.lastElementChild.lastElementChild.classList.add('inStorage');
-            child.lastElementChild.lastElementChild.innerHTML = `<svg class="del-btn-svg">
+            child.lastElementChild.classList.add('inStorage');
+            child.lastElementChild.innerHTML = `<svg class="del-btn-svg">
                     <use xlink:href="${icons}#icon-remove"></use>
                     </svg>`;
             // return;

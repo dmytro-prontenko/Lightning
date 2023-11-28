@@ -46,14 +46,11 @@ function onClick(event) {
   // Favorite button event
   if (
     (event.target.nodeName === 'BUTTON' &&
-      event.target.className === 'fav-btn') ||
-    event.target.className === 'fav-button-svg' ||
-    event.target.nodeName === 'svg' ||
-    event.target.nodeName === 'use' ||
-    event.target.closest('svg') ||
-    event.target.closest('use')
+      event.target.className === 'fav-btn')
+    // event.target.nodeName === 'svg' ||
+    // event.target.nodeName === 'use'
   ) {
-    console.log(event.target);
+    console.log(event.target.nodeName);
     const id = event.target.closest('.cocktails-item').id;
     if (event.target.dataset.inLocalStorage === 'inStorage') {
       removeFromLocal('cocktails', id);
