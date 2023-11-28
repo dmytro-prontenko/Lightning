@@ -11,22 +11,19 @@ refs.cocktailsList.addEventListener('click', onClick);
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
 
-
 function handleKeyDown(event) {
   if (event.key === 'Escape' && !refs.modal.classList.contains('is-hidden')) {
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
-
-    if (!refs.body.classList.contains('modal-open')) {
-      document.removeEventListener('keydown', handleKeyDown);
-    } else {
-      document.addEventListener('keydown', handleKeyDown);
-    }
+  }
+  if (!refs.body.classList.contains('modal-open')) {
+    document.removeEventListener('keydown', handleKeyDown);
+  } else {
+    document.addEventListener('keydown', handleKeyDown);
   }
 }
 
 document.addEventListener('keydown', handleKeyDown);
-
 
 function onClick(event) {
   // Details button event
@@ -36,6 +33,9 @@ function onClick(event) {
   ) {
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
+    if (refs.body.classList.contains('modal-open')) {
+      document.addEventListener('keydown', handleKeyDown);
+    }
     const id = event.target.closest('.cocktails-item').id;
     listCocktails.fetchCocktailByID(id).then(data => {
       listRender.renderModalCocktail(data);
@@ -71,7 +71,6 @@ function onClick(event) {
 refs.modal.addEventListener('click', onClickModalCocktail);
 
 function onClickModalCocktail(event) {
-  console.log(event.target.className === 'backdrop modal-cockt-container');
   if (
     (event.target.nodeName === 'svg' &&
       event.target.id === 'js-close-modal-cockt-svg') ||
