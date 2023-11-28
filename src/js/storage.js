@@ -1,5 +1,5 @@
 function saveToLocal(key, value) {
-  
+  let storageValues = [];
   try {
     const existingData = loadFromLocal(key);
 
