@@ -8,11 +8,14 @@ import Notiflix from 'notiflix';
 
 refs.cocktailsList.addEventListener('click', onClick);
 
+
 const listCocktails = new CocktailAPI();
 const listRender = new Render();
 
 function onClick(event) {
   // Details button event
+  console.log(event.target)
+  
   if (
     event.target.nodeName === 'BUTTON' &&
     event.target.className === 'learn-more'
@@ -25,12 +28,12 @@ function onClick(event) {
     });
     return;
   }
-
   // Favorite button event
   if (
-    event.target.nodeName === 'BUTTON' &&
-    event.target.className === 'fav-btn'
+    (event.target.nodeName === 'BUTTON' &&
+    event.target.className === 'fav-btn') || event.target.className === 'fav-button-svg' || event.target.nodeName === 'svg'
   ) {
+    console.log(event.target)
     const id = event.target.closest('.cocktails-item').id;
     if (event.target.dataset.inLocalStorage === 'inStorage') {
       removeFromLocal('cocktails', id);
