@@ -19,7 +19,6 @@ export default class Render {
         <li id=${card._id} class="cocktails-item">
         <h2 class="name-section"></h2>
               <img class="cocktails-img" src="${card.drinkThumb}" alt="${card.drink}" onerror="this.onerror=null; this.src='${noImg}'" />
-
               <h3 class="cocktails-title">${card.drink}</h3>
               <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
@@ -84,7 +83,7 @@ export default class Render {
                 </svg >
                 </button>
           <div class="modal-cocktail-img-text-wrapper">
-          <img src=${elem.drinkThumb} alt="" class="modal-cocktail-img" width="295" height="277" />
+          <img src=${elem.drinkThumb} alt=${elem.drink} class="modal-cocktail-img" width="295" height="277" onerror="this.onerror=null; this.src='${noImg}'" />
           <div class="modal-cocktail-text-wrapper">
           <h1 class='modal-cock-title'>${elem.drink}</h1>
           <h2>Ingredients:</h2>
@@ -184,7 +183,7 @@ export default class Render {
           card => `
               <li id=${card._id} class="cocktails-item">
         <h2 class="name-section"></h2>
-              <img class="cocktails-img" src="${card.drinkThumb}" alt="${card.drink}">
+        <img class="cocktails-img" src="${card.drinkThumb}" alt="${card.drink}" onerror="this.onerror=null; this.src='${noImg}'" />
               <h3 class="cocktails-title">${card.drink}</h3>
               <p class="cocktails-desc">${card.description}</p>
               <div class="buttons-wrapper">
